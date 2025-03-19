@@ -29,40 +29,46 @@ const Features = () => {
     {
       icon: <Search className="w-6 h-6" />,
       title: "Content Research",
-      description: "Analyze top-performing content and identify gaps and opportunities using AI-powered research tools."
+      description: "Our team analyzes top-performing content and identifies gaps and opportunities using AI research tools.",
+      color: "text-mogency-neon-blue"
     },
     {
       icon: <TrendingUp className="w-6 h-6" />,
       title: "Sales Funnel Optimization",
-      description: "Automatically optimize conversion paths and improve sales funnel performance with AI recommendations."
+      description: "We optimize your conversion paths and improve sales funnel performance with our proven methods.",
+      color: "text-mogency-neon-pink"
     },
     {
       icon: <Zap className="w-6 h-6" />,
       title: "AI-Driven Ad Copy",
-      description: "Generate high-converting ad copy variations that resonate with your target audience automatically."
+      description: "Our specialists generate high-converting ad copy variations that resonate with your target audience.",
+      color: "text-mogency-neon-purple"
     },
     {
       icon: <Users className="w-6 h-6" />,
       title: "Audience Segmentation",
-      description: "Create hyper-targeted marketing campaigns by using AI to identify precise audience segments."
+      description: "We create hyper-targeted marketing campaigns by identifying precise audience segments for you.",
+      color: "text-mogency-neon-green"
     },
     {
       icon: <LineChart className="w-6 h-6" />,
       title: "Trend Analysis",
-      description: "Stay ahead of market shifts with AI-powered trend analysis and predictive insights."
+      description: "Our team keeps you ahead of market shifts with advanced trend analysis and predictive insights.",
+      color: "text-mogency-neon-orange"
     },
     {
       icon: <Workflow className="w-6 h-6" />,
       title: "Workflow Automation",
-      description: "Streamline your marketing operations with intelligent automation for repetitive tasks."
+      description: "We streamline your marketing operations with intelligent automation for all repetitive tasks.",
+      color: "text-mogency-neon-blue"
     }
   ];
 
   return (
-    <section id="features" className="py-20 md:py-32 relative overflow-hidden">
+    <section id="features" className="py-20 md:py-32 relative overflow-hidden bg-black/30">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-[30%] -right-[30%] w-[60%] h-[60%] rounded-full bg-mogency-teal/5 filter blur-3xl" />
+        <div className="absolute top-[30%] -right-[30%] w-[60%] h-[60%] rounded-full bg-mogency-neon-pink/10 filter blur-3xl" />
       </div>
       
       <div id="features-section" className="section-container relative z-10">
@@ -72,15 +78,15 @@ const Features = () => {
             "transform transition-all duration-700",
             isVisible ? "opacity-100" : "opacity-0"
           )}>
-            AI-Powered Tools for Modern <span className="text-gradient">Marketers</span>
+            We Handle <span className="text-gradient">Everything</span> For You
           </h2>
           <p className={cn(
             "section-subtitle",
             "transform transition-all duration-700 delay-100",
             isVisible ? "opacity-100" : "opacity-0"
           )}>
-            Our comprehensive suite of AI tools and automation helps you streamline marketing operations,
-            generate better content, and boost conversion rates across all channels.
+            Our comprehensive DFY service combines AI tools and human expertise to handle all aspects of 
+            your digital product marketing with zero upfront costs.
           </p>
         </div>
         
@@ -92,6 +98,7 @@ const Features = () => {
               title={feature.title}
               description={feature.description}
               delay={100 * index}
+              glowColor={feature.color}
             />
           ))}
         </div>

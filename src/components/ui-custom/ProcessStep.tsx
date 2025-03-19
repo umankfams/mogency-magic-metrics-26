@@ -9,6 +9,7 @@ interface ProcessStepProps {
   icon: ReactNode;
   delay?: number;
   isLast?: boolean;
+  color?: string;
 }
 
 const ProcessStep = ({ 
@@ -17,7 +18,8 @@ const ProcessStep = ({
   description, 
   icon, 
   delay = 0,
-  isLast = false 
+  isLast = false,
+  color = 'from-mogency-neon-blue to-mogency-neon-purple'
 }: ProcessStepProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const stepRef = useRef<HTMLDivElement>(null);
@@ -52,16 +54,16 @@ const ProcessStep = ({
         'ml-10 pb-12 transform transition-all duration-500 opacity-0 translate-y-8',
         isVisible && 'opacity-100 translate-y-0'
       )}>
-        <h3 className="text-xl font-bold mb-2 flex items-center">
+        <h3 className="text-xl font-bold mb-2 flex items-center text-white">
           <span className="mr-2">{title}</span>
         </h3>
-        <p className="text-mogency-gray-medium mb-4">{description}</p>
+        <p className="text-muted-foreground mb-4">{description}</p>
       </div>
       
       {/* Timeline elements */}
       <div className="absolute left-0 top-0">
         <div className={cn(
-          'flex items-center justify-center w-10 h-10 rounded-full bg-blue-gradient text-white',
+          `flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r ${color} text-white animate-neon-pulse`,
           'transform transition-all duration-500 opacity-0 scale-0',
           isVisible && 'opacity-100 scale-100'
         )}>
@@ -70,7 +72,7 @@ const ProcessStep = ({
         
         {!isLast && (
           <div className={cn(
-            'w-0.5 bg-gradient-to-b from-mogency-blue to-mogency-teal h-full absolute left-5 top-10 -translate-x-1/2',
+            `w-0.5 bg-gradient-to-b ${color} h-full absolute left-5 top-10 -translate-x-1/2`,
             'transform transition-all duration-1000 opacity-0 scale-y-0 origin-top',
             isVisible && 'opacity-100 scale-y-100'
           )} />

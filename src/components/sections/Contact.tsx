@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { ArrowRight, Mail, Send } from 'lucide-react';
+import { ArrowRight, Mail, Send, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -63,10 +63,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-mogency-gray-light/50 relative overflow-hidden">
+    <section id="contact" className="py-20 md:py-32 bg-black/50 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -bottom-[20%] -right-[20%] w-[50%] h-[50%] rounded-full bg-mogency-teal/5 filter blur-3xl" />
+        <div className="absolute -bottom-[20%] -right-[20%] w-[50%] h-[50%] rounded-full bg-mogency-neon-purple/10 filter blur-3xl" />
       </div>
       
       <div id="contact-section" className="section-container relative z-10">
@@ -76,36 +76,39 @@ const Contact = () => {
             "transform transition-all duration-700",
             isVisible ? "opacity-100" : "opacity-0"
           )}>
-            Ready to <span className="text-gradient">Transform</span> Your Marketing?
+            Ready to <span className="text-gradient">Scale</span> Your Content?
           </h2>
           <p className={cn(
             "section-subtitle",
             "transform transition-all duration-700 delay-100",
             isVisible ? "opacity-100" : "opacity-0"
           )}>
-            Get in touch with our team to see how we can help you scale your digital products
-            with AI-powered marketing.
+            Get in touch with our team to see how we can help you grow your digital products
+            with AI-powered marketing at <span className="neon-text-pink">no upfront cost</span>.
           </p>
         </div>
         
         <div className="max-w-4xl mx-auto">
           <div className={cn(
-            "card-glass p-8 md:p-10",
+            "card-glass p-8 md:p-10 border border-mogency-neon-blue/20 hover:border-mogency-neon-blue/30 transition-all duration-500",
             "transform transition-all duration-700 delay-200 opacity-0 translate-y-8",
             isVisible && "opacity-100 translate-y-0"
           )}>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
               {/* Contact info */}
               <div className="md:col-span-2">
-                <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
-                <p className="text-mogency-gray-medium mb-8">
-                  Ready to scale your digital products with AI-powered marketing? 
-                  Our team of experts is here to help you succeed.
+                <h3 className="text-2xl font-bold mb-6 flex items-center text-white">
+                  <Zap size={20} className="mr-2 text-mogency-neon-pink" />
+                  Get in Touch
+                </h3>
+                <p className="text-muted-foreground mb-8">
+                  Ready to scale your digital products? Our team of experts is here to help you succeed, 
+                  and you only pay when we deliver results.
                 </p>
                 
                 <div className="flex items-center mb-4">
-                  <Mail className="mr-3 text-mogency-blue" size={20} />
-                  <a href="mailto:hello@mogency.com" className="text-mogency-gray-dark hover:text-mogency-blue transition-colors">
+                  <Mail className="mr-3 text-mogency-neon-blue" size={20} />
+                  <a href="mailto:hello@mogency.com" className="text-muted-foreground hover:text-mogency-neon-blue transition-colors">
                     hello@mogency.com
                   </a>
                 </div>
@@ -120,7 +123,7 @@ const Contact = () => {
                 <form onSubmit={handleSubmit}>
                   <div className="space-y-5">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-mogency-gray-dark mb-1">Name</label>
+                      <label htmlFor="name" className="block text-sm font-medium text-muted-foreground mb-1">Name</label>
                       <Input
                         id="name"
                         name="name"
@@ -128,12 +131,12 @@ const Contact = () => {
                         onChange={handleChange}
                         placeholder="Your name"
                         required
-                        className="w-full"
+                        className="w-full bg-black/40 border-mogency-neon-blue/20 text-white"
                       />
                     </div>
                     
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-mogency-gray-dark mb-1">Email</label>
+                      <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-1">Email</label>
                       <Input
                         id="email"
                         name="email"
@@ -142,12 +145,12 @@ const Contact = () => {
                         onChange={handleChange}
                         placeholder="Your email address"
                         required
-                        className="w-full"
+                        className="w-full bg-black/40 border-mogency-neon-blue/20 text-white"
                       />
                     </div>
                     
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-mogency-gray-dark mb-1">Message</label>
+                      <label htmlFor="message" className="block text-sm font-medium text-muted-foreground mb-1">Message</label>
                       <Textarea
                         id="message"
                         name="message"
@@ -155,13 +158,13 @@ const Contact = () => {
                         onChange={handleChange}
                         placeholder="Tell us about your project and goals"
                         required
-                        className="w-full min-h-[120px]"
+                        className="w-full min-h-[120px] bg-black/40 border-mogency-neon-blue/20 text-white"
                       />
                     </div>
                     
                     <Button 
                       type="submit" 
-                      className="w-full bg-blue-gradient hover:opacity-90 transition-opacity"
+                      className="w-full bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
@@ -170,7 +173,7 @@ const Contact = () => {
                         </span>
                       ) : (
                         <span className="flex items-center">
-                          Send Message <ArrowRight className="ml-2 h-4 w-4" />
+                          <Zap className="mr-2 h-4 w-4" /> Start Scaling Your Content
                         </span>
                       )}
                     </Button>

@@ -66,6 +66,13 @@ export default {
 				mogency: {
 					blue: '#0EA5E9',
 					teal: '#06B6D4',
+					neon: {
+						pink: '#D946EF',
+						blue: '#0EA5E9',
+						purple: '#8B5CF6',
+						green: '#10B981',
+						orange: '#F97316'
+					},
 					gray: {
 						light: '#F8FAFC',
 						medium: '#94A3B8',
@@ -119,6 +126,16 @@ export default {
 				},
 				shimmer: {
 					'100%': { transform: 'translateX(100%)' }
+				},
+				'neon-pulse': {
+					'0%, 100%': { 
+						opacity: '1',
+						filter: 'brightness(1) drop-shadow(0 0 5px currentColor)' 
+					},
+					'50%': { 
+						opacity: '0.8',
+						filter: 'brightness(1.2) drop-shadow(0 0 15px currentColor)' 
+					}
 				}
 			},
 			animation: {
@@ -129,16 +146,20 @@ export default {
 				'subtle-bounce': 'subtle-bounce 2s ease-in-out infinite',
 				'float': 'float 3s ease-in-out infinite',
 				'scale-in': 'scale-in 0.4s ease-out forwards',
-				'shimmer': 'shimmer 2s infinite'
+				'shimmer': 'shimmer 2s infinite',
+				'neon-pulse': 'neon-pulse 2s infinite'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
 				'blue-gradient': 'linear-gradient(to right, #0EA5E9, #06B6D4)',
+				'purple-gradient': 'linear-gradient(to right, #8B5CF6, #D946EF)',
+				'neon-gradient': 'linear-gradient(to right, #D946EF, #0EA5E9)',
 			},
 			boxShadow: {
 				'glass': '0 4px 30px rgba(0, 0, 0, 0.1)',
-				'card': '0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03)'
+				'card': '0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03)',
+				'neon': '0 0 10px rgba(209, 213, 219, 0.5), 0 0 20px rgba(14, 165, 233, 0.3), 0 0 30px rgba(217, 70, 239, 0.2)'
 			}
 		}
 	},

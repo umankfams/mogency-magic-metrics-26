@@ -24,11 +24,25 @@ const Index = () => {
         <Contact />
       </main>
       
-      <footer className="bg-white py-8 border-t border-gray-100">
+      <footer className="bg-black/80 border-t border-mogency-neon-blue/20 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-sm text-mogency-gray-medium">
+            <div className="mb-4 flex justify-center gap-6">
+              <a href="#" className="text-muted-foreground hover:text-mogency-neon-blue transition-all duration-300">
+                Terms
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-mogency-neon-pink transition-all duration-300">
+                Privacy
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-mogency-neon-purple transition-all duration-300">
+                Contact
+              </a>
+            </div>
+            <p className="text-sm text-muted-foreground">
               &copy; {new Date().getFullYear()} Mogency. All rights reserved.
+            </p>
+            <p className="text-xs text-muted-foreground/70 mt-2">
+              No upfront cost. We only succeed when you succeed.
             </p>
           </div>
         </div>

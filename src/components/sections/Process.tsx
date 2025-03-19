@@ -29,46 +29,52 @@ const Process = () => {
     {
       number: 1,
       title: "Research & Analysis",
-      description: "We analyze your market, competition, and target audience to identify opportunities using AI-powered tools.",
-      icon: <SearchCheck size={20} />
+      description: "We analyze your market, competition, and target audience to identify opportunities using our AI-powered tools.",
+      icon: <SearchCheck size={20} />,
+      color: "from-mogency-neon-blue to-mogency-neon-purple"
     },
     {
       number: 2,
-      title: "Data-Driven Strategy",
+      title: "Strategy Development",
       description: "Using our findings, we develop a tailored marketing strategy focused on your specific KPIs and business goals.",
-      icon: <BarChart4 size={20} />
+      icon: <BarChart4 size={20} />,
+      color: "from-mogency-neon-pink to-mogency-neon-purple"
     },
     {
       number: 3,
-      title: "Audience Segmentation",
+      title: "Audience Targeting",
       description: "We build detailed audience segments to create personalized marketing campaigns that resonate with your customers.",
-      icon: <Users size={20} />
+      icon: <Users size={20} />,
+      color: "from-mogency-neon-purple to-mogency-neon-blue"
     },
     {
       number: 4,
-      title: "Workflow Automation",
+      title: "Workflow Setup",
       description: "Our team sets up automated marketing workflows to save time, reduce errors, and scale your operations.",
-      icon: <Workflow size={20} />
+      icon: <Workflow size={20} />,
+      color: "from-mogency-neon-green to-mogency-neon-blue"
     },
     {
       number: 5,
-      title: "Campaign Execution",
+      title: "Campaign Launch",
       description: "We implement multi-channel campaigns using AI-generated content and creative assets for maximum impact.",
-      icon: <GanttChartSquare size={20} />
+      icon: <GanttChartSquare size={20} />,
+      color: "from-mogency-neon-orange to-mogency-neon-pink"
     },
     {
       number: 6,
       title: "Optimization & Growth",
       description: "Continuous monitoring and optimization ensure your marketing efforts consistently improve and deliver better ROI.",
-      icon: <Rocket size={20} />
+      icon: <Rocket size={20} />,
+      color: "from-mogency-neon-pink to-mogency-neon-blue"
     }
   ];
 
   return (
-    <section id="process" className="py-20 md:py-32 bg-mogency-gray-light/50 relative overflow-hidden">
+    <section id="process" className="py-20 md:py-32 bg-black/40 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-[20%] -left-[20%] w-[50%] h-[50%] rounded-full bg-mogency-blue/5 filter blur-3xl" />
+        <div className="absolute -top-[20%] -left-[20%] w-[50%] h-[50%] rounded-full bg-mogency-neon-blue/10 filter blur-3xl" />
       </div>
       
       <div id="process-section" className="section-container relative z-10">
@@ -85,8 +91,8 @@ const Process = () => {
             "transform transition-all duration-700 delay-100",
             isVisible ? "opacity-100" : "opacity-0"
           )}>
-            We follow a proven, data-driven approach to help content creators market and scale
-            their digital products effectively.
+            We handle everything from research to optimization with our proven approach,
+            so you can focus on creating great content.
           </p>
         </div>
         
@@ -100,6 +106,7 @@ const Process = () => {
               icon={step.icon}
               delay={150 * index}
               isLast={index === steps.length - 1}
+              color={step.color}
             />
           ))}
         </div>

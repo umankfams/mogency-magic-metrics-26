@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
@@ -41,36 +41,38 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
-            <a href="#" className="font-display font-bold text-2xl tracking-tight">
-              Mogency
+            <a href="#" className="font-display font-bold text-2xl tracking-tight flex items-center gap-2">
+              <Zap size={24} className="text-mogency-neon-blue animate-neon-pulse" />
+              <span className="neon-text">Mogency</span>
             </a>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('features')} className="text-mogency-gray-dark hover:text-mogency-blue transition-colors">
+            <button onClick={() => scrollToSection('features')} className="text-muted-foreground hover:text-mogency-neon-blue transition-colors">
               Features
             </button>
-            <button onClick={() => scrollToSection('process')} className="text-mogency-gray-dark hover:text-mogency-blue transition-colors">
+            <button onClick={() => scrollToSection('process')} className="text-muted-foreground hover:text-mogency-neon-pink transition-colors">
               Process
             </button>
-            <button onClick={() => scrollToSection('testimonials')} className="text-mogency-gray-dark hover:text-mogency-blue transition-colors">
+            <button onClick={() => scrollToSection('testimonials')} className="text-muted-foreground hover:text-mogency-neon-purple transition-colors">
               Testimonials
             </button>
-            <button onClick={() => scrollToSection('contact')} className="text-mogency-gray-dark hover:text-mogency-blue transition-colors">
+            <button onClick={() => scrollToSection('contact')} className="text-muted-foreground hover:text-mogency-neon-green transition-colors">
               Contact
             </button>
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-blue-gradient hover:opacity-90 transition-opacity"
+              className="bg-neon-gradient hover:opacity-90 transition-opacity rounded-full"
             >
-              Get Started
+              <Zap className="mr-2" size={16} />
+              <span>Work With Us</span>
             </Button>
           </div>
           
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-mogency-gray-dark hover:text-mogency-blue focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-mogency-neon-blue focus:outline-none"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -81,26 +83,27 @@ const Navbar = () => {
       {/* Mobile menu */}
       <div className={cn(
         'md:hidden transition-all duration-300 overflow-hidden',
-        isOpen ? 'max-h-screen bg-white shadow-lg' : 'max-h-0'
+        isOpen ? 'max-h-screen bg-black/80 backdrop-blur-lg shadow-lg' : 'max-h-0'
       )}>
         <div className="px-4 pt-2 pb-4 space-y-4">
-          <button onClick={() => scrollToSection('features')} className="block text-mogency-gray-dark hover:text-mogency-blue transition-colors py-2">
+          <button onClick={() => scrollToSection('features')} className="block text-muted-foreground hover:text-mogency-neon-blue transition-colors py-2">
             Features
           </button>
-          <button onClick={() => scrollToSection('process')} className="block text-mogency-gray-dark hover:text-mogency-blue transition-colors py-2">
+          <button onClick={() => scrollToSection('process')} className="block text-muted-foreground hover:text-mogency-neon-pink transition-colors py-2">
             Process
           </button>
-          <button onClick={() => scrollToSection('testimonials')} className="block text-mogency-gray-dark hover:text-mogency-blue transition-colors py-2">
+          <button onClick={() => scrollToSection('testimonials')} className="block text-muted-foreground hover:text-mogency-neon-purple transition-colors py-2">
             Testimonials
           </button>
-          <button onClick={() => scrollToSection('contact')} className="block text-mogency-gray-dark hover:text-mogency-blue transition-colors py-2">
+          <button onClick={() => scrollToSection('contact')} className="block text-muted-foreground hover:text-mogency-neon-green transition-colors py-2">
             Contact
           </button>
           <Button 
             onClick={() => scrollToSection('contact')}
-            className="w-full bg-blue-gradient hover:opacity-90 transition-opacity"
+            className="w-full bg-neon-gradient hover:opacity-90 transition-opacity rounded-full"
           >
-            Get Started
+            <Zap className="mr-2" size={16} />
+            <span>Work With Us</span>
           </Button>
         </div>
       </div>
