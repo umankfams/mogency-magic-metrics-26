@@ -113,9 +113,9 @@ const CalendarSection = () => {
                 </div>
               </div>
               
-              {/* Calendly embed - increased width and height */}
-              <div className="md:col-span-8 bg-black/30 rounded-lg border border-mogency-neon-blue/20 overflow-hidden h-[700px]">
-                {/* Calendly inline widget with increased width */}
+              {/* Calendly embed - increased height further to eliminate scrolling */}
+              <div className="md:col-span-8 bg-black/30 rounded-lg border border-mogency-neon-blue/20 overflow-hidden h-[850px]">
+                {/* Calendly inline widget with increased height */}
                 <div 
                   className="calendly-inline-widget w-full h-full" 
                   data-url="https://calendly.com/gm-agentleadlab/strategy-call"
