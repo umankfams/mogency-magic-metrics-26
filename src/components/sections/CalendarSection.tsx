@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Zap } from 'lucide-react';
+import { Zap, Calendar, CheckCircle } from 'lucide-react';
 
 const CalendarSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -37,77 +37,85 @@ const CalendarSection = () => {
   }, []);
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-black/50 relative overflow-hidden">
+    <section id="contact" className="py-16 md:py-24 bg-black/50 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -bottom-[20%] -right-[20%] w-[50%] h-[50%] rounded-full bg-mogency-neon-purple/10 filter blur-3xl" />
       </div>
       
-      <div id="calendar-section" className="section-container relative z-10">
-        <div className="text-center mb-16">
+      <div id="calendar-section" className="section-container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center justify-center px-4 py-1.5 mb-6 rounded-full bg-black/50 backdrop-blur-sm border border-mogency-neon-blue/30">
+            <Zap size={16} className="mr-2 text-mogency-neon-pink" />
+            <span className="text-sm font-medium">Limited Spots Available This Month</span>
+          </div>
+          
           <h2 className={cn(
-            "section-title",
+            "text-4xl md:text-5xl font-bold tracking-tight",
             "transform transition-all duration-700",
             isVisible ? "opacity-100" : "opacity-0"
           )}>
-            Book a <span className="text-gradient">Strategy Call</span>
+            Book Your <span className="text-gradient">Strategy Call</span> Now
           </h2>
           <p className={cn(
-            "section-subtitle",
+            "mt-4 text-xl text-muted-foreground max-w-2xl mx-auto",
             "transform transition-all duration-700 delay-100",
             isVisible ? "opacity-100" : "opacity-0"
           )}>
-            Ready to turn your audience into revenue? Choose a time that works for you,
-            and let's discuss how we can help you <span className="neon-text-pink">scale your content</span>.
+            Take the first step toward building a sustainable revenue stream from your audience.
+            <span className="neon-text-pink block mt-2">No upfront costs — only pay when you see results.</span>
           </p>
         </div>
         
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className={cn(
-            "card-glass p-8 md:p-10 border border-mogency-neon-blue/20 hover:border-mogency-neon-blue/30 transition-all duration-500",
+            "card-glass p-6 md:p-8 border border-mogency-neon-blue/20 hover:border-mogency-neon-blue/30 transition-all duration-500 rounded-xl overflow-hidden",
             "transform transition-all duration-700 delay-200",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}>
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               {/* Calendar info */}
-              <div className="md:col-span-2">
-                <h3 className="text-2xl font-bold mb-6 flex items-center text-white">
-                  <Zap size={20} className="mr-2 text-mogency-neon-pink" />
-                  Schedule Your Call
-                </h3>
-                <p className="text-muted-foreground mb-8">
-                  Book a 1-on-1 strategy call with <span className="font-semibold text-white">Momin, the Founder</span>, 
-                  who will personally discuss how we can help monetize your audience without upfront costs.
-                </p>
-                
-                <div className="bg-black/30 p-4 rounded-lg border border-mogency-neon-pink/20 mb-6">
-                  <h4 className="text-lg font-medium text-white mb-2">What to expect:</h4>
-                  <ul className="space-y-3 text-sm text-muted-foreground">
-                    <li className="flex items-start">
-                      <span className="text-mogency-neon-pink mr-2">•</span>
-                      Custom monetization strategy for your audience
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-mogency-neon-pink mr-2">•</span>
-                      Actionable steps to implement right away
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-mogency-neon-pink mr-2">•</span>
-                      No pressure - just valuable insights
-                    </li>
-                  </ul>
+              <div className="md:col-span-5">
+                <div className="bg-black/40 rounded-lg p-5 border border-mogency-neon-blue/20 mb-6">
+                  <div className="flex items-center mb-4">
+                    <Calendar size={24} className="text-mogency-neon-pink mr-3" />
+                    <h3 className="text-2xl font-bold text-white">1:1 Strategy Session</h3>
+                  </div>
+                  <p className="text-muted-foreground mb-6">
+                    Chat directly with <span className="font-semibold text-white">Momin, the Founder</span>, 
+                    who will create a customized monetization plan for your specific audience and content.
+                  </p>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-start">
+                      <CheckCircle size={18} className="text-mogency-neon-green mt-1 mr-3 flex-shrink-0" />
+                      <p className="text-sm text-white">Personalized revenue strategy tailored to your unique audience</p>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle size={18} className="text-mogency-neon-green mt-1 mr-3 flex-shrink-0" />
+                      <p className="text-sm text-white">Clear implementation plan with immediate action steps</p>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle size={18} className="text-mogency-neon-green mt-1 mr-3 flex-shrink-0" />
+                      <p className="text-sm text-white">No technical skills required — we handle everything</p>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle size={18} className="text-mogency-neon-green mt-1 mr-3 flex-shrink-0" />
+                      <p className="text-sm text-white">Zero upfront investment — we only succeed when you do</p>
+                    </div>
+                  </div>
                 </div>
                 
-                <div className="flex items-center space-x-4">
-                  <p className="text-muted-foreground text-sm">
-                    <span className="text-mogency-neon-pink">*</span> No upfront cost - you only pay when we deliver results
+                <div className="bg-black/40 p-4 rounded-lg border border-mogency-neon-pink/20">
+                  <p className="text-sm text-center text-white">
+                    <span className="font-semibold text-mogency-neon-pink">⚠️ Limited availability:</span> We only partner with a few creators each month to ensure we deliver exceptional results
                   </p>
                 </div>
               </div>
               
               {/* Calendly embed */}
-              <div className="md:col-span-3 bg-black/30 p-6 rounded-lg border border-mogency-neon-blue/20 h-[700px]">
-                {/* Calendly inline widget with the exact URL you provided */}
+              <div className="md:col-span-7 bg-black/30 rounded-lg border border-mogency-neon-blue/20 overflow-hidden h-[600px]">
+                {/* Calendly inline widget */}
                 <div 
                   className="calendly-inline-widget w-full h-full" 
                   data-url="https://calendly.com/gm-agentleadlab/strategy-call"

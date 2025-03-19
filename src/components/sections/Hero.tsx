@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import { ArrowDown, Zap } from 'lucide-react';
+import { ArrowDown, Zap, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -16,6 +16,13 @@ const Hero = () => {
     const featuresSection = document.getElementById('features');
     if (featuresSection) {
       featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToCalendar = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -92,10 +99,11 @@ const Hero = () => {
             <Button 
               size="lg"
               className="bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon rounded-full px-8"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={scrollToCalendar}
             >
               <Zap className="mr-2" size={18} />
               <span>Book Your Strategy Call</span>
+              <ArrowRight className="ml-2" size={16} />
             </Button>
             <Button 
               variant="outline" 
