@@ -67,7 +67,7 @@ const CalendarSection = () => {
           </p>
         </div>
         
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className={cn(
             "card-glass p-6 md:p-8 border border-mogency-neon-blue/20 hover:border-mogency-neon-blue/30 transition-all duration-500 rounded-xl overflow-hidden",
             "transform transition-all duration-700 delay-200",
@@ -75,7 +75,7 @@ const CalendarSection = () => {
           )}>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
               {/* Calendar info */}
-              <div className="md:col-span-5">
+              <div className="md:col-span-4">
                 <div className="bg-black/40 rounded-lg p-5 border border-mogency-neon-blue/20 mb-4">
                   <div className="flex items-center mb-3">
                     <Calendar size={24} className="text-mogency-neon-pink mr-3" />
@@ -113,9 +113,9 @@ const CalendarSection = () => {
                 </div>
               </div>
               
-              {/* Calendly embed */}
-              <div className="md:col-span-7 bg-black/30 rounded-lg border border-mogency-neon-blue/20 overflow-hidden h-[600px]">
-                {/* Calendly inline widget */}
+              {/* Calendly embed - increased width and height */}
+              <div className="md:col-span-8 bg-black/30 rounded-lg border border-mogency-neon-blue/20 overflow-hidden h-[700px]">
+                {/* Calendly inline widget with increased width */}
                 <div 
                   className="calendly-inline-widget w-full h-full" 
                   data-url="https://calendly.com/gm-agentleadlab/strategy-call"
