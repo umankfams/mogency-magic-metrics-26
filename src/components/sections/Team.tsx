@@ -60,36 +60,10 @@ const Team = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}>
             <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
-              <div className="w-28 h-28 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-mogency-neon-pink to-mogency-neon-purple rounded-xl transform -rotate-3 hover:rotate-0 transition-all overflow-hidden border-2 border-mogency-neon-pink/50 shadow-lg">
-                  <svg 
-                    viewBox="0 0 200 200" 
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-full h-full p-1"
-                  >
-                    {/* Head */}
-                    <circle cx="100" cy="85" r="55" fill="#7c3aed" />
-                    
-                    {/* Face */}
-                    <circle cx="75" cy="75" r="8" fill="#ffffff" /> {/* Left eye */}
-                    <circle cx="125" cy="75" r="8" fill="#ffffff" /> {/* Right eye */}
-                    <circle cx="75" cy="75" r="3" fill="#000000" /> {/* Left pupil */}
-                    <circle cx="125" cy="75" r="3" fill="#000000" /> {/* Right pupil */}
-                    <path d="M85,100 Q100,120 115,100" stroke="#ffffff" strokeWidth="3" fill="none" /> {/* Smile */}
-                    
-                    {/* Accessories - Glasses */}
-                    <rect x="65" y="70" width="20" height="10" rx="5" fill="none" stroke="#ffffff" strokeWidth="2" />
-                    <rect x="115" y="70" width="20" height="10" rx="5" fill="none" stroke="#ffffff" strokeWidth="2" />
-                    <line x1="85" y1="75" x2="115" y2="75" stroke="#ffffff" strokeWidth="2" />
-                    
-                    {/* Hair */}
-                    <path d="M60,60 Q100,20 140,60" fill="#ec4899" />
-                    
-                    {/* Body outline */}
-                    <path d="M70,140 Q100,160 130,140 L130,200 L70,200 Z" fill="#ec4899" />
-                  </svg>
-                </div>
-              </div>
+              <Avatar className="w-28 h-28 border-2 border-mogency-neon-pink/50 rounded-xl overflow-hidden shadow-lg transform -rotate-3 hover:rotate-0 transition-all">
+                <AvatarImage src="/lovable-uploads/74dab9ac-82a4-44bd-a837-8278c6bc8b50.png" alt="Mohsin" className="object-cover" />
+                <AvatarFallback className="bg-mogency-neon-pink/20">MO</AvatarFallback>
+              </Avatar>
               <div>
                 <h3 className="text-2xl font-bold mb-1">Mohsin</h3>
                 <p className="text-mogency-neon-pink mb-4">Product & Marketing Specialist</p>
@@ -117,38 +91,10 @@ const Team = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}>
             <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
-              <div className="w-28 h-28 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-mogency-neon-blue to-mogency-neon-green rounded-xl transform rotate-3 hover:rotate-0 transition-all overflow-hidden border-2 border-mogency-neon-blue/50 shadow-lg">
-                  <svg 
-                    viewBox="0 0 200 200" 
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-full h-full p-1"
-                  >
-                    {/* Head */}
-                    <circle cx="100" cy="85" r="55" fill="#0e7490" />
-                    
-                    {/* Face */}
-                    <circle cx="75" cy="75" r="8" fill="#ffffff" /> {/* Left eye */}
-                    <circle cx="125" cy="75" r="8" fill="#ffffff" /> {/* Right eye */}
-                    <circle cx="75" cy="75" r="3" fill="#000000" /> {/* Left pupil */}
-                    <circle cx="125" cy="75" r="3" fill="#000000" /> {/* Right pupil */}
-                    <path d="M80,105 Q100,120 120,105" stroke="#ffffff" strokeWidth="3" fill="none" /> {/* Smile */}
-                    
-                    {/* Crown */}
-                    <path d="M70,40 L85,60 L100,35 L115,60 L130,40 L125,65 L75,65 Z" fill="#eab308" />
-                    <circle cx="84" cy="50" r="3" fill="#ffffff" />
-                    <circle cx="100" cy="45" r="3" fill="#ffffff" />
-                    <circle cx="116" cy="50" r="3" fill="#ffffff" />
-                    
-                    {/* Hair - shorter/neater cut */}
-                    <path d="M55,80 Q75,40 100,35 Q125,40 145,80" fill="#0ea5e9" />
-                    
-                    {/* Body - suit/business attire */}
-                    <path d="M70,140 Q100,160 130,140 L130,200 L70,200 Z" fill="#0ea5e9" />
-                    <path d="M85,150 L115,150 L115,200 L85,200 Z" fill="#0c4a6e" /> {/* Tie/center of suit */}
-                  </svg>
-                </div>
-              </div>
+              <Avatar className="w-28 h-28 border-2 border-mogency-neon-blue/50 rounded-xl overflow-hidden shadow-lg transform rotate-3 hover:rotate-0 transition-all">
+                <AvatarImage src="/lovable-uploads/0c133f91-ba8e-499e-b896-fde994c25841.png" alt="Momin" className="object-cover" />
+                <AvatarFallback className="bg-mogency-neon-blue/20">MO</AvatarFallback>
+              </Avatar>
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <h3 className="text-2xl font-bold">Momin</h3>
