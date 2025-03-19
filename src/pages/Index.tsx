@@ -1,11 +1,9 @@
-
 import { useEffect } from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Hero from '@/components/sections/Hero';
 import Features from '@/components/sections/Features';
 import Process from '@/components/sections/Process';
-import Testimonials from '@/components/sections/Testimonials';
-import Contact from '@/components/sections/Contact';
+import CalendarSection from '@/components/sections/CalendarSection';
 
 const Index = () => {
   useEffect(() => {
@@ -20,8 +18,7 @@ const Index = () => {
         <Hero />
         <Features />
         <Process />
-        <Testimonials />
-        <Contact />
+        <CalendarSection />
       </main>
       
       <footer className="bg-black/80 border-t border-mogency-neon-blue/20 py-8">
