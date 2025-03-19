@@ -1,12 +1,10 @@
 
 import { useState, useEffect } from 'react';
-import { Calendar } from '@/components/ui/calendar';
 import { cn } from '@/lib/utils';
 import { Zap } from 'lucide-react';
 
 const CalendarSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [date, setDate] = useState<Date | undefined>(undefined);
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,6 +21,18 @@ const CalendarSection = () => {
     
     return () => {
       if (element) observer.unobserve(element);
+    };
+  }, []);
+
+  // Load Calendly script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
     };
   }, []);
 
@@ -55,8 +65,8 @@ const CalendarSection = () => {
         <div className="max-w-4xl mx-auto">
           <div className={cn(
             "card-glass p-8 md:p-10 border border-mogency-neon-blue/20 hover:border-mogency-neon-blue/30 transition-all duration-500",
-            "transform transition-all duration-700 delay-200 opacity-0 translate-y-8",
-            isVisible && "opacity-100 translate-y-0"
+            "transform transition-all duration-700 delay-200",
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
               {/* Calendar info */}
@@ -66,19 +76,9 @@ const CalendarSection = () => {
                   Schedule Your Call
                 </h3>
                 <p className="text-muted-foreground mb-8">
-                  Choose a date from the calendar to see available time slots. Our team of experts is ready to discuss
+                  Choose a time slot that works for you. Our team of experts is ready to discuss
                   how we can help you monetize your audience without upfront costs.
                 </p>
-                
-                {date && (
-                  <div className="p-4 bg-mogency-neon-blue/10 rounded-lg border border-mogency-neon-blue/20 mb-8">
-                    <p className="text-white font-medium">Selected Date:</p>
-                    <p className="text-mogency-neon-blue">{date.toDateString()}</p>
-                    <p className="text-muted-foreground text-sm mt-2">
-                      After selecting a date, you'll be able to choose a specific time slot.
-                    </p>
-                  </div>
-                )}
                 
                 <div className="flex items-center space-x-4 mt-8">
                   <p className="text-muted-foreground text-sm">
@@ -87,32 +87,14 @@ const CalendarSection = () => {
                 </div>
               </div>
               
-              {/* Calendar embed */}
-              <div className="md:col-span-3 bg-black/30 p-6 rounded-lg border border-mogency-neon-blue/20">
-                <div className="flex justify-center mb-6">
-                  {/* This is where you'd normally integrate with a real scheduling tool */}
-                  {/* For now, we'll use the UI calendar component */}
-                  <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={setDate}
-                    className="bg-black/30 border border-mogency-neon-blue/30 rounded-lg shadow-neon"
-                  />
-                </div>
-                
-                <div className="text-center">
-                  <p className="text-muted-foreground mb-4">
-                    For a more complete scheduling experience, you would integrate with Calendly or another scheduling service here.
-                  </p>
-                  <a 
-                    href="https://calendly.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-neon-gradient rounded-md text-white font-medium shadow-neon hover:opacity-90 transition-opacity"
-                  >
-                    <Zap className="mr-2 h-4 w-4" /> Open Full Calendar
-                  </a>
-                </div>
+              {/* Calendly embed */}
+              <div className="md:col-span-3 bg-black/30 p-6 rounded-lg border border-mogency-neon-blue/20 h-[500px]">
+                {/* Calendly inline widget */}
+                <div 
+                  className="calendly-inline-widget w-full h-full" 
+                  data-url="https://calendly.com/your-calendly-url"
+                  style={{ minWidth: '320px' }}
+                ></div>
               </div>
             </div>
           </div>
