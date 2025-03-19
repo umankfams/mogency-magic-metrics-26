@@ -37,15 +37,15 @@ const CalendarSection = () => {
   }, []);
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-black/50 relative overflow-hidden">
+    <section id="contact" className="py-12 md:py-20 bg-black/50 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -bottom-[20%] -right-[20%] w-[50%] h-[50%] rounded-full bg-mogency-neon-purple/10 filter blur-3xl" />
       </div>
       
       <div id="calendar-section" className="section-container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center justify-center px-4 py-1.5 mb-6 rounded-full bg-black/50 backdrop-blur-sm border border-mogency-neon-blue/30">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-black/50 backdrop-blur-sm border border-mogency-neon-blue/30">
             <Zap size={16} className="mr-2 text-mogency-neon-pink" />
             <span className="text-sm font-medium">Limited Spots Available This Month</span>
           </div>
@@ -58,12 +58,12 @@ const CalendarSection = () => {
             Book Your <span className="text-gradient">Strategy Call</span> Now
           </h2>
           <p className={cn(
-            "mt-4 text-xl text-muted-foreground max-w-2xl mx-auto",
+            "mt-3 text-xl text-muted-foreground max-w-2xl mx-auto",
             "transform transition-all duration-700 delay-100",
             isVisible ? "opacity-100" : "opacity-0"
           )}>
             Take the first step toward building a sustainable revenue stream from your audience.
-            <span className="neon-text-pink block mt-2">No upfront costs — only pay when you see results.</span>
+            <span className="neon-text-pink block mt-1">We grow and succeed together — true partnership model.</span>
           </p>
         </div>
         
@@ -73,23 +73,23 @@ const CalendarSection = () => {
             "transform transition-all duration-700 delay-200",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}>
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
               {/* Calendar info */}
               <div className="md:col-span-5">
-                <div className="bg-black/40 rounded-lg p-5 border border-mogency-neon-blue/20 mb-6">
-                  <div className="flex items-center mb-4">
+                <div className="bg-black/40 rounded-lg p-5 border border-mogency-neon-blue/20 mb-4">
+                  <div className="flex items-center mb-3">
                     <Calendar size={24} className="text-mogency-neon-pink mr-3" />
                     <h3 className="text-2xl font-bold text-white">1:1 Strategy Session</h3>
                   </div>
-                  <p className="text-muted-foreground mb-6">
-                    Chat directly with <span className="font-semibold text-white">Momin, the Founder</span>, 
-                    who will create a customized monetization plan for your specific audience and content.
+                  <p className="text-muted-foreground mb-4">
+                    Direct consultation with <span className="font-semibold text-white">Momin, the Founder</span>, 
+                    who will create a customized monetization plan tailored specifically for your audience.
                   </p>
                   
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     <div className="flex items-start">
                       <CheckCircle size={18} className="text-mogency-neon-green mt-1 mr-3 flex-shrink-0" />
-                      <p className="text-sm text-white">Personalized revenue strategy tailored to your unique audience</p>
+                      <p className="text-sm text-white">Revenue strategy tailored to your unique audience</p>
                     </div>
                     <div className="flex items-start">
                       <CheckCircle size={18} className="text-mogency-neon-green mt-1 mr-3 flex-shrink-0" />
@@ -101,14 +101,14 @@ const CalendarSection = () => {
                     </div>
                     <div className="flex items-start">
                       <CheckCircle size={18} className="text-mogency-neon-green mt-1 mr-3 flex-shrink-0" />
-                      <p className="text-sm text-white">Zero upfront investment — we only succeed when you do</p>
+                      <p className="text-sm text-white">True partnership model — we grow revenues together</p>
                     </div>
                   </div>
                 </div>
                 
                 <div className="bg-black/40 p-4 rounded-lg border border-mogency-neon-pink/20">
                   <p className="text-sm text-center text-white">
-                    <span className="font-semibold text-mogency-neon-pink">⚠️ Limited availability:</span> We only partner with a few creators each month to ensure we deliver exceptional results
+                    <span className="font-semibold text-mogency-neon-pink">⚠️ Limited availability:</span> We only partner with a few creators each month to ensure exceptional results
                   </p>
                 </div>
               </div>

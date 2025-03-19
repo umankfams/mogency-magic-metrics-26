@@ -51,7 +51,7 @@ const Process = () => {
     {
       number: 4,
       title: "4. Money in Your Pocket",
-      description: "Watch sales roll in while we manage customer support, payments, and delivery. You receive regular payouts and detailed performance reports—with zero hassle.",
+      description: "Watch sales roll in while we manage customer support, payments, and delivery. You focus on creating content while we handle the backend. We grow revenues together!",
       icon: <PiggyBank size={20} />,
       color: "from-mogency-neon-green to-mogency-neon-blue"
     }
@@ -100,7 +100,7 @@ const Process = () => {
 
         {/* Improved CTA in the process section */}
         <div className={cn(
-          "mt-16 rounded-xl max-w-3xl mx-auto overflow-hidden",
+          "mt-12 rounded-xl max-w-3xl mx-auto overflow-hidden",
           "transform transition-all duration-700 delay-600",
           isVisible ? "opacity-100" : "opacity-0"
         )}>
@@ -109,7 +109,7 @@ const Process = () => {
               <div className="text-left">
                 <h3 className="text-2xl font-bold mb-3 text-white">Ready to monetize your audience?</h3>
                 <p className="text-muted-foreground">
-                  Stop leaving money on the table. Book a strategy call with Momin today and discover your audience's revenue potential.
+                  Let's create a revenue stream together. Book a strategy call with Momin today and discover your audience's full potential.
                 </p>
                 <ul className="mt-4 space-y-2">
                   <li className="flex items-center text-sm text-white">
@@ -118,11 +118,11 @@ const Process = () => {
                   </li>
                   <li className="flex items-center text-sm text-white">
                     <span className="text-mogency-neon-pink mr-2">•</span>
-                    Zero upfront investment
+                    Win-win partnership model
                   </li>
                   <li className="flex items-center text-sm text-white">
                     <span className="text-mogency-neon-pink mr-2">•</span>
-                    Results-based partnership
+                    We succeed when you succeed
                   </li>
                 </ul>
               </div>

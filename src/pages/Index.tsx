@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Hero from '@/components/sections/Hero';
@@ -39,7 +40,7 @@ const Index = () => {
               &copy; {new Date().getFullYear()} Mogency. All rights reserved.
             </p>
             <p className="text-xs text-muted-foreground/70 mt-2">
-              We only succeed when our creators succeed. Zero upfront cost.
+              True partnership model. We grow revenues together.
             </p>
           </div>
         </div>

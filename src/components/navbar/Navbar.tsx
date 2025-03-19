@@ -54,12 +54,6 @@ const Navbar = () => {
             <button onClick={() => scrollToSection('process')} className="text-muted-foreground hover:text-mogency-neon-pink transition-colors">
               Process
             </button>
-            <button onClick={() => scrollToSection('testimonials')} className="text-muted-foreground hover:text-mogency-neon-purple transition-colors">
-              Testimonials
-            </button>
-            <button onClick={() => scrollToSection('contact')} className="text-muted-foreground hover:text-mogency-neon-green transition-colors">
-              Contact
-            </button>
             <Button 
               onClick={() => scrollToSection('contact')}
               className="bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full"
@@ -90,12 +84,6 @@ const Navbar = () => {
           </button>
           <button onClick={() => scrollToSection('process')} className="block text-muted-foreground hover:text-mogency-neon-pink transition-colors py-2">
             Process
-          </button>
-          <button onClick={() => scrollToSection('testimonials')} className="block text-muted-foreground hover:text-mogency-neon-purple transition-colors py-2">
-            Testimonials
-          </button>
-          <button onClick={() => scrollToSection('contact')} className="block text-muted-foreground hover:text-mogency-neon-green transition-colors py-2">
-            Contact
           </button>
           <Button 
             onClick={() => scrollToSection('contact')}
