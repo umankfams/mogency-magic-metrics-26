@@ -26,7 +26,7 @@ const Team = () => {
   }, []);
 
   return (
-    <section id="team" className="py-16 md:py-24 relative overflow-hidden bg-black">
+    <section id="team" className="py-12 md:py-16 relative overflow-hidden bg-black">
       {/* Enhanced background elements for more consistent look */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-[20%] -left-[20%] w-[60%] h-[60%] rounded-full bg-mogency-neon-purple/15 filter blur-3xl" />
@@ -36,7 +36,7 @@ const Team = () => {
       </div>
       
       <div id="team-section" className="section-container relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className={cn(
             "section-title",
             "transform transition-all duration-700",
@@ -54,7 +54,7 @@ const Team = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-12 max-w-5xl mx-auto">
-          {/* Mohsin - FIXED IMAGE */}
+          {/* Mohsin - Corrected image */}
           <div className={cn(
             "bg-black/40 rounded-xl overflow-hidden border border-mogency-neon-pink/20 p-6 md:p-8",
             "transform transition-all duration-700 delay-200",
@@ -85,7 +85,7 @@ const Team = () => {
             </div>
           </div>
 
-          {/* Momin - FIXED IMAGE */}
+          {/* Momin - Corrected image */}
           <div className={cn(
             "bg-black/40 rounded-xl overflow-hidden border border-mogency-neon-blue/20 p-6 md:p-8",
             "transform transition-all duration-700 delay-300",
@@ -118,18 +118,6 @@ const Team = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className={cn(
-          "text-center mt-12 max-w-2xl mx-auto",
-          "transform transition-all duration-700 delay-400",
-          isVisible ? "opacity-100" : "opacity-0"
-        )}>
-          <p className="text-muted-foreground text-base">
-            With years of experience in digital marketing, product development, and the creator economy, 
-            Mohsin and Momin founded Mogency to help content creators build sustainable businesses 
-            without sacrificing creative freedom.
-          </p>
         </div>
       </div>
     </section>
