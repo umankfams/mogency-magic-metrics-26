@@ -4,6 +4,7 @@ import Navbar from '@/components/navbar/Navbar';
 import Hero from '@/components/sections/Hero';
 import Features from '@/components/sections/Features';
 import Process from '@/components/sections/Process';
+import Team from '@/components/sections/Team';
 import CalendarSection from '@/components/sections/CalendarSection';
 
 const Index = () => {
@@ -19,6 +20,7 @@ const Index = () => {
         <Hero />
         <Features />
         <Process />
+        <Team />
         <CalendarSection />
       </main>
       
