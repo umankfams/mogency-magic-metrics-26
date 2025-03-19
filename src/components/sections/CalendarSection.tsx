@@ -88,11 +88,11 @@ const CalendarSection = () => {
               </div>
               
               {/* Calendly embed */}
-              <div className="md:col-span-3 bg-black/30 p-6 rounded-lg border border-mogency-neon-blue/20 h-[500px]">
-                {/* Calendly inline widget */}
+              <div className="md:col-span-3 bg-black/30 p-6 rounded-lg border border-mogency-neon-blue/20 h-[700px]">
+                {/* Calendly inline widget with the exact URL you provided */}
                 <div 
                   className="calendly-inline-widget w-full h-full" 
-                  data-url="https://calendly.com/your-calendly-url"
+                  data-url="https://calendly.com/gm-agentleadlab/strategy-call"
                   style={{ minWidth: '320px' }}
                 ></div>
               </div>
