@@ -37,7 +37,7 @@ const CalendarSection = () => {
   }, []);
 
   return (
-    <section id="contact" className="py-12 md:py-20 bg-black/50 relative overflow-hidden -mt-32 md:-mt-48">
+    <section id="contact" className="py-12 md:py-20 bg-black/50 relative overflow-hidden -mt-40 md:-mt-60 z-20">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -bottom-[20%] -right-[20%] w-[50%] h-[50%] rounded-full bg-mogency-neon-purple/10 filter blur-3xl" />
@@ -47,7 +47,7 @@ const CalendarSection = () => {
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-black/50 backdrop-blur-sm border border-mogency-neon-blue/30">
             <Zap size={16} className="mr-2 text-mogency-neon-pink" />
-            <span className="text-sm font-medium">Limited Spots Available This Month</span>
+            <span className="text-sm font-medium">Only 5 Spots Remaining This Month</span>
           </div>
           
           <h2 className={cn(
@@ -63,7 +63,7 @@ const CalendarSection = () => {
             isVisible ? "opacity-100" : "opacity-0"
           )}>
             Take the first step toward building a sustainable revenue stream from your audience.
-            <span className="neon-text-pink block mt-1">We grow and succeed together — true partnership model.</span>
+            <span className="neon-text-pink block mt-1">We succeed when you succeed — it's that simple.</span>
           </p>
         </div>
         
@@ -82,33 +82,33 @@ const CalendarSection = () => {
                     <h3 className="text-2xl font-bold text-white">1:1 Strategy Session</h3>
                   </div>
                   <p className="text-muted-foreground mb-4">
-                    Direct consultation with <span className="font-semibold text-white">Momin, the Founder</span>, 
-                    who will create a customized monetization plan tailored specifically for your audience.
+                    Private consultation with <span className="font-semibold text-white">Momin, the Founder</span>, 
+                    who will design a custom monetization strategy specifically for your unique audience.
                   </p>
                   
                   <div className="space-y-3">
                     <div className="flex items-start">
                       <CheckCircle size={18} className="text-mogency-neon-green mt-1 mr-3 flex-shrink-0" />
-                      <p className="text-sm text-white">Revenue strategy tailored to your unique audience</p>
+                      <p className="text-sm text-white">Personalized revenue strategy for your specific niche</p>
                     </div>
                     <div className="flex items-start">
                       <CheckCircle size={18} className="text-mogency-neon-green mt-1 mr-3 flex-shrink-0" />
-                      <p className="text-sm text-white">Clear implementation plan with immediate action steps</p>
+                      <p className="text-sm text-white">Actionable implementation plan with clear next steps</p>
                     </div>
                     <div className="flex items-start">
                       <CheckCircle size={18} className="text-mogency-neon-green mt-1 mr-3 flex-shrink-0" />
-                      <p className="text-sm text-white">No technical skills required — we handle everything</p>
+                      <p className="text-sm text-white">Zero technical work for you — we handle everything</p>
                     </div>
                     <div className="flex items-start">
                       <CheckCircle size={18} className="text-mogency-neon-green mt-1 mr-3 flex-shrink-0" />
-                      <p className="text-sm text-white">True partnership model — we grow revenues together</p>
+                      <p className="text-sm text-white">Shared success model — we only win when you win</p>
                     </div>
                   </div>
                 </div>
                 
                 <div className="bg-black/40 p-4 rounded-lg border border-mogency-neon-pink/20">
                   <p className="text-sm text-center text-white">
-                    <span className="font-semibold text-mogency-neon-pink">⚠️ Limited availability:</span> We only partner with a few creators each month to ensure exceptional results
+                    <span className="font-semibold text-mogency-neon-pink">⚠️ Limited availability:</span> We only partner with 5 new creators each month to ensure exceptional results
                   </p>
                 </div>
               </div>
