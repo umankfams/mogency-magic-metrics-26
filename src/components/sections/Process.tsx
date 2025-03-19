@@ -3,8 +3,10 @@ import { LightbulbIcon, Package, ShoppingBag, PiggyBank, ArrowRight } from 'luci
 import { cn } from '@/lib/utils';
 import ProcessStep from '../ui-custom/ProcessStep';
 import { Button } from '@/components/ui/button';
+
 const Process = () => {
   const [isVisible, setIsVisible] = useState(false);
+  
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -13,12 +15,15 @@ const Process = () => {
     }, {
       threshold: 0.1
     });
+    
     const element = document.getElementById('process-section');
     if (element) observer.observe(element);
+    
     return () => {
       if (element) observer.unobserve(element);
     };
   }, []);
+
   const steps = [{
     number: 1,
     title: "1. Ideation",
@@ -44,7 +49,8 @@ const Process = () => {
     icon: <PiggyBank size={20} />,
     color: "from-mogency-neon-green to-mogency-neon-blue"
   }];
-  return <section id="process" className="py-20 md:py-32 bg-black/40 relative overflow-hidden">
+
+  return <section id="process" className="py-20 md:py-32 pb-40 md:pb-52 bg-black/40 relative overflow-hidden z-10">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden my-[200px]">
         <div className="absolute -top-[20%] -left-[20%] w-[50%] h-[50%] rounded-full bg-mogency-neon-blue/10 filter blur-3xl" />
@@ -106,4 +112,5 @@ const Process = () => {
       </div>
     </section>;
 };
+
 export default Process;

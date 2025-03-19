@@ -37,13 +37,13 @@ const CalendarSection = () => {
   }, []);
 
   return (
-    <section id="contact" className="py-12 md:py-20 bg-black/50 relative overflow-hidden">
+    <section id="contact" className="py-12 md:py-20 bg-black/50 relative overflow-hidden -mt-32 md:-mt-48">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -bottom-[20%] -right-[20%] w-[50%] h-[50%] rounded-full bg-mogency-neon-purple/10 filter blur-3xl" />
       </div>
       
-      <div id="calendar-section" className="section-container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="calendar-section" className="section-container relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-black/50 backdrop-blur-sm border border-mogency-neon-blue/30">
             <Zap size={16} className="mr-2 text-mogency-neon-pink" />
