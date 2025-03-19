@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import Logo from '@/components/ui-custom/Logo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,12 +43,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
             <a href="#" className="font-display font-bold text-2xl tracking-tight flex items-center gap-2">
-              <img 
-                src="/lovable-uploads/48c4203b-a70f-46eb-8974-dbb32448228d.png" 
-                alt="Mogency Logo" 
-                className="h-10 w-auto filter brightness-200"
-              />
-              <span className="neon-text">MOGENCY</span>
+              <Logo size="lg" />
             </a>
           </div>
           

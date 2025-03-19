@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -117,6 +116,31 @@
     box-shadow: 0 0 5px theme('colors.mogency.neon.pink'), 
                 0 0 10px theme('colors.mogency.neon.pink'),
                 0 0 15px theme('colors.mogency.neon.pink');
+  }
+
+  /* Animation delays */
+  .delay-75 {
+    animation-delay: 75ms;
+  }
+  
+  .delay-150 {
+    animation-delay: 150ms;
+  }
+  
+  .delay-225 {
+    animation-delay: 225ms;
+  }
+  
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .delay-375 {
+    animation-delay: 375ms;
+  }
+  
+  .delay-450 {
+    animation-delay: 450ms;
   }
 
   /* Custom loading shimmer effect */

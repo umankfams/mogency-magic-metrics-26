@@ -130,11 +130,19 @@ export default {
 				'neon-pulse': {
 					'0%, 100%': { 
 						opacity: '1',
-						filter: 'brightness(1) drop-shadow(0 0 5px currentColor)' 
+						filter: 'brightness(1) drop-shadow(0 0 5px currentColor) drop-shadow(0 0 10px currentColor)' 
 					},
 					'50%': { 
 						opacity: '0.8',
-						filter: 'brightness(1.2) drop-shadow(0 0 15px currentColor)' 
+						filter: 'brightness(1.2) drop-shadow(0 0 15px currentColor) drop-shadow(0 0 20px currentColor)' 
+					}
+				},
+				'neon-flicker': {
+					'0%, 19%, 21%, 23%, 25%, 54%, 56%, 100%': {
+						filter: 'drop-shadow(0 0 10px currentColor) drop-shadow(0 0 20px currentColor)'
+					},
+					'20%, 24%, 55%': {
+						filter: 'none'
 					}
 				}
 			},
@@ -147,7 +155,8 @@ export default {
 				'float': 'float 3s ease-in-out infinite',
 				'scale-in': 'scale-in 0.4s ease-out forwards',
 				'shimmer': 'shimmer 2s infinite',
-				'neon-pulse': 'neon-pulse 2s infinite'
+				'neon-pulse': 'neon-pulse 2s infinite',
+				'neon-flicker': 'neon-flicker 5s infinite alternate'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
