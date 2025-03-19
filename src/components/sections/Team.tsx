@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { Rocket, Trophy, Sparkles } from 'lucide-react';
+import { Rocket, Trophy, Sparkles, Crown } from 'lucide-react';
 
 const Team = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -60,8 +60,12 @@ const Team = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}>
             <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
-              <Avatar className="w-28 h-28 border-2 border-mogency-neon-pink/50 shadow-lg">
-                <AvatarImage src="/lovable-uploads/0c133f91-ba8e-499e-b896-fde994c25841.png" alt="Mohsin" />
+              <Avatar className="w-28 h-28 border-2 border-mogency-neon-pink/50 shadow-lg rounded-xl transform -rotate-3 hover:rotate-0 transition-all">
+                <AvatarImage 
+                  src="/lovable-uploads/0c133f91-ba8e-499e-b896-fde994c25841.png" 
+                  alt="Mohsin" 
+                  className="scale-125"
+                />
                 <AvatarFallback className="bg-mogency-neon-pink/20 text-white text-2xl">MH</AvatarFallback>
               </Avatar>
               <div>
@@ -91,13 +95,20 @@ const Team = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           )}>
             <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
-              <Avatar className="w-28 h-28 border-2 border-mogency-neon-blue/50 shadow-lg">
-                <AvatarImage src="/lovable-uploads/74dab9ac-82a4-44bd-a837-8278c6bc8b50.png" alt="Momin" />
+              <Avatar className="w-28 h-28 border-2 border-mogency-neon-blue/50 shadow-lg rounded-xl transform rotate-3 hover:rotate-0 transition-all">
+                <AvatarImage 
+                  src="/lovable-uploads/74dab9ac-82a4-44bd-a837-8278c6bc8b50.png" 
+                  alt="Momin" 
+                  className="scale-125"
+                />
                 <AvatarFallback className="bg-mogency-neon-blue/20 text-white text-2xl">MN</AvatarFallback>
               </Avatar>
               <div>
-                <h3 className="text-2xl font-bold mb-1">Momin</h3>
-                <p className="text-mogency-neon-blue mb-4">Strategy & Growth Director</p>
+                <div className="flex items-center gap-2 mb-1">
+                  <h3 className="text-2xl font-bold">Momin</h3>
+                  <Crown size={16} className="text-yellow-400" />
+                </div>
+                <p className="text-mogency-neon-blue mb-4">CEO & Growth Director</p>
                 <p className="text-muted-foreground mb-4">
                   Building sustainable revenue engines for creators with strategic partnerships
                   and innovative business models that maximize value for audiences.
@@ -132,3 +143,4 @@ const Team = () => {
 };
 
 export default Team;
+
