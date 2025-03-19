@@ -6,6 +6,18 @@ interface LogoProps {
   className?: string;
 }
 
+/**
+ * Neon Logo component for Mogency
+ * 
+ * This component creates a text-based logo with neon letter effects.
+ * Each letter has its own color and animation delay to create a pulsating effect.
+ * 
+ * To recreate this logo:
+ * 1. Use a font family with 'font-display' class (SF Pro Display with Inter as fallback)
+ * 2. Apply neon colors to individual letters
+ * 3. Add animation delays to create the pulsating sequence
+ * 4. Use the animate-neon-pulse animation for the glow effect
+ */
 const Logo = ({ size = 'md', className }: LogoProps) => {
   const sizeClasses = {
     sm: 'text-xl',
