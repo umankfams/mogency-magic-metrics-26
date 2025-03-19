@@ -47,6 +47,14 @@ const ProcessStep = ({
     };
   }, [delay]);
 
+  // Determine glow class based on color gradient
+  const getGlowClass = () => {
+    if (color.includes('blue') && color.includes('purple')) return 'shadow-[0_0_20px_rgba(14,165,233,0.4)]';
+    if (color.includes('pink') && color.includes('blue')) return 'shadow-[0_0_20px_rgba(217,70,239,0.4)]';
+    if (color.includes('green') && color.includes('blue')) return 'shadow-[0_0_20px_rgba(16,185,129,0.4)]';
+    return 'shadow-[0_0_20px_rgba(14,165,233,0.4)]';
+  };
+
   return (
     <div ref={stepRef} className="flex relative">
       {/* Step content */}
@@ -64,6 +72,7 @@ const ProcessStep = ({
       <div className="absolute left-0 top-0">
         <div className={cn(
           `flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r ${color} text-white animate-neon-pulse`,
+          getGlowClass(),
           'transform transition-all duration-500 opacity-0 scale-0',
           isVisible && 'opacity-100 scale-100'
         )}>

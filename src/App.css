@@ -1,7 +1,8 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
 }
 
@@ -12,7 +13,7 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #0EA5E9);
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
@@ -39,4 +40,32 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.cyber-frame {
+  position: relative;
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  padding: 2px;
+}
+
+.cyber-frame::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 15px;
+  height: 15px;
+  border-top: 2px solid rgba(14, 165, 233, 0.8);
+  border-left: 2px solid rgba(14, 165, 233, 0.8);
+}
+
+.cyber-frame::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 15px;
+  height: 15px;
+  border-bottom: 2px solid rgba(14, 165, 233, 0.8);
+  border-right: 2px solid rgba(14, 165, 233, 0.8);
 }

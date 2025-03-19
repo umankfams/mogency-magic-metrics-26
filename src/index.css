@@ -7,32 +7,32 @@
 
 @layer base {
   :root {
-    --background: 222 47% 11%;
+    --background: 222 47% 5%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 15%;
+    --card: 222 47% 7%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 11%;
+    --popover: 222 47% 5%;
     --popover-foreground: 210 40% 98%;
 
     --primary: 199 89% 48%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 217 33% 20%;
+    --secondary: 217 33% 12%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217 33% 20%;
+    --muted: 217 33% 12%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 217 33% 20%;
+    --accent: 217 33% 12%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214 32% 25%;
-    --input: 214 32% 25%;
+    --border: 214 32% 15%;
+    --input: 214 32% 15%;
     --ring: 199 89% 48%;
 
     --radius: 0.6rem;
@@ -45,10 +45,11 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     scroll-behavior: smooth;
+    background-color: #000000;
   }
 
   .blur-backdrop {
-    @apply bg-black/60 backdrop-blur-md backdrop-saturate-150 shadow-glass;
+    @apply bg-black/80 backdrop-blur-md backdrop-saturate-150 shadow-glass;
   }
 
   .text-gradient {
@@ -56,7 +57,7 @@
   }
 
   .card-glass {
-    @apply bg-black/40 backdrop-blur-md shadow-card border border-white/10 rounded-xl transition-all duration-300;
+    @apply bg-black/80 backdrop-blur-md shadow-card border border-white/5 rounded-xl transition-all duration-300;
   }
 
   .section-container {
@@ -71,49 +72,84 @@
     @apply text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12;
   }
 
-  /* Neon text effect */
+  /* Enhanced Neon text effect */
   .neon-text {
     @apply text-white;
     text-shadow: 0 0 5px theme('colors.mogency.neon.blue'), 
                  0 0 10px theme('colors.mogency.neon.blue'),
-                 0 0 20px theme('colors.mogency.neon.blue');
+                 0 0 20px theme('colors.mogency.neon.blue'),
+                 0 0 30px theme('colors.mogency.neon.blue');
   }
 
   .neon-text-pink {
     @apply text-white;
     text-shadow: 0 0 5px theme('colors.mogency.neon.pink'), 
                  0 0 10px theme('colors.mogency.neon.pink'),
-                 0 0 20px theme('colors.mogency.neon.pink');
+                 0 0 20px theme('colors.mogency.neon.pink'),
+                 0 0 30px theme('colors.mogency.neon.pink');
   }
 
   .neon-text-purple {
     @apply text-white;
     text-shadow: 0 0 5px theme('colors.mogency.neon.purple'), 
                  0 0 10px theme('colors.mogency.neon.purple'),
-                 0 0 20px theme('colors.mogency.neon.purple');
+                 0 0 20px theme('colors.mogency.neon.purple'),
+                 0 0 30px theme('colors.mogency.neon.purple');
   }
 
   .neon-text-green {
     @apply text-white;
     text-shadow: 0 0 5px theme('colors.mogency.neon.green'), 
                  0 0 10px theme('colors.mogency.neon.green'),
-                 0 0 20px theme('colors.mogency.neon.green');
+                 0 0 20px theme('colors.mogency.neon.green'),
+                 0 0 30px theme('colors.mogency.neon.green');
   }
 
   .neon-border {
     @apply border border-mogency-neon-blue rounded-xl;
     box-shadow: 0 0 5px theme('colors.mogency.neon.blue'), 
-                0 0 10px theme('colors.mogency.neon.blue');
+                0 0 10px theme('colors.mogency.neon.blue'),
+                0 0 15px theme('colors.mogency.neon.blue');
   }
 
   .neon-border-pink {
     @apply border border-mogency-neon-pink rounded-xl;
     box-shadow: 0 0 5px theme('colors.mogency.neon.pink'), 
-                0 0 10px theme('colors.mogency.neon.pink');
+                0 0 10px theme('colors.mogency.neon.pink'),
+                0 0 15px theme('colors.mogency.neon.pink');
   }
 
   /* Custom loading shimmer effect */
   .shimmer {
-    @apply relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:animate-shimmer;
+    @apply relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:animate-shimmer;
   }
+
+  /* Futuristic elements */
+  .tech-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: -1;
+  }
+}
+
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    filter: drop-shadow(0 0 10px theme('colors.mogency.neon.blue')) 
+           drop-shadow(0 0 20px theme('colors.mogency.neon.blue'));
+  }
+  20%, 24%, 55% {
+    filter: none;
+  }
+}
+
+.flicker-neon {
+  animation: neon-flicker 5s infinite alternate;
 }

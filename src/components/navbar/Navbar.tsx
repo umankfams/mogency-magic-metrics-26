@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
@@ -42,8 +42,12 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
             <a href="#" className="font-display font-bold text-2xl tracking-tight flex items-center gap-2">
-              <Zap size={24} className="text-mogency-neon-blue animate-neon-pulse" />
-              <span className="neon-text">Mogency</span>
+              <img 
+                src="/lovable-uploads/48c4203b-a70f-46eb-8974-dbb32448228d.png" 
+                alt="Mogency Logo" 
+                className="h-10 w-auto filter brightness-200"
+              />
+              <span className="neon-text">MOGENCY</span>
             </a>
           </div>
           
@@ -62,10 +66,9 @@ const Navbar = () => {
             </button>
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-neon-gradient hover:opacity-90 transition-opacity rounded-full"
+              className="bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full"
             >
-              <Zap className="mr-2" size={16} />
-              <span>Work With Us</span>
+              <span className="text-mogency-neon-blue animate-neon-pulse">Work With Us</span>
             </Button>
           </div>
           
@@ -83,7 +86,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       <div className={cn(
         'md:hidden transition-all duration-300 overflow-hidden',
-        isOpen ? 'max-h-screen bg-black/80 backdrop-blur-lg shadow-lg' : 'max-h-0'
+        isOpen ? 'max-h-screen bg-black/90 backdrop-blur-lg shadow-lg' : 'max-h-0'
       )}>
         <div className="px-4 pt-2 pb-4 space-y-4">
           <button onClick={() => scrollToSection('features')} className="block text-muted-foreground hover:text-mogency-neon-blue transition-colors py-2">
@@ -100,10 +103,9 @@ const Navbar = () => {
           </button>
           <Button 
             onClick={() => scrollToSection('contact')}
-            className="w-full bg-neon-gradient hover:opacity-90 transition-opacity rounded-full"
+            className="w-full bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full"
           >
-            <Zap className="mr-2" size={16} />
-            <span>Work With Us</span>
+            <span className="text-mogency-neon-blue animate-neon-pulse">Work With Us</span>
           </Button>
         </div>
       </div>
