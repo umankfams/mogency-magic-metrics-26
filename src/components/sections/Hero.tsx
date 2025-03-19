@@ -29,52 +29,64 @@ const Hero = () => {
 
       <div className="section-container relative z-10">
         <div className="flex flex-col items-center text-center">
+          {/* Platform badges */}
+          <div className={cn(
+            "flex gap-3 items-center mb-8",
+            "transform opacity-0 transition-all duration-700",
+            isLoaded && "opacity-100"
+          )}>
+            <span className="platform-youtube px-3 py-1 text-sm font-medium rounded-full border border-white/10 bg-black/50 backdrop-blur-sm">YouTube</span>
+            <span className="platform-instagram px-3 py-1 text-sm font-medium rounded-full border border-white/10 bg-black/50 backdrop-blur-sm">Instagram</span>
+            <span className="platform-tiktok px-3 py-1 text-sm font-medium rounded-full border border-white/10 bg-black/50 backdrop-blur-sm">TikTok</span>
+          </div>
+          
           {/* Small badge/pill */}
           <div className={cn(
             "px-4 py-1.5 mb-8 rounded-full bg-black/50 backdrop-blur-sm border border-mogency-neon-blue/30 shadow-sm",
-            "transform opacity-0 transition-all duration-700",
+            "transform opacity-0 transition-all duration-700 delay-100",
             isLoaded && "opacity-100"
           )}>
             <span className="text-sm font-medium flex items-center gap-2">
               <Zap size={14} className="text-mogency-neon-blue animate-neon-pulse" />
-              <span className="neon-text">Done For You Marketing Service</span>
+              <span className="neon-text">Zero Upfront Cost • Keep Creating • We Handle Everything</span>
             </span>
           </div>
           
           {/* Main headline */}
           <h1 className={cn(
             "section-title max-w-4xl mb-6",
-            "transform opacity-0 transition-all duration-700 delay-100",
+            "transform opacity-0 transition-all duration-700 delay-200",
             isLoaded && "opacity-100"
           )}>
-            Scale Your Content Empire with 
-            <span className="bg-neon-gradient bg-clip-text text-transparent ml-2 animate-neon-pulse"> AI-Powered </span> 
-            Marketing
+            Turn Your <span className="neon-text-pink">Audience</span> Into 
+            <span className="bg-neon-gradient bg-clip-text text-transparent ml-2 animate-neon-pulse"> Revenue </span> 
+            Without Lifting a Finger
           </h1>
           
           {/* Subtitle */}
           <p className={cn(
             "text-xl text-muted-foreground max-w-2xl mb-6",
-            "transform opacity-0 transition-all duration-700 delay-200",
+            "transform opacity-0 transition-all duration-700 delay-300",
             isLoaded && "opacity-100"
           )}>
-            Mogency creates, markets, and scales digital products 
-            for content creators with no upfront cost.
+            Stop relying on underpaid brand deals. We create, market, and sell digital products 
+            using your existing content—<span className="text-white font-medium">you just keep being creative.</span>
           </p>
 
-          {/* Second subtitle */}
+          {/* Second subtitle with creator pain points */}
           <p className={cn(
             "text-lg text-muted-foreground/80 max-w-xl mb-10",
-            "transform opacity-0 transition-all duration-700 delay-250",
+            "transform opacity-0 transition-all duration-700 delay-350",
             isLoaded && "opacity-100"
           )}>
-            Our AI-powered team handles everything from audience segmentation to sales funnel optimization.
+            No time to build products? No marketing expertise? No problem.
+            Our team handles <span className="text-mogency-neon-green">everything</span> while you focus on what you do best.
           </p>
           
           {/* CTA buttons */}
           <div className={cn(
             "flex flex-col sm:flex-row gap-4 mb-16",
-            "transform opacity-0 transition-all duration-700 delay-300",
+            "transform opacity-0 transition-all duration-700 delay-400",
             isLoaded && "opacity-100"
           )}>
             <Button 
@@ -83,7 +95,7 @@ const Hero = () => {
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Zap className="mr-2" size={18} />
-              <span>Work With Us</span>
+              <span>Book Your Strategy Call</span>
             </Button>
             <Button 
               variant="outline" 
@@ -91,8 +103,19 @@ const Hero = () => {
               className="rounded-full border-mogency-neon-blue/40 text-white hover:bg-mogency-neon-blue/10 px-8"
               onClick={scrollToFeatures}
             >
-              Learn More
+              See How It Works
             </Button>
+          </div>
+          
+          {/* Limited spots notice */}
+          <div className={cn(
+            "px-4 py-2 rounded-lg bg-black/50 border border-mogency-neon-pink/30 mb-8",
+            "transform opacity-0 transition-all duration-700 delay-500",
+            isLoaded && "opacity-100"
+          )}>
+            <p className="text-sm text-mogency-neon-pink font-medium">
+              ⚠️ Limited spots available this month — we only work with a few creators at a time
+            </p>
           </div>
           
           {/* Scroll indicator */}

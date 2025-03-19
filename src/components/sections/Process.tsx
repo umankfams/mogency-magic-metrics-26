@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { SearchCheck, BarChart4, Users, Workflow, GanttChartSquare, Rocket } from 'lucide-react';
+import { LightbulbIcon, Package, ShoppingBag, PiggyBank } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import ProcessStep from '../ui-custom/ProcessStep';
 
@@ -28,45 +28,31 @@ const Process = () => {
   const steps = [
     {
       number: 1,
-      title: "Research & Analysis",
-      description: "We analyze your market, competition, and target audience to identify opportunities using our AI-powered tools.",
-      icon: <SearchCheck size={20} />,
+      title: "1. Ideation",
+      description: "We analyze your content, audience, and niche to identify the perfect digital product that your followers will eagerly purchase. No guesswork, just data-driven decisions.",
+      icon: <LightbulbIcon size={20} />,
       color: "from-mogency-neon-blue to-mogency-neon-purple"
     },
     {
       number: 2,
-      title: "Strategy Development",
-      description: "Using our findings, we develop a tailored marketing strategy focused on your specific KPIs and business goals.",
-      icon: <BarChart4 size={20} />,
+      title: "2. Offer Creation",
+      description: "Our team builds your complete digital product package—from content and design to checkout and delivery systems. You review, we handle all the technical details.",
+      icon: <Package size={20} />,
       color: "from-mogency-neon-pink to-mogency-neon-purple"
     },
     {
       number: 3,
-      title: "Audience Targeting",
-      description: "We build detailed audience segments to create personalized marketing campaigns that resonate with your customers.",
-      icon: <Users size={20} />,
+      title: "3. Marketing & Sales",
+      description: "We implement proven sales funnels and marketing campaigns designed specifically for creator audiences. Your offer gets positioned perfectly to maximize conversions.",
+      icon: <ShoppingBag size={20} />,
       color: "from-mogency-neon-purple to-mogency-neon-blue"
     },
     {
       number: 4,
-      title: "Workflow Setup",
-      description: "Our team sets up automated marketing workflows to save time, reduce errors, and scale your operations.",
-      icon: <Workflow size={20} />,
+      title: "4. Money in Your Pocket",
+      description: "Watch sales roll in while we manage customer support, payments, and delivery. You receive regular payouts and detailed performance reports—with zero hassle.",
+      icon: <PiggyBank size={20} />,
       color: "from-mogency-neon-green to-mogency-neon-blue"
-    },
-    {
-      number: 5,
-      title: "Campaign Launch",
-      description: "We implement multi-channel campaigns using AI-generated content and creative assets for maximum impact.",
-      icon: <GanttChartSquare size={20} />,
-      color: "from-mogency-neon-orange to-mogency-neon-pink"
-    },
-    {
-      number: 6,
-      title: "Optimization & Growth",
-      description: "Continuous monitoring and optimization ensure your marketing efforts consistently improve and deliver better ROI.",
-      icon: <Rocket size={20} />,
-      color: "from-mogency-neon-pink to-mogency-neon-blue"
     }
   ];
 
@@ -84,15 +70,15 @@ const Process = () => {
             "transform transition-all duration-700",
             isVisible ? "opacity-100" : "opacity-0"
           )}>
-            Our <span className="text-gradient">Process</span>
+            How <span className="text-gradient">It Works</span>
           </h2>
           <p className={cn(
             "section-subtitle",
             "transform transition-all duration-700 delay-100",
             isVisible ? "opacity-100" : "opacity-0"
           )}>
-            We handle everything from research to optimization with our proven approach,
-            so you can focus on creating great content.
+            From idea to income in four simple steps. You keep creating amazing content while we 
+            build and manage the entire revenue machine behind the scenes.
           </p>
         </div>
         
@@ -109,6 +95,24 @@ const Process = () => {
               color={step.color}
             />
           ))}
+        </div>
+
+        {/* Final CTA in the process section */}
+        <div className={cn(
+          "mt-16 p-6 bg-black/50 border border-mogency-neon-pink/30 rounded-xl max-w-2xl mx-auto text-center",
+          "transform transition-all duration-700 delay-600",
+          isVisible ? "opacity-100" : "opacity-0"
+        )}>
+          <h3 className="text-xl font-bold mb-3 text-white">Ready to monetize your influence?</h3>
+          <p className="text-muted-foreground mb-4">
+            Spots are limited! We only partner with a select number of creators each month to ensure maximum results.
+          </p>
+          <button 
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon rounded-full px-8 py-3 font-medium text-white"
+          >
+            Secure Your Spot Now
+          </button>
         </div>
       </div>
     </section>

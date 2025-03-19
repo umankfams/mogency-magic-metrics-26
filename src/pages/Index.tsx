@@ -10,7 +10,7 @@ import Contact from '@/components/sections/Contact';
 const Index = () => {
   useEffect(() => {
     // Set document title
-    document.title = 'Mogency | AI-Powered Marketing for Content Creators';
+    document.title = 'Mogency | Turn Your Audience Into Revenue - For Content Creators';
   }, []);
 
   return (
@@ -42,7 +42,7 @@ const Index = () => {
               &copy; {new Date().getFullYear()} Mogency. All rights reserved.
             </p>
             <p className="text-xs text-muted-foreground/70 mt-2">
-              No upfront cost. We only succeed when you succeed.
+              We only succeed when our creators succeed. Zero upfront cost.
             </p>
           </div>
         </div>

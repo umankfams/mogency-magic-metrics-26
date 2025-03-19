@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { TrendingUp, Users, Zap, Search, LineChart, Workflow } from 'lucide-react';
+import { TrendingUp, Users, Zap, Package, CreditCard, Award } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import AnimatedCard from '../ui-custom/AnimatedCard';
 
@@ -27,39 +27,39 @@ const Features = () => {
 
   const features = [
     {
-      icon: <Search className="w-6 h-6" />,
-      title: "Content Research",
-      description: "Our team analyzes top-performing content and identifies gaps and opportunities using AI research tools.",
-      color: "text-mogency-neon-blue"
+      icon: <Package className="w-6 h-6" />,
+      title: "Zero Upfront Costs",
+      description: "Unlike agencies that charge hefty retainers, we invest in you. We only make money when you do—ensuring we're fully committed to your success.",
+      color: "text-mogency-neon-green"
     },
     {
-      icon: <TrendingUp className="w-6 h-6" />,
-      title: "Sales Funnel Optimization",
-      description: "We optimize your conversion paths and improve sales funnel performance with our proven methods.",
+      icon: <Award className="w-6 h-6" />,
+      title: "100% Done For You",
+      description: "No need to learn marketing, build funnels, or manage tech. We handle everything while you focus entirely on creating content your audience loves.",
       color: "text-mogency-neon-pink"
     },
     {
-      icon: <Zap className="w-6 h-6" />,
-      title: "AI-Driven Ad Copy",
-      description: "Our specialists generate high-converting ad copy variations that resonate with your target audience.",
+      icon: <CreditCard className="w-6 h-6" />,
+      title: "Direct Fan Revenue",
+      description: "Stop relying on brand deals that undervalue your influence. We help you sell directly to your audience—unlocking income that truly matches your worth.",
       color: "text-mogency-neon-purple"
     },
     {
       icon: <Users className="w-6 h-6" />,
-      title: "Audience Segmentation",
-      description: "We create hyper-targeted marketing campaigns by identifying precise audience segments for you.",
-      color: "text-mogency-neon-green"
+      title: "Audience Monetization",
+      description: "We identify what your specific audience will happily pay for and create offers that perfectly match their needs and your expertise.",
+      color: "text-mogency-neon-blue"
     },
     {
-      icon: <LineChart className="w-6 h-6" />,
-      title: "Trend Analysis",
-      description: "Our team keeps you ahead of market shifts with advanced trend analysis and predictive insights.",
+      icon: <TrendingUp className="w-6 h-6" />,
+      title: "Predictable Income",
+      description: "Transform unpredictable sponsorships into consistent monthly revenue with digital products your audience will purchase again and again.",
       color: "text-mogency-neon-orange"
     },
     {
-      icon: <Workflow className="w-6 h-6" />,
-      title: "Workflow Automation",
-      description: "We streamline your marketing operations with intelligent automation for all repetitive tasks.",
+      icon: <Zap className="w-6 h-6" />,
+      title: "Fast Implementation",
+      description: "We move quickly. From initial call to first sales in weeks, not months—allowing you to see results while others are still planning.",
       color: "text-mogency-neon-blue"
     }
   ];
@@ -78,15 +78,15 @@ const Features = () => {
             "transform transition-all duration-700",
             isVisible ? "opacity-100" : "opacity-0"
           )}>
-            We Handle <span className="text-gradient">Everything</span> For You
+            Why Creators <span className="text-gradient">Choose</span> Mogency
           </h2>
           <p className={cn(
             "section-subtitle",
             "transform transition-all duration-700 delay-100",
             isVisible ? "opacity-100" : "opacity-0"
           )}>
-            Our comprehensive DFY service combines AI tools and human expertise to handle all aspects of 
-            your digital product marketing with zero upfront costs.
+            You've built an audience that trusts you. Now it's time to build the revenue stream you deserve—
+            without sacrificing your creative freedom or taking on business headaches.
           </p>
         </div>
         
