@@ -76,11 +76,29 @@ const CalendarSection = () => {
                   Schedule Your Call
                 </h3>
                 <p className="text-muted-foreground mb-8">
-                  Choose a time slot that works for you. Our team of experts is ready to discuss
-                  how we can help you monetize your audience without upfront costs.
+                  Book a 1-on-1 strategy call with <span className="font-semibold text-white">Momin, the Founder</span>, 
+                  who will personally discuss how we can help monetize your audience without upfront costs.
                 </p>
                 
-                <div className="flex items-center space-x-4 mt-8">
+                <div className="bg-black/30 p-4 rounded-lg border border-mogency-neon-pink/20 mb-6">
+                  <h4 className="text-lg font-medium text-white mb-2">What to expect:</h4>
+                  <ul className="space-y-3 text-sm text-muted-foreground">
+                    <li className="flex items-start">
+                      <span className="text-mogency-neon-pink mr-2">•</span>
+                      Custom monetization strategy for your audience
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-mogency-neon-pink mr-2">•</span>
+                      Actionable steps to implement right away
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-mogency-neon-pink mr-2">•</span>
+                      No pressure - just valuable insights
+                    </li>
+                  </ul>
+                </div>
+                
+                <div className="flex items-center space-x-4">
                   <p className="text-muted-foreground text-sm">
                     <span className="text-mogency-neon-pink">*</span> No upfront cost - you only pay when we deliver results
                   </p>
