@@ -1,9 +1,12 @@
+
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Rocket, Trophy, Sparkles, Crown } from 'lucide-react';
+
 const Team = () => {
   const [isVisible, setIsVisible] = useState(false);
+  
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -12,27 +15,31 @@ const Team = () => {
     }, {
       threshold: 0.1
     });
+    
     const element = document.getElementById('team-section');
     if (element) observer.observe(element);
+    
     return () => {
       if (element) observer.unobserve(element);
     };
   }, []);
-  return <section id="team" className="py-12 md:py-16 relative overflow-hidden bg-black">
-      {/* Enhanced background elements for more consistent look */}
+  
+  return (
+    <section id="team" className="py-12 md:py-16 relative overflow-hidden bg-black">
+      {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-[20%] -left-[20%] w-[60%] h-[60%] rounded-full bg-mogency-neon-purple/15 filter blur-3xl" />
         <div className="absolute -bottom-[20%] -right-[20%] w-[60%] h-[60%] rounded-full bg-mogency-neon-blue/15 filter blur-3xl" />
-        {/* Added tech grid for consistent background styling */}
-        <div className="absolute inset-0 tech-grid opacity-30 mx-0 px-0 py-0 my-0" />
+        {/* Tech grid background */}
+        <div className="absolute inset-0 tech-grid opacity-30" />
       </div>
       
-      <div id="team-section" className="section-container relative z-10 my-[69px]">
+      <div id="team-section" className="section-container relative z-10 my-16">
         <div className="text-center mb-12">
           <h2 className={cn("section-title", "transform transition-all duration-700", isVisible ? "opacity-100" : "opacity-0")}>
             Meet the <span className="text-gradient">Founders</span>
           </h2>
-          <p className={cn("section-subtitle max-w-2xl mx-auto mb-[60px]", "transform transition-all duration-700 delay-100", isVisible ? "opacity-100" : "opacity-0")}>
+          <p className={cn("section-subtitle max-w-2xl mx-auto mb-12", "transform transition-all duration-700 delay-100", isVisible ? "opacity-100" : "opacity-0")}>
             The experts behind Mogency's creator-first approach to monetization
           </p>
         </div>
@@ -94,6 +101,8 @@ const Team = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Team;
