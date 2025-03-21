@@ -26,7 +26,7 @@ const Team = () => {
   }, []);
 
   return (
-    <section id="team" className="py-12 md:py-16 relative overflow-hidden bg-black -mt-50">
+    <section id="team" className="py-12 md:py-16 relative overflow-hidden bg-black -mt-[200px]">
       {/* Enhanced background elements for more consistent look */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-[20%] -left-[20%] w-[60%] h-[60%] rounded-full bg-mogency-neon-purple/15 filter blur-3xl" />
@@ -45,7 +45,7 @@ const Team = () => {
             Meet the <span className="text-gradient">Founders</span>
           </h2>
           <p className={cn(
-            "section-subtitle max-w-2xl mx-auto mb-15",
+            "section-subtitle max-w-2xl mx-auto mb-[60px]",
             "transform transition-all duration-700 delay-100",
             isVisible ? "opacity-100" : "opacity-0"
           )}>
@@ -54,7 +54,7 @@ const Team = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-12 max-w-5xl mx-auto">
-          {/* Mohsin - Fixed image */}
+          {/* Mohsin */}
           <div className={cn(
             "bg-black/40 rounded-xl overflow-hidden border border-mogency-neon-pink/20 p-6 md:p-8",
             "transform transition-all duration-700 delay-200",
@@ -85,7 +85,7 @@ const Team = () => {
             </div>
           </div>
 
-          {/* Momin - Fixed image */}
+          {/* Momin */}
           <div className={cn(
             "bg-black/40 rounded-xl overflow-hidden border border-mogency-neon-blue/20 p-6 md:p-8",
             "transform transition-all duration-700 delay-300",
