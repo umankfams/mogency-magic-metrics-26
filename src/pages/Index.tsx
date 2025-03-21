@@ -6,7 +6,6 @@ import Features from '@/components/sections/Features';
 import Process from '@/components/sections/Process';
 import Team from '@/components/sections/Team';
 import CalendarSection from '@/components/sections/CalendarSection';
-import Contact from '@/components/sections/Contact';
 
 const Index = () => {
   useEffect(() => {
@@ -33,7 +32,6 @@ const Index = () => {
         <Process />
         <Team />
         <CalendarSection />
-        <Contact />
       </main>
       
       <footer className="bg-black/80 border-t border-mogency-neon-blue/20 py-8 relative z-10">

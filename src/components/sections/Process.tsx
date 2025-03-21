@@ -57,9 +57,9 @@ const Process = () => {
   ];
   
   return (
-    <section id="process" className="py-20 md:py-24 relative overflow-hidden z-10">
-      <div id="process-section" className="section-container relative z-10 py-16">
-        <div className="text-center mb-20">
+    <section id="process" className="py-32 relative overflow-hidden z-10">
+      <div id="process-section" className="section-container relative z-10">
+        <div className="text-center mb-16">
           <h2 className={cn("section-title", "transform transition-all duration-700", isVisible ? "opacity-100" : "opacity-0")}>
             How <span className="text-gradient">It Works</span>
           </h2>
@@ -85,8 +85,8 @@ const Process = () => {
         </div>
 
         {/* CTA in the process section */}
-        <div className={cn("mt-12 rounded-xl max-w-3xl mx-auto overflow-hidden", "transform transition-all duration-700 delay-600", isVisible ? "opacity-100" : "opacity-0")}>
-          <div className="bg-black/70 backdrop-blur-sm border border-mogency-neon-pink/40 rounded-xl p-8">
+        <div className={cn("mt-16 rounded-xl max-w-3xl mx-auto overflow-hidden", "transform transition-all duration-700 delay-600", isVisible ? "opacity-100" : "opacity-0")}>
+          <div className="bg-black/70 border border-mogency-neon-pink/40 rounded-xl p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
               <div className="text-left">
                 <h3 className="text-2xl font-bold mb-3 text-white">Ready to turn your influence into income?</h3>
