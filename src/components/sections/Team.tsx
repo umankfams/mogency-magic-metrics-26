@@ -26,7 +26,7 @@ const Team = () => {
   }, []);
 
   return (
-    <section id="team" className="py-12 md:py-16 relative overflow-hidden bg-black -mt-16">
+    <section id="team" className="py-12 md:py-16 relative overflow-hidden bg-black -mt-28">
       {/* Enhanced background elements for more consistent look */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-[20%] -left-[20%] w-[60%] h-[60%] rounded-full bg-mogency-neon-purple/15 filter blur-3xl" />
