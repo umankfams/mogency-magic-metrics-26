@@ -6,6 +6,7 @@ import Features from '@/components/sections/Features';
 import Process from '@/components/sections/Process';
 import Team from '@/components/sections/Team';
 import CalendarSection from '@/components/sections/CalendarSection';
+import Contact from '@/components/sections/Contact';
 
 const Index = () => {
   useEffect(() => {
@@ -16,7 +17,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main>
+      <main className="space-y-0">
         <Hero />
         <Features />
         <Process />

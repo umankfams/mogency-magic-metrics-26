@@ -26,7 +26,7 @@ const Team = () => {
   }, []);
 
   return (
-    <section id="team" className="py-12 md:py-16 relative overflow-hidden bg-black -mt-[200px]">
+    <section id="team" className="py-24 md:py-28 relative overflow-hidden bg-black -mt-[100px] z-10">
       {/* Enhanced background elements for more consistent look */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-[20%] -left-[20%] w-[60%] h-[60%] rounded-full bg-mogency-neon-purple/15 filter blur-3xl" />
@@ -35,8 +35,8 @@ const Team = () => {
         <div className="absolute inset-0 tech-grid opacity-30" />
       </div>
       
-      <div id="team-section" className="section-container relative z-10">
-        <div className="text-center mb-12">
+      <div id="team-section" className="section-container relative z-10 pt-16">
+        <div className="text-center mb-16">
           <h2 className={cn(
             "section-title",
             "transform transition-all duration-700",
