@@ -68,7 +68,7 @@ const Team = () => {
           <div className={cn("bg-black/40 rounded-xl overflow-hidden border border-mogency-neon-blue/20 p-6 md:p-8", "transform transition-all duration-700 delay-300", "hover:shadow-[0_0_30px_rgba(14,165,233,0.2)] transition-all", isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10")}>
             <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start">
               <Avatar className="w-24 h-24 border-2 border-mogency-neon-blue/50 rounded-xl overflow-hidden shadow-lg transform rotate-3 hover:rotate-0 transition-all">
-                <AvatarImage src="/lovable-uploads/0c133f91-ba8e-499e-b896-fde994c25841.png" alt="Momin" className="object-cover" />
+                <AvatarImage alt="Momin" className="object-cover" src="/lovable-uploads/2435256a-79ee-4733-943f-78d62181bf25.jpg" />
                 <AvatarFallback className="bg-mogency-neon-blue/20">MO</AvatarFallback>
               </Avatar>
               <div>
