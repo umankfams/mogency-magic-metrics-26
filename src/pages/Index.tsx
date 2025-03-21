@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Hero from '@/components/sections/Hero';
@@ -7,17 +6,14 @@ import Process from '@/components/sections/Process';
 import Team from '@/components/sections/Team';
 import CalendarSection from '@/components/sections/CalendarSection';
 import Contact from '@/components/sections/Contact';
-
 const Index = () => {
   useEffect(() => {
     // Set document title
     document.title = 'Mogency | Turn Your Audience Into Revenue - For Content Creators';
   }, []);
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navbar />
-      <main>
+      <main className="my-0">
         <Hero />
         <Features />
         <Process />
@@ -48,8 +44,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;

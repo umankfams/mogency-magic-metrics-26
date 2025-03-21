@@ -44,7 +44,7 @@ const Process = () => {
     icon: <PiggyBank size={20} />,
     color: "from-mogency-neon-green to-mogency-neon-blue"
   }];
-  return <section id="process" className="py-20 md:py-32 pb-44 md:pb-64 bg-black/40 relative overflow-hidden z-10">
+  return <section id="process" className="py-20 md:py-32 pb-44 md:pb-64 bg-black/40 relative overflow-hidden z-10 my-0">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden my-[200px]">
         <div className="absolute -top-[20%] -left-[20%] w-[50%] h-[50%] rounded-full bg-mogency-neon-blue/10 filter blur-3xl" />

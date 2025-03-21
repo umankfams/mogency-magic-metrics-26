@@ -1,24 +1,18 @@
-
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Zap, Calendar, CheckCircle } from 'lucide-react';
-
 const CalendarSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    }, {
+      threshold: 0.1
+    });
     const element = document.getElementById('calendar-section');
     if (element) observer.observe(element);
-    
     return () => {
       if (element) observer.unobserve(element);
     };
@@ -30,16 +24,13 @@ const CalendarSection = () => {
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
     document.body.appendChild(script);
-
     return () => {
       document.body.removeChild(script);
     };
   }, []);
-
-  return (
-    <section id="contact" className="py-12 md:py-20 bg-black/50 relative overflow-hidden -mt-40 md:-mt-60 z-20">
+  return <section id="contact" className="py-12 md:py-20 bg-black/50 relative overflow-hidden -mt-40 md:-mt-60 z-20">
       {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden mx-0 py-0 my-[98px]">
         <div className="absolute -bottom-[20%] -right-[20%] w-[50%] h-[50%] rounded-full bg-mogency-neon-purple/10 filter blur-3xl" />
       </div>
       
@@ -50,29 +41,17 @@ const CalendarSection = () => {
             <span className="text-sm font-medium">Only 5 Spots Remaining This Month</span>
           </div>
           
-          <h2 className={cn(
-            "text-4xl md:text-5xl font-bold tracking-tight",
-            "transform transition-all duration-700",
-            isVisible ? "opacity-100" : "opacity-0"
-          )}>
+          <h2 className={cn("text-4xl md:text-5xl font-bold tracking-tight", "transform transition-all duration-700", isVisible ? "opacity-100" : "opacity-0")}>
             Book Your <span className="text-gradient">Strategy Call</span> Now
           </h2>
-          <p className={cn(
-            "mt-3 text-xl text-muted-foreground max-w-2xl mx-auto",
-            "transform transition-all duration-700 delay-100",
-            isVisible ? "opacity-100" : "opacity-0"
-          )}>
+          <p className={cn("mt-3 text-xl text-muted-foreground max-w-2xl mx-auto", "transform transition-all duration-700 delay-100", isVisible ? "opacity-100" : "opacity-0")}>
             Take the first step toward building a sustainable revenue stream from your audience.
             <span className="neon-text-pink block mt-1">We succeed when you succeed — it's that simple.</span>
           </p>
         </div>
         
         <div className="max-w-6xl mx-auto">
-          <div className={cn(
-            "card-glass p-6 md:p-8 border border-mogency-neon-blue/20 hover:border-mogency-neon-blue/30 transition-all duration-500 rounded-xl overflow-hidden",
-            "transform transition-all duration-700 delay-200",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}>
+          <div className={cn("card-glass p-6 md:p-8 border border-mogency-neon-blue/20 hover:border-mogency-neon-blue/30 transition-all duration-500 rounded-xl overflow-hidden", "transform transition-all duration-700 delay-200", isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8")}>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
               {/* Calendar info */}
               <div className="md:col-span-4">
@@ -116,18 +95,14 @@ const CalendarSection = () => {
               {/* Calendly embed - increased height further to eliminate scrolling */}
               <div className="md:col-span-8 bg-black/30 rounded-lg border border-mogency-neon-blue/20 overflow-hidden h-[850px]">
                 {/* Calendly inline widget with increased height */}
-                <div 
-                  className="calendly-inline-widget w-full h-full" 
-                  data-url="https://calendly.com/gm-agentleadlab/strategy-call"
-                  style={{ minWidth: '320px' }}
-                ></div>
+                <div className="calendly-inline-widget w-full h-full" data-url="https://calendly.com/gm-agentleadlab/strategy-call" style={{
+                minWidth: '320px'
+              }}></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default CalendarSection;

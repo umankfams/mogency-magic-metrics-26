@@ -1,69 +1,48 @@
-
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Rocket, Trophy, Sparkles, Crown } from 'lucide-react';
-
 const Team = () => {
   const [isVisible, setIsVisible] = useState(false);
-  
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    }, {
+      threshold: 0.1
+    });
     const element = document.getElementById('team-section');
     if (element) observer.observe(element);
-    
     return () => {
       if (element) observer.unobserve(element);
     };
   }, []);
-
-  return (
-    <section id="team" className="py-12 md:py-16 relative overflow-hidden bg-black">
+  return <section id="team" className="py-12 md:py-16 relative overflow-hidden bg-black">
       {/* Enhanced background elements for more consistent look */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-[20%] -left-[20%] w-[60%] h-[60%] rounded-full bg-mogency-neon-purple/15 filter blur-3xl" />
         <div className="absolute -bottom-[20%] -right-[20%] w-[60%] h-[60%] rounded-full bg-mogency-neon-blue/15 filter blur-3xl" />
         {/* Added tech grid for consistent background styling */}
-        <div className="absolute inset-0 tech-grid opacity-30" />
+        <div className="absolute inset-0 tech-grid opacity-30 mx-0 px-0 py-0 my-0" />
       </div>
       
-      <div id="team-section" className="section-container relative z-10">
+      <div id="team-section" className="section-container relative z-10 my-[69px]">
         <div className="text-center mb-12">
-          <h2 className={cn(
-            "section-title",
-            "transform transition-all duration-700",
-            isVisible ? "opacity-100" : "opacity-0"
-          )}>
+          <h2 className={cn("section-title", "transform transition-all duration-700", isVisible ? "opacity-100" : "opacity-0")}>
             Meet the <span className="text-gradient">Founders</span>
           </h2>
-          <p className={cn(
-            "section-subtitle max-w-2xl mx-auto mb-[60px]",
-            "transform transition-all duration-700 delay-100",
-            isVisible ? "opacity-100" : "opacity-0"
-          )}>
+          <p className={cn("section-subtitle max-w-2xl mx-auto mb-[60px]", "transform transition-all duration-700 delay-100", isVisible ? "opacity-100" : "opacity-0")}>
             The experts behind Mogency's creator-first approach to monetization
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-12 max-w-5xl mx-auto">
           {/* Mohsin */}
-          <div className={cn(
-            "bg-black/40 rounded-xl overflow-hidden border border-mogency-neon-pink/20 p-6 md:p-8",
-            "transform transition-all duration-700 delay-200",
-            "hover:shadow-[0_0_30px_rgba(236,72,153,0.2)] transition-all",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          )}>
+          <div className={cn("bg-black/40 rounded-xl overflow-hidden border border-mogency-neon-pink/20 p-6 md:p-8", "transform transition-all duration-700 delay-200", "hover:shadow-[0_0_30px_rgba(236,72,153,0.2)] transition-all", isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10")}>
             <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start">
               <Avatar className="w-24 h-24 border-2 border-mogency-neon-pink/50 rounded-xl overflow-hidden shadow-lg transform -rotate-3 hover:rotate-0 transition-all">
-                <AvatarImage src="/lovable-uploads/74dab9ac-82a4-44bd-a837-8278c6bc8b50.png" alt="Mohsin" className="object-cover" />
+                <AvatarImage alt="Mohsin" src="/lovable-uploads/8c697c7e-7efe-48d6-af09-4fa3adf37732.jpg" className="object-cover" />
                 <AvatarFallback className="bg-mogency-neon-pink/20">MO</AvatarFallback>
               </Avatar>
               <div>
@@ -86,12 +65,7 @@ const Team = () => {
           </div>
 
           {/* Momin */}
-          <div className={cn(
-            "bg-black/40 rounded-xl overflow-hidden border border-mogency-neon-blue/20 p-6 md:p-8",
-            "transform transition-all duration-700 delay-300",
-            "hover:shadow-[0_0_30px_rgba(14,165,233,0.2)] transition-all",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          )}>
+          <div className={cn("bg-black/40 rounded-xl overflow-hidden border border-mogency-neon-blue/20 p-6 md:p-8", "transform transition-all duration-700 delay-300", "hover:shadow-[0_0_30px_rgba(14,165,233,0.2)] transition-all", isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10")}>
             <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start">
               <Avatar className="w-24 h-24 border-2 border-mogency-neon-blue/50 rounded-xl overflow-hidden shadow-lg transform rotate-3 hover:rotate-0 transition-all">
                 <AvatarImage src="/lovable-uploads/0c133f91-ba8e-499e-b896-fde994c25841.png" alt="Momin" className="object-cover" />
@@ -120,8 +94,6 @@ const Team = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Team;
