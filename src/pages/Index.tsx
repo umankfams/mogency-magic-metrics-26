@@ -15,7 +15,17 @@ const Index = () => {
   }, []);
   
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      {/* Background gradient elements spanning the entire page */}
+      <div className="fixed inset-0 overflow-hidden -z-10">
+        <div className="absolute -top-[30%] -left-[10%] w-[50%] h-[50%] rounded-full bg-mogency-neon-blue/20 filter blur-3xl" />
+        <div className="absolute -bottom-[30%] -right-[10%] w-[50%] h-[50%] rounded-full bg-mogency-neon-pink/20 filter blur-3xl" />
+        <div className="absolute top-[40%] left-[30%] w-[40%] h-[40%] rounded-full bg-mogency-neon-purple/15 filter blur-3xl" />
+        
+        {/* Tech grid background */}
+        <div className="absolute inset-0 tech-grid opacity-20"></div>
+      </div>
+
       <Navbar />
       <main>
         <Hero />
@@ -26,7 +36,7 @@ const Index = () => {
         <Contact />
       </main>
       
-      <footer className="bg-black/80 border-t border-mogency-neon-blue/20 py-8">
+      <footer className="bg-black/80 border-t border-mogency-neon-blue/20 py-8 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="mb-4 flex justify-center gap-6">

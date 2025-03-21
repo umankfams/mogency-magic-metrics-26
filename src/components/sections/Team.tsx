@@ -25,15 +25,7 @@ const Team = () => {
   }, []);
   
   return (
-    <section id="team" className="py-12 md:py-16 relative overflow-hidden bg-black">
-      {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-[20%] -left-[20%] w-[60%] h-[60%] rounded-full bg-mogency-neon-purple/15 filter blur-3xl" />
-        <div className="absolute -bottom-[20%] -right-[20%] w-[60%] h-[60%] rounded-full bg-mogency-neon-blue/15 filter blur-3xl" />
-        {/* Tech grid background */}
-        <div className="absolute inset-0 tech-grid opacity-30" />
-      </div>
-      
+    <section id="team" className="py-12 md:py-16 relative overflow-hidden">
       <div id="team-section" className="section-container relative z-10 my-16">
         <div className="text-center mb-12">
           <h2 className={cn("section-title", "transform transition-all duration-700", isVisible ? "opacity-100" : "opacity-0")}>
@@ -46,7 +38,7 @@ const Team = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-12 max-w-5xl mx-auto">
           {/* Mohsin */}
-          <div className={cn("bg-black/40 rounded-xl overflow-hidden border border-mogency-neon-pink/20 p-6 md:p-8", "transform transition-all duration-700 delay-200", "hover:shadow-[0_0_30px_rgba(236,72,153,0.2)] transition-all", isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10")}>
+          <div className={cn("bg-black/40 backdrop-blur-sm rounded-xl overflow-hidden border border-mogency-neon-pink/20 p-6 md:p-8", "transform transition-all duration-700 delay-200", "hover:shadow-[0_0_30px_rgba(236,72,153,0.2)] transition-all", isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10")}>
             <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start">
               <Avatar className="w-24 h-24 border-2 border-mogency-neon-pink/50 rounded-xl overflow-hidden shadow-lg transform -rotate-3 hover:rotate-0 transition-all">
                 <AvatarImage alt="Mohsin" src="/lovable-uploads/8c697c7e-7efe-48d6-af09-4fa3adf37732.jpg" className="object-cover" />
@@ -72,7 +64,7 @@ const Team = () => {
           </div>
 
           {/* Momin */}
-          <div className={cn("bg-black/40 rounded-xl overflow-hidden border border-mogency-neon-blue/20 p-6 md:p-8", "transform transition-all duration-700 delay-300", "hover:shadow-[0_0_30px_rgba(14,165,233,0.2)] transition-all", isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10")}>
+          <div className={cn("bg-black/40 backdrop-blur-sm rounded-xl overflow-hidden border border-mogency-neon-blue/20 p-6 md:p-8", "transform transition-all duration-700 delay-300", "hover:shadow-[0_0_30px_rgba(14,165,233,0.2)] transition-all", isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10")}>
             <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start">
               <Avatar className="w-24 h-24 border-2 border-mogency-neon-blue/50 rounded-xl overflow-hidden shadow-lg transform rotate-3 hover:rotate-0 transition-all">
                 <AvatarImage alt="Momin" className="object-cover" src="/lovable-uploads/2435256a-79ee-4733-943f-78d62181bf25.jpg" />
