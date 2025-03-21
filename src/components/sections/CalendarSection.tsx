@@ -34,8 +34,8 @@ const CalendarSection = () => {
         <div className="absolute -bottom-[20%] -right-[20%] w-[50%] h-[50%] rounded-full bg-mogency-neon-purple/10 filter blur-3xl" />
       </div>
       
-      <div id="calendar-section" className="section-container relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
+      <div id="calendar-section" className="section-container relative z-20 max-w-7xl mx-auto sm:px-6 lg:px-8 px-[3px]">
+        <div className="text-center mb-8 my-[80px]">
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-black/50 backdrop-blur-sm border border-mogency-neon-blue/30">
             <Zap size={16} className="mr-2 text-mogency-neon-pink" />
             <span className="text-sm font-medium">Only 5 Spots Remaining This Month</span>
