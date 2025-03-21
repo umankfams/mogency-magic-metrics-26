@@ -26,7 +26,7 @@ const Team = () => {
   }, []);
 
   return (
-    <section id="team" className="py-12 md:py-16 relative overflow-hidden bg-black -mt-28">
+    <section id="team" className="py-12 md:py-16 relative overflow-hidden bg-black -mt-50">
       {/* Enhanced background elements for more consistent look */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-[20%] -left-[20%] w-[60%] h-[60%] rounded-full bg-mogency-neon-purple/15 filter blur-3xl" />
@@ -45,7 +45,7 @@ const Team = () => {
             Meet the <span className="text-gradient">Founders</span>
           </h2>
           <p className={cn(
-            "section-subtitle max-w-2xl mx-auto",
+            "section-subtitle max-w-2xl mx-auto mb-15",
             "transform transition-all duration-700 delay-100",
             isVisible ? "opacity-100" : "opacity-0"
           )}>
