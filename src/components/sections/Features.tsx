@@ -49,7 +49,7 @@ const Features = () => {
     description: "We move quickly. From initial call to first sales in weeks, not months—allowing you to see results while others are still planning.",
     color: "text-mogency-neon-blue"
   }];
-  return <section id="features" className="py-20 md:py-32 relative overflow-hidden bg-black/30">
+  return <section id="features" className="py-20 relative overflow-hidden bg-black/30 md:py-0">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden my-[130px]">
         <div className="absolute top-[30%] -right-[30%] w-[60%] h-[60%] rounded-full bg-mogency-neon-pink/10 filter blur-3xl" />

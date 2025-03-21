@@ -46,11 +46,11 @@ const Process = () => {
   }];
   return <section id="process" className="py-20 md:py-32 pb-44 md:pb-64 bg-black/40 relative overflow-hidden z-10 my-0">
       {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden my-[200px]">
+      <div className="absolute inset-0 overflow-hidden my-[240px]">
         <div className="absolute -top-[20%] -left-[20%] w-[50%] h-[50%] rounded-full bg-mogency-neon-blue/10 filter blur-3xl" />
       </div>
       
-      <div id="process-section" className="section-container relative z-10">
+      <div id="process-section" className="section-container relative z-10 my-[46px] py-[113px]">
         <div className="text-center mb-20">
           <h2 className={cn("section-title", "transform transition-all duration-700", isVisible ? "opacity-100" : "opacity-0")}>
             How <span className="text-gradient">It Works</span>
