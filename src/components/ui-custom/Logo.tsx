@@ -2,7 +2,7 @@
 import { cn } from '@/lib/utils';
 
 interface LogoProps {
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
   className?: string;
 }
 
@@ -14,17 +14,19 @@ interface LogoProps {
  */
 const Logo = ({ size = 'md', className }: LogoProps) => {
   const sizeClasses = {
-    sm: 'h-12',
-    md: 'h-16',
-    lg: 'h-24',
-    xl: 'h-36',
+    sm: 'h-16',
+    md: 'h-24',
+    lg: 'h-32',
+    xl: 'h-40',
+    '2xl': 'h-48',
+    '3xl': 'h-56',
   };
 
   return (
     <div className={cn("flex items-center", className)}>
       <img 
         src="/lovable-uploads/ea76e865-89ad-4b19-babf-67cd246abffe.png" 
-        alt="Mogency Logo" 
+        alt="Mogency - Digital Agency for Content Creators" 
         className={cn(sizeClasses[size], "object-contain")}
       />
     </div>

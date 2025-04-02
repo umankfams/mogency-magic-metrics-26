@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -41,10 +42,41 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    scroll-behavior: smooth;
     background-color: #000000;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-display font-bold tracking-tight;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl font-display font-medium tracking-tight;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl font-display font-medium;
+  }
+
+  h6 {
+    @apply text-base md:text-lg font-display font-medium;
+  }
+
+  p {
+    @apply text-base md:text-lg leading-relaxed;
   }
 
   .blur-backdrop {
@@ -116,6 +148,19 @@
     box-shadow: 0 0 5px theme('colors.mogency.neon.pink'), 
                 0 0 10px theme('colors.mogency.neon.pink'),
                 0 0 15px theme('colors.mogency.neon.pink');
+  }
+
+  /* Consistent spacing classes */
+  .space-y-section {
+    @apply space-y-16 md:space-y-24 lg:space-y-32;
+  }
+
+  .space-y-component {
+    @apply space-y-8 md:space-y-12;
+  }
+
+  .space-y-element {
+    @apply space-y-4 md:space-y-6;
   }
 
   /* Animation delays */

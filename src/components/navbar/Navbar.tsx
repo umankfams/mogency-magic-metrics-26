@@ -40,23 +40,32 @@ const Navbar = () => {
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-32 md:h-36">
           <div className="flex-shrink-0 flex items-center">
-            <a href="#" className="font-display font-bold tracking-tight flex items-center">
-              <Logo size="xl" />
+            <a href="#" className="font-display font-bold tracking-tight flex items-center" aria-label="Mogency Home">
+              <Logo size="2xl" />
             </a>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('features')} className="text-muted-foreground hover:text-mogency-neon-blue transition-colors">
+            <button 
+              onClick={() => scrollToSection('features')} 
+              className="text-lg text-muted-foreground hover:text-mogency-neon-blue transition-colors"
+              aria-label="Go to Features section"
+            >
               Features
             </button>
-            <button onClick={() => scrollToSection('process')} className="text-muted-foreground hover:text-mogency-neon-pink transition-colors">
+            <button 
+              onClick={() => scrollToSection('process')} 
+              className="text-lg text-muted-foreground hover:text-mogency-neon-pink transition-colors"
+              aria-label="Go to Process section"
+            >
               Process
             </button>
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full"
+              className="bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full text-base"
+              aria-label="Contact Us"
             >
               <span className="text-mogency-neon-blue animate-neon-pulse">Work With Us</span>
             </Button>
@@ -66,6 +75,8 @@ const Navbar = () => {
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-mogency-neon-blue focus:outline-none"
+              aria-expanded={isOpen}
+              aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -79,15 +90,24 @@ const Navbar = () => {
         isOpen ? 'max-h-screen bg-black/90 backdrop-blur-lg shadow-lg' : 'max-h-0'
       )}>
         <div className="px-4 pt-2 pb-4 space-y-4">
-          <button onClick={() => scrollToSection('features')} className="block text-muted-foreground hover:text-mogency-neon-blue transition-colors py-2">
+          <button 
+            onClick={() => scrollToSection('features')} 
+            className="block w-full text-left text-lg text-muted-foreground hover:text-mogency-neon-blue transition-colors py-3"
+            aria-label="Go to Features section"
+          >
             Features
           </button>
-          <button onClick={() => scrollToSection('process')} className="block text-muted-foreground hover:text-mogency-neon-pink transition-colors py-2">
+          <button 
+            onClick={() => scrollToSection('process')} 
+            className="block w-full text-left text-lg text-muted-foreground hover:text-mogency-neon-pink transition-colors py-3"
+            aria-label="Go to Process section"
+          >
             Process
           </button>
           <Button 
             onClick={() => scrollToSection('contact')}
-            className="w-full bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full"
+            className="w-full bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full text-base"
+            aria-label="Contact Us"
           >
             <span className="text-mogency-neon-blue animate-neon-pulse">Work With Us</span>
           </Button>
