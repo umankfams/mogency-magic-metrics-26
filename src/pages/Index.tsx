@@ -26,11 +26,15 @@ const Index = () => {
       </div>
 
       <Navbar />
-      <main className="pt-24 md:pt-32"> {/* Added padding to prevent content from being hidden under navbar */}
+      <main className="pt-24 md:pt-32"> {/* Padding to prevent content from being hidden under navbar */}
         <Hero />
+        <div className="mt-16 md:mt-24"></div>
         <Features />
+        <div className="mt-16 md:mt-24"></div>
         <Process />
+        <div className="mt-16 md:mt-24"></div>
         <Team />
+        <div className="mt-16 md:mt-24"></div>
         <CalendarSection />
       </main>
       

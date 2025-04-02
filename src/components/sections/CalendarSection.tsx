@@ -36,7 +36,7 @@ const CalendarSection = () => {
   }, []);
 
   return (
-    <section id="contact" className="py-12 md:py-20 bg-black/50 relative overflow-hidden z-20 mt-20 md:mt-40">
+    <section id="contact" className="py-12 md:py-20 bg-black/50 relative overflow-hidden z-20">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -bottom-[20%] -right-[20%] w-[50%] h-[50%] rounded-full bg-mogency-neon-purple/10 filter blur-3xl" />
