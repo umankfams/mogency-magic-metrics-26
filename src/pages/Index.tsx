@@ -26,7 +26,7 @@ const Index = () => {
       </div>
 
       <Navbar />
-      <main>
+      <main className="pt-24 md:pt-32"> {/* Added padding to prevent content from being hidden under navbar */}
         <Hero />
         <Features />
         <Process />
@@ -34,7 +34,7 @@ const Index = () => {
         <CalendarSection />
       </main>
       
-      <footer className="bg-black/80 border-t border-mogency-neon-blue/20 py-8 relative z-10">
+      <footer className="bg-black/80 border-t border-mogency-neon-blue/20 py-8 relative z-10 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="mb-4 flex justify-center gap-6">

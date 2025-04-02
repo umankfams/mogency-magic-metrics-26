@@ -35,15 +35,15 @@ const Navbar = () => {
   return (
     <nav 
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4',
-        isScrolled ? 'blur-backdrop' : 'bg-transparent'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        isScrolled ? 'blur-backdrop py-2' : 'bg-transparent py-4'
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-32 md:h-36">
+        <div className="flex items-center justify-between h-24 md:h-28">
           <div className="flex-shrink-0 flex items-center">
             <a href="#" className="font-display font-bold tracking-tight flex items-center" aria-label="Mogency Home">
-              <Logo size="2xl" />
+              <Logo size="lg" />
             </a>
           </div>
           

@@ -27,7 +27,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <section className="relative min-h-[calc(100vh-6rem)] flex items-center justify-center pt-4 pb-12 overflow-hidden">
       {/* Background gradient elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-[30%] -left-[10%] w-[50%] h-[50%] rounded-full bg-mogency-neon-blue/20 filter blur-3xl" />

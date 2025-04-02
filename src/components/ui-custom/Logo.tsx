@@ -14,12 +14,12 @@ interface LogoProps {
  */
 const Logo = ({ size = 'md', className }: LogoProps) => {
   const sizeClasses = {
-    sm: 'h-16',
-    md: 'h-24',
-    lg: 'h-32',
-    xl: 'h-40',
-    '2xl': 'h-48',
-    '3xl': 'h-56',
+    sm: 'h-20',
+    md: 'h-28',
+    lg: 'h-36',
+    xl: 'h-44',
+    '2xl': 'h-52',
+    '3xl': 'h-64',
   };
 
   return (

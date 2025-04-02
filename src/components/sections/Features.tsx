@@ -64,9 +64,9 @@ const Features = () => {
   ];
   
   return (
-    <section id="features" className="py-20 relative overflow-hidden md:py-16">
+    <section id="features" className="py-16 md:py-20 relative overflow-hidden">
       <div id="features-section" className="section-container relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <h2 className={cn("section-title", "transform transition-all duration-700", isVisible ? "opacity-100" : "opacity-0")}>
             Why Creators <span className="text-gradient">Choose</span> Mogency
           </h2>
@@ -76,7 +76,7 @@ const Features = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {features.map((feature, index) => (
             <AnimatedCard 
               key={index} 
