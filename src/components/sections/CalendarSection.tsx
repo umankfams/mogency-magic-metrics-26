@@ -1,8 +1,11 @@
+
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Zap, Calendar, CheckCircle } from 'lucide-react';
+
 const CalendarSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -11,8 +14,10 @@ const CalendarSection = () => {
     }, {
       threshold: 0.1
     });
+    
     const element = document.getElementById('calendar-section');
     if (element) observer.observe(element);
+    
     return () => {
       if (element) observer.unobserve(element);
     };
@@ -24,18 +29,21 @@ const CalendarSection = () => {
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
     document.body.appendChild(script);
+    
     return () => {
       document.body.removeChild(script);
     };
   }, []);
-  return <section id="contact" className="py-12 md:py-20 bg-black/50 relative overflow-hidden -mt-40 md:-mt-60 z-20">
+
+  return (
+    <section id="contact" className="py-12 md:py-20 bg-black/50 relative overflow-hidden z-20 mt-20 md:mt-40">
       {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden mx-0 py-0 my-[98px]">
+      <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -bottom-[20%] -right-[20%] w-[50%] h-[50%] rounded-full bg-mogency-neon-purple/10 filter blur-3xl" />
       </div>
       
-      <div id="calendar-section" className="section-container relative z-20 max-w-7xl mx-auto sm:px-6 lg:px-8 px-[3px]">
-        <div className="text-center mb-8 my-[80px]">
+      <div id="calendar-section" className="section-container relative z-20 max-w-7xl mx-auto sm:px-6 lg:px-8 px-4">
+        <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center px-4 py-1.5 mb-4 rounded-full bg-black/50 backdrop-blur-sm border border-mogency-neon-blue/30">
             <Zap size={16} className="mr-2 text-mogency-neon-pink" />
             <span className="text-sm font-medium">Only 5 Spots Remaining This Month</span>
@@ -92,17 +100,19 @@ const CalendarSection = () => {
                 </div>
               </div>
               
-              {/* Calendly embed - increased height further to eliminate scrolling */}
-              <div className="md:col-span-8 bg-black/30 rounded-lg border border-mogency-neon-blue/20 overflow-hidden h-[850px]">
-                {/* Calendly inline widget with increased height */}
+              {/* Calendly embed - reduced height for better fit */}
+              <div className="md:col-span-8 bg-black/30 rounded-lg border border-mogency-neon-blue/20 overflow-hidden h-[700px]">
+                {/* Calendly inline widget with adjusted height */}
                 <div className="calendly-inline-widget w-full h-full" data-url="https://calendly.com/gm-agentleadlab/strategy-call" style={{
-                minWidth: '320px'
-              }}></div>
+                  minWidth: '320px'
+                }}></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default CalendarSection;
