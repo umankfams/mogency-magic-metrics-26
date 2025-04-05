@@ -13,7 +13,9 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     // Only enable component tagger in development mode
-    mode === 'development' && componentTagger(),
+    mode === 'development' && componentTagger({
+      enableEdit: true, // Explicitly enable the edit button for the latest Lovable version
+    }),
   ].filter(Boolean),
   resolve: {
     alias: {
