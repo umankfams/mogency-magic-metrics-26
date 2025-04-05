@@ -1,10 +1,15 @@
+
 import { useState, useEffect } from 'react';
 import { LightbulbIcon, Package, ShoppingBag, PiggyBank, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import ProcessStep from '../ui-custom/ProcessStep';
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
+
 const Process = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const isMobile = useIsMobile();
+
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -19,6 +24,7 @@ const Process = () => {
       if (element) observer.unobserve(element);
     };
   }, []);
+  
   const steps = [{
     number: 1,
     title: "1. Ideation",
@@ -44,6 +50,7 @@ const Process = () => {
     icon: <PiggyBank size={20} />,
     color: "from-mogency-neon-green to-mogency-neon-blue"
   }];
+  
   return <section id="process" className="py-20 bg-black/40 relative overflow-hidden z-10">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden py-0 my-0">
@@ -52,10 +59,18 @@ const Process = () => {
       
       <div id="process-section" className="section-container relative z-10">
         <div className="text-center mb-20">
-          <h2 className={cn("section-title", "transform transition-all duration-700", isVisible ? "opacity-100" : "opacity-0")}>
+          <h2 className={cn("section-title", 
+            "transform transition-all duration-700", 
+            isVisible ? "opacity-100" : "opacity-0",
+            isMobile && "text-2xl"
+          )}>
             How <span className="text-gradient">It Works</span>
           </h2>
-          <p className={cn("section-subtitle", "transform transition-all duration-700 delay-100", isVisible ? "opacity-100" : "opacity-0")}>
+          <p className={cn("section-subtitle", 
+            "transform transition-all duration-700 delay-100", 
+            isVisible ? "opacity-100" : "opacity-0",
+            isMobile && "text-sm mb-8"
+          )}>
             From idea to income in four simple steps. You keep creating amazing content while we 
             build and manage the entire revenue machine behind the scenes.
           </p>
@@ -72,4 +87,5 @@ const Process = () => {
       </div>
     </section>;
 };
+
 export default Process;

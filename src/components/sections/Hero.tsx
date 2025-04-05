@@ -43,7 +43,7 @@ const Hero = () => {
           )}>
             <h1 className={cn(
               "font-bold text-red-500",
-              isMobile ? "text-4xl" : "text-5xl md:text-6xl lg:text-7xl"
+              isMobile ? "text-3xl" : "text-5xl md:text-6xl lg:text-7xl"
             )}>
               <span className="inline-block">🚨</span> 
               <span className="bg-gradient-to-r from-red-500 via-red-400 to-orange-500 bg-clip-text text-transparent px-2">
@@ -57,7 +57,8 @@ const Hero = () => {
           <h2 className={cn(
             "section-title max-w-4xl mb-6",
             "transform opacity-0 transition-all duration-700 delay-300",
-            isLoaded && "opacity-100"
+            isLoaded && "opacity-100",
+            isMobile && "text-2xl px-2"
           )}>
             You're Sitting on a <span className="neon-text-pink">Goldmine</span> — But Have 
             <span className="bg-neon-gradient bg-clip-text text-transparent ml-2 animate-neon-pulse"> Nothing to Sell</span>
@@ -65,9 +66,10 @@ const Hero = () => {
           
           {/* Subtitle */}
           <p className={cn(
-            "text-xl text-muted-foreground max-w-2xl mb-6",
+            "text-muted-foreground max-w-2xl mb-6",
             "transform opacity-0 transition-all duration-700 delay-400",
-            isLoaded && "opacity-100"
+            isLoaded && "opacity-100",
+            isMobile ? "text-base px-2" : "text-xl"
           )}>
             You've got content. An audience. Authority.
             <br className="hidden sm:block" />
@@ -84,13 +86,13 @@ const Hero = () => {
               size={isMobile ? "default" : "lg"}
               className={cn(
                 "bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon rounded-full px-8",
-                isMobile && "w-full py-6 text-base sm:text-lg"
+                isMobile && "w-full py-4 text-sm"
               )}
               onClick={scrollToBookCall}
             >
-              <Zap className="mr-2" size={isMobile ? 16 : 18} />
+              <Zap className="mr-2" size={isMobile ? 14 : 18} />
               <span>Let's Fix That – Book a Free Call</span>
-              <ArrowRight className="ml-2" size={isMobile ? 14 : 16} />
+              <ArrowRight className="ml-2" size={isMobile ? 12 : 16} />
             </Button>
           </div>
           
@@ -100,7 +102,11 @@ const Hero = () => {
             "transform opacity-0 transition-all duration-700 delay-600",
             isLoaded && "opacity-100"
           )}>
-            <p className="text-sm text-mogency-neon-pink font-medium">
+            <p className={cn(
+              "font-medium",
+              isMobile ? "text-xs" : "text-sm",
+              "text-mogency-neon-pink"
+            )}>
               ⚠️ Limited spots available this month — we only work with a few creators at a time
             </p>
           </div>
