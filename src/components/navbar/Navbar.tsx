@@ -50,9 +50,9 @@ const Navbar = () => {
     }
   };
 
-  // Handle scroll to sections based on navbar items
+  // Updated navigation items with correct section IDs
   const navItems = [
-    { id: 'features', label: 'Features' },
+    { id: 'solution', label: 'Features' },
     { id: 'process', label: 'Process' },
     { id: 'book-call', label: 'Work With Us', isButton: true }
   ];
@@ -65,7 +65,7 @@ const Navbar = () => {
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex-shrink-0 flex items-center">
             <a 
               href="#" 

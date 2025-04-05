@@ -31,25 +31,25 @@ const Index = () => {
       </div>
 
       <Navbar />
-      <main className="pt-24 md:pt-32"> {/* Padding to prevent content from being hidden under navbar */}
+      <main className="pt-20 md:pt-24 lg:pt-32"> {/* Adjusted padding top for mobile */}
         <Hero />
-        <div className="mt-16 md:mt-24"></div>
+        <div className="mt-12 md:mt-16 lg:mt-24"></div>
         <Problem />
-        <div className="mt-16 md:mt-24"></div>
-        <Solution />
-        <div className="mt-16 md:mt-24"></div>
+        <div className="mt-12 md:mt-16 lg:mt-24"></div>
+        <Solution id="solution" />
+        <div className="mt-12 md:mt-16 lg:mt-24"></div>
         <Examples />
-        <div className="mt-16 md:mt-24"></div>
+        <div className="mt-12 md:mt-16 lg:mt-24"></div>
         <Products />
-        <div className="mt-16 md:mt-24"></div>
+        <div className="mt-12 md:mt-16 lg:mt-24"></div>
         <Process />
-        <div className="mt-16 md:mt-24"></div>
+        <div className="mt-12 md:mt-16 lg:mt-24"></div>
         <WhyMogency />
-        <div className="mt-16 md:mt-24"></div>
+        <div className="mt-12 md:mt-16 lg:mt-24"></div>
         <FAQ />
-        <div className="mt-16 md:mt-24"></div>
+        <div className="mt-12 md:mt-16 lg:mt-24"></div>
         <BookCallSection />
-        <div className="mt-16 md:mt-24"></div>
+        <div className="mt-12 md:mt-16 lg:mt-24"></div>
       </main>
       
       <Footer />

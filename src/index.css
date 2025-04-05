@@ -44,6 +44,8 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
@@ -51,32 +53,33 @@
     background-color: #000000;
   }
 
+  /* Mobile responsive typography */
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight;
   }
 
   h3 {
-    @apply text-2xl md:text-3xl font-display font-bold tracking-tight;
+    @apply text-xl sm:text-2xl md:text-3xl font-display font-bold tracking-tight;
   }
 
   h4 {
-    @apply text-xl md:text-2xl font-display font-medium tracking-tight;
+    @apply text-lg sm:text-xl md:text-2xl font-display font-medium tracking-tight;
   }
 
   h5 {
-    @apply text-lg md:text-xl font-display font-medium;
+    @apply text-base sm:text-lg md:text-xl font-display font-medium;
   }
 
   h6 {
-    @apply text-base md:text-lg font-display font-medium;
+    @apply text-sm sm:text-base md:text-lg font-display font-medium;
   }
 
   p {
-    @apply text-base md:text-lg leading-relaxed;
+    @apply text-sm sm:text-base md:text-lg leading-relaxed;
   }
 
   .blur-backdrop {
@@ -91,76 +94,123 @@
     @apply bg-black/80 backdrop-blur-md shadow-card border border-white/5 rounded-xl transition-all duration-300;
   }
 
+  /* Adjusted container spacing for mobile */
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-28;
   }
 
   .section-title {
-    @apply text-4xl md:text-5xl font-display font-bold mb-4 tracking-tight;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 tracking-tight;
   }
 
   .section-subtitle {
-    @apply text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12;
+    @apply text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-12;
   }
 
-  /* Enhanced Neon text effect */
+  /* Enhanced Neon text effect - optimized for mobile */
   .neon-text {
     @apply text-white;
-    text-shadow: 0 0 5px theme('colors.mogency.neon.blue'), 
-                 0 0 10px theme('colors.mogency.neon.blue'),
-                 0 0 20px theme('colors.mogency.neon.blue'),
-                 0 0 30px theme('colors.mogency.neon.blue');
+    text-shadow: 0 0 3px theme('colors.mogency.neon.blue'), 
+                 0 0 5px theme('colors.mogency.neon.blue'),
+                 0 0 10px theme('colors.mogency.neon.blue');
+  }
+
+  @media (min-width: 768px) {
+    .neon-text {
+      text-shadow: 0 0 5px theme('colors.mogency.neon.blue'), 
+                   0 0 10px theme('colors.mogency.neon.blue'),
+                   0 0 20px theme('colors.mogency.neon.blue'),
+                   0 0 30px theme('colors.mogency.neon.blue');
+    }
   }
 
   .neon-text-pink {
     @apply text-white;
-    text-shadow: 0 0 5px theme('colors.mogency.neon.pink'), 
-                 0 0 10px theme('colors.mogency.neon.pink'),
-                 0 0 20px theme('colors.mogency.neon.pink'),
-                 0 0 30px theme('colors.mogency.neon.pink');
+    text-shadow: 0 0 3px theme('colors.mogency.neon.pink'), 
+                 0 0 5px theme('colors.mogency.neon.pink'),
+                 0 0 10px theme('colors.mogency.neon.pink');
+  }
+
+  @media (min-width: 768px) {
+    .neon-text-pink {
+      text-shadow: 0 0 5px theme('colors.mogency.neon.pink'), 
+                   0 0 10px theme('colors.mogency.neon.pink'),
+                   0 0 20px theme('colors.mogency.neon.pink'),
+                   0 0 30px theme('colors.mogency.neon.pink');
+    }
   }
 
   .neon-text-purple {
     @apply text-white;
-    text-shadow: 0 0 5px theme('colors.mogency.neon.purple'), 
-                 0 0 10px theme('colors.mogency.neon.purple'),
-                 0 0 20px theme('colors.mogency.neon.purple'),
-                 0 0 30px theme('colors.mogency.neon.purple');
+    text-shadow: 0 0 3px theme('colors.mogency.neon.purple'), 
+                 0 0 5px theme('colors.mogency.neon.purple'),
+                 0 0 10px theme('colors.mogency.neon.purple');
+  }
+
+  @media (min-width: 768px) {
+    .neon-text-purple {
+      text-shadow: 0 0 5px theme('colors.mogency.neon.purple'), 
+                   0 0 10px theme('colors.mogency.neon.purple'),
+                   0 0 20px theme('colors.mogency.neon.purple'),
+                   0 0 30px theme('colors.mogency.neon.purple');
+    }
   }
 
   .neon-text-green {
     @apply text-white;
-    text-shadow: 0 0 5px theme('colors.mogency.neon.green'), 
-                 0 0 10px theme('colors.mogency.neon.green'),
-                 0 0 20px theme('colors.mogency.neon.green'),
-                 0 0 30px theme('colors.mogency.neon.green');
+    text-shadow: 0 0 3px theme('colors.mogency.neon.green'), 
+                 0 0 5px theme('colors.mogency.neon.green'),
+                 0 0 10px theme('colors.mogency.neon.green');
+  }
+
+  @media (min-width: 768px) {
+    .neon-text-green {
+      text-shadow: 0 0 5px theme('colors.mogency.neon.green'), 
+                   0 0 10px theme('colors.mogency.neon.green'),
+                   0 0 20px theme('colors.mogency.neon.green'),
+                   0 0 30px theme('colors.mogency.neon.green');
+    }
   }
 
   .neon-border {
     @apply border border-mogency-neon-blue rounded-xl;
-    box-shadow: 0 0 5px theme('colors.mogency.neon.blue'), 
-                0 0 10px theme('colors.mogency.neon.blue'),
-                0 0 15px theme('colors.mogency.neon.blue');
+    box-shadow: 0 0 3px theme('colors.mogency.neon.blue'), 
+                0 0 5px theme('colors.mogency.neon.blue');
+  }
+
+  @media (min-width: 768px) {
+    .neon-border {
+      box-shadow: 0 0 5px theme('colors.mogency.neon.blue'), 
+                  0 0 10px theme('colors.mogency.neon.blue'),
+                  0 0 15px theme('colors.mogency.neon.blue');
+    }
   }
 
   .neon-border-pink {
     @apply border border-mogency-neon-pink rounded-xl;
-    box-shadow: 0 0 5px theme('colors.mogency.neon.pink'), 
-                0 0 10px theme('colors.mogency.neon.pink'),
-                0 0 15px theme('colors.mogency.neon.pink');
+    box-shadow: 0 0 3px theme('colors.mogency.neon.pink'), 
+                0 0 5px theme('colors.mogency.neon.pink');
   }
 
-  /* Consistent spacing classes */
+  @media (min-width: 768px) {
+    .neon-border-pink {
+      box-shadow: 0 0 5px theme('colors.mogency.neon.pink'), 
+                  0 0 10px theme('colors.mogency.neon.pink'),
+                  0 0 15px theme('colors.mogency.neon.pink');
+    }
+  }
+
+  /* Consistent spacing classes - adjusted for mobile */
   .space-y-section {
-    @apply space-y-16 md:space-y-24 lg:space-y-32;
+    @apply space-y-12 md:space-y-16 lg:space-y-24 xl:space-y-32;
   }
 
   .space-y-component {
-    @apply space-y-8 md:space-y-12;
+    @apply space-y-6 md:space-y-8 lg:space-y-12;
   }
 
   .space-y-element {
-    @apply space-y-4 md:space-y-6;
+    @apply space-y-3 md:space-y-4 lg:space-y-6;
   }
 
   /* Animation delays */
@@ -211,8 +261,8 @@
 
 @keyframes neon-flicker {
   0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    filter: drop-shadow(0 0 10px theme('colors.mogency.neon.blue')) 
-           drop-shadow(0 0 20px theme('colors.mogency.neon.blue'));
+    filter: drop-shadow(0 0 5px theme('colors.mogency.neon.blue')) 
+           drop-shadow(0 0 10px theme('colors.mogency.neon.blue'));
   }
   20%, 24%, 55% {
     filter: none;
@@ -221,4 +271,26 @@
 
 .flicker-neon {
   animation: neon-flicker 5s infinite alternate;
+}
+
+/* Mobile-specific animations - reduced intensity */
+@media (max-width: 767px) {
+  @keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      filter: drop-shadow(0 0 3px theme('colors.mogency.neon.blue')) 
+             drop-shadow(0 0 5px theme('colors.mogency.neon.blue'));
+    }
+    20%, 24%, 55% {
+      filter: none;
+    }
+  }
+  
+  @keyframes subtle-bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+  }
 }

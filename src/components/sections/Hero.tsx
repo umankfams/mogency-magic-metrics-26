@@ -27,7 +27,7 @@ const Hero = () => {
         <div className="flex flex-col items-center text-center">
           {/* Platform badges */}
           <div className={cn(
-            "flex flex-wrap justify-center gap-3 items-center mb-8",
+            "flex flex-wrap justify-center gap-3 items-center mb-6 md:mb-8",
             "transform opacity-0 transition-all duration-700",
             isLoaded && "opacity-100"
           )}>
@@ -38,12 +38,12 @@ const Hero = () => {
           
           {/* Main headline - Updated with attention-grabbing design */}
           <div className={cn(
-            "mb-6 transform opacity-0 transition-all duration-700 delay-200",
+            "mb-4 md:mb-6 transform opacity-0 transition-all duration-700 delay-200",
             isLoaded && "opacity-100 animate-subtle-bounce"
           )}>
             <h1 className={cn(
               "font-bold text-red-500",
-              isMobile ? "text-4xl" : "text-5xl md:text-6xl lg:text-7xl"
+              "text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
             )}>
               <span className="inline-block">🚨</span> 
               <span className="bg-gradient-to-r from-red-500 via-red-400 to-orange-500 bg-clip-text text-transparent px-2">
@@ -55,7 +55,8 @@ const Hero = () => {
           
           {/* Subheadline */}
           <h2 className={cn(
-            "section-title max-w-4xl mb-6",
+            "mb-4 md:mb-6 font-display font-bold",
+            "text-2xl sm:text-3xl md:text-4xl lg:text-5xl",
             "transform opacity-0 transition-all duration-700 delay-300",
             isLoaded && "opacity-100"
           )}>
@@ -65,7 +66,7 @@ const Hero = () => {
           
           {/* Subtitle */}
           <p className={cn(
-            "text-xl text-muted-foreground max-w-2xl mb-6",
+            "text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-6",
             "transform opacity-0 transition-all duration-700 delay-400",
             isLoaded && "opacity-100"
           )}>
@@ -76,15 +77,16 @@ const Hero = () => {
           
           {/* CTA button */}
           <div className={cn(
-            "flex flex-col sm:flex-row gap-4 mb-16 w-full sm:w-auto",
+            "flex flex-col sm:flex-row gap-4 mb-12 md:mb-16 w-full sm:w-auto",
             "transform opacity-0 transition-all duration-700 delay-500",
             isLoaded && "opacity-100"
           )}>
             <Button 
               size={isMobile ? "default" : "lg"}
               className={cn(
-                "bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon rounded-full px-8",
-                isMobile && "w-full py-6 text-base sm:text-lg"
+                "bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon rounded-full",
+                "px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg",
+                isMobile && "w-full"
               )}
               onClick={scrollToBookCall}
             >
@@ -96,7 +98,7 @@ const Hero = () => {
           
           {/* Limited spots notice */}
           <div className={cn(
-            "px-4 py-2 rounded-lg bg-black/50 border border-mogency-neon-pink/30 mb-8",
+            "px-4 py-2 rounded-lg bg-black/50 border border-mogency-neon-pink/30 mb-6 sm:mb-8",
             "transform opacity-0 transition-all duration-700 delay-600",
             isLoaded && "opacity-100"
           )}>
