@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { CheckCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const CreatorExample = ({ 
   name, 
@@ -15,34 +16,38 @@ const CreatorExample = ({
   delay?: number
 }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const isMobile = useIsMobile();
   
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), delay);
+    // Reduce animation delays on mobile for better UX
+    const adjustedDelay = isMobile ? delay * 0.5 : delay;
+    const timer = setTimeout(() => setIsVisible(true), adjustedDelay);
     return () => clearTimeout(timer);
-  }, [delay]);
+  }, [delay, isMobile]);
   
   return (
     <div className={cn(
-      "card-glass p-6 transition-all duration-500",
+      "card-glass p-4 sm:p-5 md:p-6 transition-all duration-500",
       "transform opacity-0 translate-y-8",
       isVisible && "opacity-100 translate-y-0 hover:translate-y-[-5px]"
     )}>
-      <div className="flex items-center gap-4 mb-4">
-        <div className="w-16 h-16 rounded-full overflow-hidden bg-black/50">
+      <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+        <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden bg-black/50 border border-white/10">
           <img 
             src={image} 
             alt={name} 
             className="w-full h-full object-cover"
+            loading="lazy"
           />
         </div>
-        <h3 className="text-xl font-bold">{name}</h3>
+        <h3 className="text-lg sm:text-xl font-bold">{name}</h3>
       </div>
       
-      <ul className="space-y-3">
+      <ul className="space-y-2 sm:space-y-3">
         {achievements.map((achievement, index) => (
-          <li key={index} className="flex gap-2">
-            <CheckCircle className="shrink-0 w-5 h-5 text-mogency-neon-green mt-0.5" />
-            <span className="text-muted-foreground">{achievement}</span>
+          <li key={index} className="flex gap-2 items-start">
+            <CheckCircle className="shrink-0 w-4 h-4 sm:w-5 sm:h-5 text-mogency-neon-green mt-0.5" />
+            <span className="text-sm sm:text-base text-muted-foreground">{achievement}</span>
           </li>
         ))}
       </ul>
@@ -53,6 +58,7 @@ const CreatorExample = ({
 const Examples = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -61,7 +67,8 @@ const Examples = () => {
           setIsIntersecting(true);
         }
       },
-      { threshold: 0.1 }
+      // Lower threshold for mobile to trigger animations earlier
+      { threshold: isMobile ? 0.05 : 0.1 }
     );
 
     if (sectionRef.current) {
@@ -73,20 +80,30 @@ const Examples = () => {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+  }, [isMobile]);
 
   return (
-    <section id="examples" className="py-16 relative" ref={sectionRef}>
+    <section id="examples" className="py-12 md:py-16 lg:py-20 relative" ref={sectionRef}>
       <div className="section-container">
-        <h2 className={cn(
-          "section-title text-center mb-4 transition-all duration-500",
-          "opacity-0 translate-y-4",
-          isIntersecting && "opacity-100 translate-y-0"
-        )}>
-          Real Creators. Real Results. <span className="text-mogency-neon-blue">Same Strategy.</span>
-        </h2>
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className={cn(
+            "section-title mb-3 md:mb-4 transition-all duration-500",
+            "opacity-0 translate-y-4",
+            isIntersecting && "opacity-100 translate-y-0"
+          )}>
+            Real Creators. Real Results. <span className="text-mogency-neon-blue">Same Strategy.</span>
+          </h2>
+          
+          <p className={cn(
+            "section-subtitle max-w-2xl mx-auto",
+            "opacity-0 translate-y-4 transition-all duration-500 delay-100",
+            isIntersecting && "opacity-100 translate-y-0"
+          )}>
+            Creators who transformed their audiences into sustainable revenue streams
+          </p>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
           <CreatorExample 
             name="Matthew Hussey"
             image="/lovable-uploads/48c4203b-a70f-46eb-8974-dbb32448228d.png"
@@ -95,7 +112,7 @@ const Examples = () => {
               "Grew email list to over 500,000 subscribers",
               "Launched a $2,000+ coaching program that generates 6-figure months"
             ]}
-            delay={200}
+            delay={150}
           />
           
           <CreatorExample 
@@ -106,7 +123,7 @@ const Examples = () => {
               "Sold over 1 million copies of her books",
               "Created a $5K online course and monthly paid membership"
             ]}
-            delay={400}
+            delay={250}
           />
           
           <CreatorExample 
@@ -117,7 +134,7 @@ const Examples = () => {
               "Launched a $1,500+ online course",
               "Runs a successful certification program for coaches"
             ]}
-            delay={600}
+            delay={350}
           />
           
           <CreatorExample 
@@ -128,12 +145,12 @@ const Examples = () => {
               "Grew audience to over 1 million across social platforms",
               "Launched $500 group coaching programs and $3K+ mentorship offers"
             ]}
-            delay={800}
+            delay={450}
           />
         </div>
         
         <p className={cn(
-          "text-center mt-12 text-xl font-medium transition-all duration-500 delay-1000",
+          "text-center mt-8 sm:mt-10 md:mt-12 text-lg sm:text-xl font-medium transition-all duration-500 delay-500",
           "opacity-0",
           isIntersecting && "opacity-100"
         )}>
