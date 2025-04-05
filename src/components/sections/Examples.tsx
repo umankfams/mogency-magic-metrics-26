@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const CreatorExample = ({ 
   name, 
@@ -35,12 +36,15 @@ const CreatorExample = ({
     )}>
       <CardContent className="p-4 sm:p-5 md:p-6">
         <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5">
-          <Avatar className="w-12 h-12 sm:w-16 sm:h-16 border-2 border-white/10 ring-2 ring-mogency-neon-blue/20">
-            <AvatarImage src={image} alt={name} />
-            <AvatarFallback className="bg-black/50 text-mogency-neon-blue">
-              {name.charAt(0)}
-            </AvatarFallback>
-          </Avatar>
+          <div className="w-12 h-12 sm:w-16 sm:h-16 relative rounded-full border-2 border-white/10 ring-2 ring-mogency-neon-blue/20 overflow-hidden">
+            <AspectRatio ratio={1} className="h-full w-full">
+              <img 
+                src={image} 
+                alt={name} 
+                className="object-cover h-full w-full"
+              />
+            </AspectRatio>
+          </div>
           <h3 className="text-lg sm:text-xl font-bold">{name}</h3>
         </div>
         
