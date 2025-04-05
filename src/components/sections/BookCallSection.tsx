@@ -1,55 +1,15 @@
 
 import { useState, useEffect, useRef } from 'react';
-import { CalendarDays, ArrowRight, Check, Loader2 } from 'lucide-react';
+import { CalendarDays, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { toast } from "@/hooks/use-toast";
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
-
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  platform: z.string().min(2, {
-    message: "Please let us know which platform you create content on.",
-  }),
-  message: z.string().optional(),
-});
 
 const BookCallSection = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [showThankYou, setShowThankYou] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      platform: "",
-      message: "",
-    },
-  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -72,38 +32,7 @@ const BookCallSection = () => {
     };
   }, []);
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    setIsSubmitting(true);
-    
-    // Simulate form submission 
-    console.log("Form submitted with values:", values);
-    
-    try {
-      // This would normally be a real API call to send the data
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setIsSuccess(true);
-      setShowThankYou(true);
-      
-      toast({
-        title: "Request received!",
-        description: "We'll reach out to schedule your call shortly.",
-      });
-      
-      form.reset();
-    } catch (error) {
-      toast({
-        title: "Something went wrong.",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  // Calendly popup handler
   const openCalendly = () => {
-    // This would typically open your Calendly scheduling page
     window.open("https://calendly.com/your-calendly-link", "_blank");
   };
 
@@ -171,124 +100,40 @@ const BookCallSection = () => {
               </div>
             </div>
             
-            {/* Right column - Form */}
+            {/* Right column - Calendly Button */}
             <div className={cn(
               "transition-all duration-500 delay-200",
               "opacity-0 translate-y-4",
-              isIntersecting && "opacity-100 translate-y-0"
+              isIntersecting && "opacity-100 translate-y-0",
+              "flex flex-col justify-center items-center"
             )}>
-              {!showThankYou ? (
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Name</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Your name" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Email</FormLabel>
-                          <FormControl>
-                            <Input placeholder="your.email@example.com" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="platform"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Content Platform</FormLabel>
-                          <FormControl>
-                            <Input placeholder="YouTube, Instagram, TikTok, etc." {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Message (optional)</FormLabel>
-                          <FormControl>
-                            <Textarea 
-                              placeholder="Tell us about your audience size, content niche, and what you're hoping to achieve"
-                              className="resize-none"
-                              rows={4}
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <Button 
-                      type="submit"
-                      className={cn(
-                        "w-full bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon rounded-full mt-6",
-                        "text-sm sm:text-base",
-                        "px-5 sm:px-6 py-4 sm:py-5"
-                      )}
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          <span>Processing...</span>
-                        </>
-                      ) : (
-                        <>
-                          <CalendarDays className="mr-2" size={isMobile ? 16 : 20} />
-                          <span>Request Your Free Strategy Call</span>
-                          <ArrowRight className="ml-2" size={isMobile ? 14 : 18} />
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                </Form>
-              ) : (
-                <div className={cn(
-                  "flex flex-col items-center justify-center h-full text-center p-6 space-y-4",
-                  "animate-scale-in"
-                )}>
-                  <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-2">
-                    <Check className="h-8 w-8 text-green-500" />
-                  </div>
-                  <h3 className="text-xl font-medium">Thanks for reaching out!</h3>
-                  <p className="text-muted-foreground text-sm">
-                    We've received your request and will get back to you within 24 hours to schedule your call.
-                  </p>
-                  <Button 
-                    className="bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon rounded-full mt-4"
-                    onClick={() => setShowThankYou(false)}
-                  >
-                    Submit Another Request
-                  </Button>
+              <div className="text-center space-y-6 max-w-md mx-auto">
+                <div className="w-16 h-16 rounded-full bg-mogency-neon-blue/20 flex items-center justify-center mx-auto mb-4">
+                  <CalendarDays className="h-8 w-8 text-mogency-neon-blue" />
                 </div>
-              )}
-              
-              <p className={cn(
-                "text-xs sm:text-sm text-center text-muted-foreground mt-4",
-                !showThankYou && "opacity-60"
-              )}>
-                It's free. If you don't love the plan, no hard feelings.
-              </p>
+                
+                <h3 className="text-xl font-medium">Ready to grow your audience revenue?</h3>
+                <p className="text-muted-foreground text-sm">
+                  Schedule a free 30-minute call with our team to discuss your content strategy and monetization options.
+                </p>
+                
+                <Button 
+                  onClick={openCalendly}
+                  className={cn(
+                    "w-full bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon rounded-full mt-4",
+                    "text-sm sm:text-base",
+                    "px-5 sm:px-6 py-4 sm:py-5"
+                  )}
+                >
+                  <CalendarDays className="mr-2" size={isMobile ? 16 : 20} />
+                  <span>Schedule Your Free Strategy Call</span>
+                  <ArrowRight className="ml-2" size={isMobile ? 14 : 18} />
+                </Button>
+                
+                <p className="text-xs text-center text-muted-foreground opacity-60 pt-4">
+                  30 minutes. Zero obligation. Completely free.
+                </p>
+              </div>
             </div>
           </div>
         </div>
