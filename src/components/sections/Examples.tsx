@@ -122,7 +122,7 @@ const Examples = () => {
           
           <CreatorExample 
             name="Mel Robbins"
-            image="/lovable-uploads/74dab9ac-82a4-44bd-a837-8278c6bc8b50.png"
+            image="/lovable-uploads/a4df2000-6f3e-4df0-8f25-aac2aea81ce5.png"
             achievements={[
               "From a 10-minute TED Talk to creating an 8-figure digital product empire",
               "Sold over 1 million copies of her books",
