@@ -1,9 +1,11 @@
+
 import { useState, useEffect } from 'react';
-import { Menu, X, CalendarDays } from 'lucide-react';
+import { CalendarDays } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import Logo from '@/components/ui-custom/Logo';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 declare global {
   interface Window {
@@ -12,12 +14,9 @@ declare global {
 }
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [calendlyLoaded, setCalendlyLoaded] = useState(false);
   const isMobile = useIsMobile();
-
-  const toggleMenu = () => setIsOpen(!isOpen);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,7 +61,6 @@ const Navbar = () => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
     }
   };
 
@@ -101,46 +99,16 @@ const Navbar = () => {
           </div>
           
           <div className="md:hidden">
-            <button
-              onClick={toggleMenu}
-              className="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-mogency-neon-blue focus:outline-none"
-              aria-expanded={isOpen}
-              aria-label="Toggle menu"
+            <Button 
+              onClick={openCalendly}
+              className="bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full"
+              aria-label="Schedule a free strategy call on mobile"
+              size="sm"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+              <CalendarDays className="h-4 w-4 mr-1" />
+              <span className="text-mogency-neon-blue animate-neon-pulse text-xs">Book Call</span>
+            </Button>
           </div>
-        </div>
-      </div>
-
-      <div className={cn(
-        'md:hidden transition-all duration-300 overflow-hidden mobile-menu-container',
-        isOpen ? 'max-h-screen bg-black/90 backdrop-blur-lg shadow-lg' : 'max-h-0'
-      )}>
-        <div className="px-4 pt-2 pb-6 space-y-6">
-          <Button 
-            onClick={openCalendly}
-            className="w-full bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full text-base py-6"
-            aria-label="Schedule a free strategy call on mobile"
-          >
-            <CalendarDays className="mr-2 h-4 w-4" />
-            <span className="text-mogency-neon-blue animate-neon-pulse">Schedule Your Free Strategy Call</span>
-          </Button>
-          
-          <button 
-            onClick={() => scrollToSection('solution')} 
-            className="block w-full text-left text-lg text-muted-foreground hover:text-mogency-neon-blue transition-colors py-4"
-            aria-label="Go to Features section on mobile"
-          >
-            Features
-          </button>
-          <button 
-            onClick={() => scrollToSection('process')} 
-            className="block w-full text-left text-lg text-muted-foreground hover:text-mogency-neon-blue transition-colors py-4"
-            aria-label="Go to Process section on mobile"
-          >
-            Process
-          </button>
         </div>
       </div>
     </nav>
