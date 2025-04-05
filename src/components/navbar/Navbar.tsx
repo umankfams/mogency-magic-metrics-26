@@ -1,14 +1,20 @@
-
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, CalendarDays } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import Logo from '@/components/ui-custom/Logo';
 import { useIsMobile } from '@/hooks/use-mobile';
 
+declare global {
+  interface Window {
+    Calendly?: any;
+  }
+}
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [calendlyLoaded, setCalendlyLoaded] = useState(false);
   const isMobile = useIsMobile();
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -23,25 +29,35 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    script.onload = () => setCalendlyLoaded(true);
+    document.body.appendChild(script);
+
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://assets.calendly.com/assets/external/widget.css';
+    document.head.appendChild(link);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.removeChild(script);
+      document.head.removeChild(link);
+    };
   }, []);
 
-  // Close menu when user clicks outside
-  useEffect(() => {
-    if (!isOpen) return;
-    
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (!target.closest('.mobile-menu-container') && !target.closest('.mobile-menu-button')) {
-        setIsOpen(false);
-      }
-    };
+  const openCalendly = () => {
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/mogency-mo/strategy-call'
+      });
+    } else {
+      window.open('https://calendly.com/mogency-mo/strategy-call', '_blank');
+    }
+  };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isOpen]);
-
-  // Close mobile menu when a section is clicked
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -49,13 +65,6 @@ const Navbar = () => {
       setIsOpen(false);
     }
   };
-
-  // Updated navigation items with correct section IDs
-  const navItems = [
-    { id: 'solution', label: 'Features' },
-    { id: 'process', label: 'Process' },
-    { id: 'book-call', label: 'Work With Us', isButton: true }
-  ];
 
   return (
     <nav 
@@ -80,32 +89,17 @@ const Navbar = () => {
             </a>
           </div>
           
-          {/* Desktop menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              item.isButton ? (
-                <Button 
-                  key={index}
-                  onClick={() => scrollToSection(item.id)}
-                  className="bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full text-base"
-                  aria-label={`Go to ${item.label} section`}
-                >
-                  <span className="text-mogency-neon-blue animate-neon-pulse">{item.label}</span>
-                </Button>
-              ) : (
-                <button 
-                  key={index}
-                  onClick={() => scrollToSection(item.id)} 
-                  className="text-lg text-muted-foreground hover:text-mogency-neon-blue transition-colors"
-                  aria-label={`Go to ${item.label} section`}
-                >
-                  {item.label}
-                </button>
-              )
-            ))}
+          <div className="hidden md:flex items-center">
+            <Button 
+              onClick={openCalendly}
+              className="bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full"
+              aria-label="Schedule a free strategy call"
+            >
+              <CalendarDays className="mr-2 h-4 w-4" />
+              <span className="text-mogency-neon-blue animate-neon-pulse">Schedule Your Free Strategy Call</span>
+            </Button>
           </div>
           
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
@@ -119,33 +113,34 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <div className={cn(
         'md:hidden transition-all duration-300 overflow-hidden mobile-menu-container',
         isOpen ? 'max-h-screen bg-black/90 backdrop-blur-lg shadow-lg' : 'max-h-0'
       )}>
         <div className="px-4 pt-2 pb-6 space-y-6">
-          {navItems.map((item, index) => (
-            item.isButton ? (
-              <Button 
-                key={index}
-                onClick={() => scrollToSection(item.id)}
-                className="w-full bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full text-base py-6"
-                aria-label={`Go to ${item.label} section on mobile`}
-              >
-                <span className="text-mogency-neon-blue animate-neon-pulse">{item.label}</span>
-              </Button>
-            ) : (
-              <button 
-                key={index}
-                onClick={() => scrollToSection(item.id)} 
-                className="block w-full text-left text-lg text-muted-foreground hover:text-mogency-neon-blue transition-colors py-4"
-                aria-label={`Go to ${item.label} section on mobile`}
-              >
-                {item.label}
-              </button>
-            )
-          ))}
+          <Button 
+            onClick={openCalendly}
+            className="w-full bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full text-base py-6"
+            aria-label="Schedule a free strategy call on mobile"
+          >
+            <CalendarDays className="mr-2 h-4 w-4" />
+            <span className="text-mogency-neon-blue animate-neon-pulse">Schedule Your Free Strategy Call</span>
+          </Button>
+          
+          <button 
+            onClick={() => scrollToSection('solution')} 
+            className="block w-full text-left text-lg text-muted-foreground hover:text-mogency-neon-blue transition-colors py-4"
+            aria-label="Go to Features section on mobile"
+          >
+            Features
+          </button>
+          <button 
+            onClick={() => scrollToSection('process')} 
+            className="block w-full text-left text-lg text-muted-foreground hover:text-mogency-neon-blue transition-colors py-4"
+            aria-label="Go to Process section on mobile"
+          >
+            Process
+          </button>
         </div>
       </div>
     </nav>
