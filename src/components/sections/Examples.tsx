@@ -133,7 +133,7 @@ const Examples = () => {
           
           <CreatorExample 
             name="Jay Shetty"
-            image="/lovable-uploads/0c133f91-ba8e-499e-b896-fde994c25841.png"
+            image="/lovable-uploads/072e9d74-94dd-4e1e-9387-81f390316f71.png"
             achievements={[
               "Turned viral videos into a $10M+ media business",
               "Launched a $1,500+ online course",
