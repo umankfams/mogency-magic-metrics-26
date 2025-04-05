@@ -48,7 +48,7 @@ const BookCallSection = () => {
     <section id="book-call" className="py-12 md:py-24" ref={sectionRef}>
       <div className="section-container">
         <div className="card-glass p-6 md:p-12 max-w-4xl mx-auto border border-mogency-neon-blue/30 shadow-[0_0_30px_rgba(14,165,233,0.2)]">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left column - Info */}
             <div className={cn(
               "transition-all duration-500 delay-100",
@@ -64,28 +64,28 @@ const BookCallSection = () => {
                   We only take on a few creators at a time. Let's chat about your audience, content, and how we can help you monetize effectively.
                 </p>
                 
-                <div className="flex items-start space-x-3 border-l-2 border-mogency-neon-blue pl-4">
+                <div className="flex items-start space-x-3 border-l-2 border-mogency-neon-blue pl-4 py-1">
                   <div>
                     <h4 className="font-medium text-sm sm:text-base">No pitch. No pressure.</h4>
                     <p className="text-xs sm:text-sm text-muted-foreground">Just an honest conversation about your goals and how we might help.</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-3 border-l-2 border-mogency-neon-pink pl-4">
+                <div className="flex items-start space-x-3 border-l-2 border-mogency-neon-pink pl-4 py-1">
                   <div>
                     <h4 className="font-medium text-sm sm:text-base">Custom strategy for your audience</h4>
                     <p className="text-xs sm:text-sm text-muted-foreground">We'll analyze your audience and content to find the best monetization approach.</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-3 border-l-2 border-mogency-neon-purple pl-4">
+                <div className="flex items-start space-x-3 border-l-2 border-mogency-neon-purple pl-4 py-1">
                   <div>
                     <h4 className="font-medium text-sm sm:text-base">Clear next steps</h4>
                     <p className="text-xs sm:text-sm text-muted-foreground">You'll leave with actionable ideas whether you work with us or not.</p>
                   </div>
                 </div>
 
-                <div className="hidden md:block pt-4">
+                <div className="hidden md:block pt-2">
                   <Popover>
                     <PopoverTrigger asChild>
                       <button className="text-sm text-mogency-neon-blue hover:underline">
@@ -113,24 +113,26 @@ const BookCallSection = () => {
               "transition-all duration-500 delay-200",
               "opacity-0 translate-y-4",
               isIntersecting && "opacity-100 translate-y-0",
-              "flex flex-col justify-center items-center"
+              "flex flex-col justify-center"
             )}>
-              <div className="text-center space-y-6 max-w-md mx-auto">
-                <div className="w-16 h-16 rounded-full bg-mogency-neon-blue/20 flex items-center justify-center mx-auto mb-4">
+              <div className="text-center space-y-5 max-w-sm mx-auto">
+                <div className="w-16 h-16 rounded-full bg-mogency-neon-blue/20 flex items-center justify-center mx-auto">
                   <CalendarDays className="h-8 w-8 text-mogency-neon-blue" />
                 </div>
                 
-                <h3 className="text-xl font-medium">Ready to grow your audience revenue?</h3>
-                <p className="text-muted-foreground text-sm">
-                  Schedule a free 30-minute call with our team to discuss your content strategy and monetization options.
-                </p>
+                <div className="space-y-2">
+                  <h3 className="text-xl font-medium">Ready to grow your audience revenue?</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Schedule a free 30-minute call with our team to discuss your content strategy and monetization options.
+                  </p>
+                </div>
                 
                 <Button 
                   onClick={openCalendly}
                   className={cn(
-                    "w-full bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon rounded-full mt-4",
+                    "w-full bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon rounded-full",
                     "text-sm sm:text-base",
-                    "px-5 sm:px-6 py-4 sm:py-5"
+                    "px-4 sm:px-6 py-3 sm:py-4"
                   )}
                 >
                   <CalendarDays className="mr-2" size={isMobile ? 16 : 20} />
@@ -138,7 +140,7 @@ const BookCallSection = () => {
                   <ArrowRight className="ml-2" size={isMobile ? 14 : 18} />
                 </Button>
                 
-                <p className="text-xs text-center text-muted-foreground opacity-60 pt-4">
+                <p className="text-xs text-center text-muted-foreground opacity-60">
                   30 minutes. Zero obligation. Completely free.
                 </p>
               </div>
