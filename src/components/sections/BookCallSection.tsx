@@ -113,9 +113,9 @@ const BookCallSection = () => {
               "transition-all duration-500 delay-200",
               "opacity-0 translate-y-4",
               isIntersecting && "opacity-100 translate-y-0",
-              "flex flex-col justify-center"
+              "flex flex-col items-center justify-center" // Updated for better centering
             )}>
-              <div className="text-center space-y-5 max-w-sm mx-auto">
+              <div className="text-center space-y-5 w-full max-w-xs"> {/* Changed to fixed width for better control */}
                 <div className="w-16 h-16 rounded-full bg-mogency-neon-blue/20 flex items-center justify-center mx-auto">
                   <CalendarDays className="h-8 w-8 text-mogency-neon-blue" />
                 </div>
