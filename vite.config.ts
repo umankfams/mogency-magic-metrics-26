@@ -13,10 +13,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     // Only enable component tagger and edit button in development mode
-    mode === 'development' && componentTagger({
-      // Explicitly disable the edit button in production
-      showEditButton: mode === 'development'
-    }),
+    mode === 'development' && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
