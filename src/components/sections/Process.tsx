@@ -1,9 +1,8 @@
 
 import { useState, useEffect } from 'react';
-import { LightbulbIcon, Package, ShoppingBag, PiggyBank, ArrowRight } from 'lucide-react';
+import { LightbulbIcon, Package, ShoppingBag, PiggyBank } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import ProcessStep from '../ui-custom/ProcessStep';
-import { Button } from '@/components/ui/button';
 
 const Process = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -87,48 +86,6 @@ const Process = () => {
               color={step.color} 
             />
           ))}
-        </div>
-
-        {/* Improved CTA in the process section */}
-        <div className={cn("mt-20 rounded-xl max-w-3xl mx-auto overflow-hidden", "transform transition-all duration-700 delay-600", isVisible ? "opacity-100" : "opacity-0")}>
-          <div className="bg-black/70 border border-mogency-neon-pink/40 rounded-xl p-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-              <div className="text-left">
-                <h3 className="text-2xl font-bold mb-3 text-white">Ready to turn your influence into income?</h3>
-                <p className="text-muted-foreground">
-                  Let's build a thriving revenue engine together. Book a 1:1 strategy call with Momin and discover your audience's untapped potential.
-                </p>
-                <ul className="mt-4 space-y-2">
-                  <li className="flex items-center text-sm text-white">
-                    <span className="text-mogency-neon-pink mr-2">•</span>
-                    No technical expertise needed
-                  </li>
-                  <li className="flex items-center text-sm text-white">
-                    <span className="text-mogency-neon-pink mr-2">•</span>
-                    True partnership model — we grow together
-                  </li>
-                  <li className="flex items-center text-sm text-white">
-                    <span className="text-mogency-neon-pink mr-2">•</span>
-                    Your success = our success
-                  </li>
-                </ul>
-              </div>
-              <div className="flex flex-col space-y-3 items-center md:items-end">
-                <Button 
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({
-                    behavior: 'smooth'
-                  })} 
-                  className="w-full md:w-auto bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon rounded-full px-8 py-6 text-base"
-                >
-                  Book Your Strategy Call
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <p className="text-xs text-mogency-neon-pink/80 text-center md:text-right">
-                  Limited spots available this month!
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
