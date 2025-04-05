@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 import { CheckCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { Card, CardContent } from '@/components/ui/card';
 
 const CreatorExample = ({ 
   name, 
@@ -26,32 +28,35 @@ const CreatorExample = ({
   }, [delay, isMobile]);
   
   return (
-    <div className={cn(
-      "card-glass p-4 sm:p-5 md:p-6 transition-all duration-500",
+    <Card className={cn(
+      "overflow-hidden border border-white/10 bg-black/80 backdrop-blur-md transition-all duration-500",
       "transform opacity-0 translate-y-8",
-      isVisible && "opacity-100 translate-y-0 hover:translate-y-[-5px]"
+      isVisible && "opacity-100 translate-y-0 hover:translate-y-[-5px] hover:shadow-[0_8px_30px_rgba(14,165,233,0.15)]"
     )}>
-      <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-        <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden bg-black/50 border border-white/10">
-          <img 
-            src={image} 
-            alt={name} 
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
+      <CardContent className="p-4 sm:p-5 md:p-6">
+        <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5">
+          <Avatar className="w-12 h-12 sm:w-16 sm:h-16 border-2 border-white/10 ring-2 ring-mogency-neon-blue/20">
+            <AvatarImage src={image} alt={name} />
+            <AvatarFallback className="bg-black/50 text-mogency-neon-blue">
+              {name.charAt(0)}
+            </AvatarFallback>
+          </Avatar>
+          <h3 className="text-lg sm:text-xl font-bold">{name}</h3>
         </div>
-        <h3 className="text-lg sm:text-xl font-bold">{name}</h3>
-      </div>
-      
-      <ul className="space-y-2 sm:space-y-3">
-        {achievements.map((achievement, index) => (
-          <li key={index} className="flex gap-2 items-start">
-            <CheckCircle className="shrink-0 w-4 h-4 sm:w-5 sm:h-5 text-mogency-neon-green mt-0.5" />
-            <span className="text-sm sm:text-base text-muted-foreground">{achievement}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+        
+        <ul className="space-y-2.5 sm:space-y-3.5">
+          {achievements.map((achievement, index) => (
+            <li key={index} className="flex gap-2.5 items-start group">
+              <CheckCircle className="shrink-0 w-4 h-4 sm:w-5 sm:h-5 text-mogency-neon-green mt-0.5 
+                group-hover:text-mogency-neon-green/90 transition-colors duration-300" />
+              <span className="text-sm sm:text-base text-muted-foreground group-hover:text-white/90 transition-colors duration-300">
+                {achievement}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </CardContent>
+    </Card>
   );
 };
 
