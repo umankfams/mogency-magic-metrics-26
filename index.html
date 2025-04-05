@@ -11,6 +11,9 @@
     <link rel="icon" type="image/png" href="/lovable-uploads/66753c76-96a1-4d2f-af94-8f925cdecab9.png" />
     <link rel="shortcut icon" href="/lovable-uploads/66753c76-96a1-4d2f-af94-8f925cdecab9.png" type="image/png" />
     <meta property="og:image" content="/og-image.png" />
+    
+    <!-- Calendly badge widget styles -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   </head>
 
   <body>
@@ -28,6 +31,20 @@
       }
     </script>
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    
+    <!-- Calendly badge widget scripts -->
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script type="text/javascript">
+      window.onload = function() { 
+        Calendly.initBadgeWidget({ 
+          url: 'https://calendly.com/mogency-mo/strategy-call', 
+          text: 'Schedule Your Free Strategy Call', 
+          color: '#0ea5e9', 
+          textColor: '#ffffff' 
+        }); 
+      }
+    </script>
+    
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

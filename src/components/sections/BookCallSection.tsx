@@ -34,14 +34,22 @@ const BookCallSection = () => {
   }, []);
 
   const openCalendly = () => {
-    // Updated to a more realistic Calendly link format
-    window.open("https://calendly.com/mogency/strategy-call", "_blank");
-    
-    // Show a toast notification when the user clicks the button
+    // We're using the Calendly widget now, so we'll just show a toast
+    // The actual scheduling will be handled by the Calendly badge widget
     toast({
-      title: "Opening Calendly",
-      description: "You're being redirected to our booking page.",
+      title: "Book Your Call",
+      description: "Use the blue button in the corner to schedule your free strategy call.",
     });
+    
+    // This will make the Calendly badge pulse to draw attention
+    if (window.Calendly) {
+      const badge = document.querySelector('.calendly-badge-widget');
+      if (badge) {
+        badge.classList.add('pulse');
+        // Remove the pulse class after the animation
+        setTimeout(() => badge.classList.remove('pulse'), 2000);
+      }
+    }
   };
 
   return (
@@ -148,6 +156,25 @@ const BookCallSection = () => {
           </div>
         </div>
       </div>
+      
+      {/* Add a style for the pulse animation */}
+      <style jsx>{`
+        @keyframes pulse {
+          0% {
+            box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7);
+          }
+          70% {
+            box-shadow: 0 0 0 15px rgba(14, 165, 233, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(14, 165, 233, 0);
+          }
+        }
+        
+        :global(.calendly-badge-widget.pulse) {
+          animation: pulse 1.5s;
+        }
+      `}</style>
     </section>
   );
 };
