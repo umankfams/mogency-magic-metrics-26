@@ -30,7 +30,7 @@ const BookCallSection = () => {
     // This would typically open your Calendly scheduling page
     window.open("https://calendly.com/your-calendly-link", "_blank");
   };
-  return <section id="book-call" className="py-16" ref={sectionRef}>
+  return <section id="book-call" ref={sectionRef} className="py-[13px] font-normal text-center text-sm">
       <div className="section-container">
         <div className="card-glass p-6 md:p-12 max-w-3xl mx-auto border border-mogency-neon-blue/30 shadow-[0_0_30px_rgba(14,165,233,0.2)]">
           <div className="text-center">
