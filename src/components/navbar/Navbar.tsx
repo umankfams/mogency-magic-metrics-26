@@ -4,10 +4,12 @@ import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import Logo from '@/components/ui-custom/Logo';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const isMobile = useIsMobile();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -24,6 +26,22 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close menu when user clicks outside
+  useEffect(() => {
+    if (!isOpen) return;
+    
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.mobile-menu-container') && !target.closest('.mobile-menu-button')) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
+
+  // Close mobile menu when a section is clicked
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -31,6 +49,13 @@ const Navbar = () => {
       setIsOpen(false);
     }
   };
+
+  // Handle scroll to sections based on navbar items
+  const navItems = [
+    { id: 'features', label: 'Features' },
+    { id: 'process', label: 'Process' },
+    { id: 'book-call', label: 'Work With Us', isButton: true }
+  ];
 
   return (
     <nav 
@@ -40,41 +65,51 @@ const Navbar = () => {
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24 md:h-28">
+        <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0 flex items-center">
-            <a href="#" className="font-display font-bold tracking-tight flex items-center" aria-label="Mogency Home">
-              <Logo size="lg" />
+            <a 
+              href="#" 
+              className="font-display font-bold tracking-tight flex items-center" 
+              aria-label="Mogency Home"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              <Logo size={isMobile ? "md" : "lg"} />
             </a>
           </div>
           
+          {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('features')} 
-              className="text-lg text-muted-foreground hover:text-mogency-neon-blue transition-colors"
-              aria-label="Go to Features section"
-            >
-              Features
-            </button>
-            <button 
-              onClick={() => scrollToSection('process')} 
-              className="text-lg text-muted-foreground hover:text-mogency-neon-pink transition-colors"
-              aria-label="Go to Process section"
-            >
-              Process
-            </button>
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full text-base"
-              aria-label="Contact Us"
-            >
-              <span className="text-mogency-neon-blue animate-neon-pulse">Work With Us</span>
-            </Button>
+            {navItems.map((item, index) => (
+              item.isButton ? (
+                <Button 
+                  key={index}
+                  onClick={() => scrollToSection(item.id)}
+                  className="bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full text-base"
+                  aria-label={`Go to ${item.label} section`}
+                >
+                  <span className="text-mogency-neon-blue animate-neon-pulse">{item.label}</span>
+                </Button>
+              ) : (
+                <button 
+                  key={index}
+                  onClick={() => scrollToSection(item.id)} 
+                  className="text-lg text-muted-foreground hover:text-mogency-neon-blue transition-colors"
+                  aria-label={`Go to ${item.label} section`}
+                >
+                  {item.label}
+                </button>
+              )
+            ))}
           </div>
           
+          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-mogency-neon-blue focus:outline-none"
+              className="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-mogency-neon-blue focus:outline-none"
               aria-expanded={isOpen}
               aria-label="Toggle menu"
             >
@@ -86,31 +121,31 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       <div className={cn(
-        'md:hidden transition-all duration-300 overflow-hidden',
+        'md:hidden transition-all duration-300 overflow-hidden mobile-menu-container',
         isOpen ? 'max-h-screen bg-black/90 backdrop-blur-lg shadow-lg' : 'max-h-0'
       )}>
-        <div className="px-4 pt-2 pb-4 space-y-4">
-          <button 
-            onClick={() => scrollToSection('features')} 
-            className="block w-full text-left text-lg text-muted-foreground hover:text-mogency-neon-blue transition-colors py-3"
-            aria-label="Go to Features section"
-          >
-            Features
-          </button>
-          <button 
-            onClick={() => scrollToSection('process')} 
-            className="block w-full text-left text-lg text-muted-foreground hover:text-mogency-neon-pink transition-colors py-3"
-            aria-label="Go to Process section"
-          >
-            Process
-          </button>
-          <Button 
-            onClick={() => scrollToSection('contact')}
-            className="w-full bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full text-base"
-            aria-label="Contact Us"
-          >
-            <span className="text-mogency-neon-blue animate-neon-pulse">Work With Us</span>
-          </Button>
+        <div className="px-4 pt-2 pb-6 space-y-6">
+          {navItems.map((item, index) => (
+            item.isButton ? (
+              <Button 
+                key={index}
+                onClick={() => scrollToSection(item.id)}
+                className="w-full bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full text-base py-6"
+                aria-label={`Go to ${item.label} section on mobile`}
+              >
+                <span className="text-mogency-neon-blue animate-neon-pulse">{item.label}</span>
+              </Button>
+            ) : (
+              <button 
+                key={index}
+                onClick={() => scrollToSection(item.id)} 
+                className="block w-full text-left text-lg text-muted-foreground hover:text-mogency-neon-blue transition-colors py-4"
+                aria-label={`Go to ${item.label} section on mobile`}
+              >
+                {item.label}
+              </button>
+            )
+          ))}
         </div>
       </div>
     </nav>
