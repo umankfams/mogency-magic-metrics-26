@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { CalendarDays, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -13,23 +12,19 @@ declare global {
     Calendly?: any;
   }
 }
-
 const BookCallSection = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
   const [calendlyLoaded, setCalendlyLoaded] = useState(false);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsIntersecting(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsIntersecting(true);
+      }
+    }, {
+      threshold: 0.1
+    });
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
@@ -46,7 +41,6 @@ const BookCallSection = () => {
     link.rel = 'stylesheet';
     link.href = 'https://assets.calendly.com/assets/external/widget.css';
     document.head.appendChild(link);
-
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
@@ -56,7 +50,6 @@ const BookCallSection = () => {
       document.head.removeChild(link);
     };
   }, []);
-
   const openCalendly = () => {
     if (window.Calendly) {
       window.Calendly.initPopupWidget({
@@ -67,18 +60,12 @@ const BookCallSection = () => {
       window.open('https://calendly.com/mogency-mo/strategy-call', '_blank');
     }
   };
-
-  return (
-    <section id="book-call" className="py-12 md:py-24" ref={sectionRef}>
+  return <section id="book-call" className="py-12 md:py-24" ref={sectionRef}>
       <div className="section-container">
         <div className="card-glass p-6 md:p-12 max-w-4xl mx-auto border border-mogency-neon-blue/30 shadow-[0_0_30px_rgba(14,165,233,0.2)]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left column - Info */}
-            <div className={cn(
-              "transition-all duration-500 delay-100",
-              "opacity-0 translate-y-4",
-              isIntersecting && "opacity-100 translate-y-0"
-            )}>
+            <div className={cn("transition-all duration-500 delay-100", "opacity-0 translate-y-4", isIntersecting && "opacity-100 translate-y-0")}>
               <h2 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
                 Book Your <span className="text-mogency-neon-blue">Free Strategy Call</span>
               </h2>
@@ -133,12 +120,8 @@ const BookCallSection = () => {
             </div>
             
             {/* Right column - Calendly Button */}
-            <div className={cn(
-              "transition-all duration-500 delay-200",
-              "opacity-0 translate-y-4",
-              isIntersecting && "opacity-100 translate-y-0",
-              "flex flex-col items-center justify-center" // Updated for better centering
-            )}>
+            <div className={cn("transition-all duration-500 delay-200", "opacity-0 translate-y-4", isIntersecting && "opacity-100 translate-y-0", "flex flex-col items-center justify-center" // Updated for better centering
+          )}>
               <div className="text-center space-y-5 w-full max-w-xs"> {/* Changed to fixed width for better control */}
                 <div className="w-16 h-16 rounded-full bg-mogency-neon-blue/20 flex items-center justify-center mx-auto">
                   <CalendarDays className="h-8 w-8 text-mogency-neon-blue" />
@@ -151,16 +134,9 @@ const BookCallSection = () => {
                   </p>
                 </div>
                 
-                <Button 
-                  onClick={openCalendly}
-                  className={cn(
-                    "w-full bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon rounded-full",
-                    "text-sm sm:text-base",
-                    "px-4 sm:px-6 py-3 sm:py-4"
-                  )}
-                >
+                <Button onClick={openCalendly} className={cn("w-full bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon rounded-full", "text-sm sm:text-base", "px-4 sm:px-6 py-3 sm:py-4")}>
                   <CalendarDays className="mr-2" size={isMobile ? 16 : 20} />
-                  <span>Schedule Your Free Strategy Call</span>
+                  <span className="mx-0 text-sm">Schedule Your Free Strategy Call</span>
                   <ArrowRight className="ml-2" size={isMobile ? 14 : 18} />
                 </Button>
                 
@@ -172,8 +148,6 @@ const BookCallSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default BookCallSection;
