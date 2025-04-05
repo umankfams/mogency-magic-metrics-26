@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import { ArrowDown, Zap, ArrowRight } from 'lucide-react';
+import { ArrowRight, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -12,28 +12,15 @@ const Hero = () => {
     setIsLoaded(true);
   }, []);
 
-  const scrollToFeatures = () => {
-    const featuresSection = document.getElementById('features');
-    if (featuresSection) {
-      featuresSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToCalendar = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToBookCall = () => {
+    const bookCallSection = document.getElementById('book-call');
+    if (bookCallSection) {
+      bookCallSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section className="relative min-h-[calc(100vh-6rem)] flex items-center justify-center pt-4 pb-12 overflow-hidden">
-      {/* Background gradient elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-[30%] -left-[10%] w-[50%] h-[50%] rounded-full bg-mogency-neon-blue/20 filter blur-3xl" />
-        <div className="absolute -bottom-[30%] -right-[10%] w-[50%] h-[50%] rounded-full bg-mogency-neon-pink/20 filter blur-3xl" />
-      </div>
-
+    <section className="relative min-h-[calc(100vh-6rem)] flex items-center justify-center pt-4 pb-12">
       <div className="section-container relative z-10">
         <div className="flex flex-col items-center text-center">
           {/* Platform badges */}
@@ -47,27 +34,14 @@ const Hero = () => {
             <span className="platform-tiktok px-3 py-1 text-sm font-medium rounded-full border border-white/10 bg-black/50 backdrop-blur-sm">TikTok</span>
           </div>
           
-          {/* Small badge/pill */}
-          <div className={cn(
-            "px-4 py-1.5 mb-8 rounded-full bg-black/50 backdrop-blur-sm border border-mogency-neon-blue/30 shadow-sm",
-            "transform opacity-0 transition-all duration-700 delay-100",
-            isLoaded && "opacity-100"
-          )}>
-            <span className="text-sm font-medium flex items-center gap-2">
-              <Zap size={14} className="text-mogency-neon-blue animate-neon-pulse" />
-              <span className="neon-text">Zero Upfront Cost • Keep Creating • We Handle Everything</span>
-            </span>
-          </div>
-          
           {/* Main headline */}
           <h1 className={cn(
             "section-title max-w-4xl mb-6",
             "transform opacity-0 transition-all duration-700 delay-200",
             isLoaded && "opacity-100"
           )}>
-            Turn Your <span className="neon-text-pink">Audience</span> Into 
-            <span className="bg-neon-gradient bg-clip-text text-transparent ml-2 animate-neon-pulse"> Revenue </span> 
-            Without Lifting a Finger
+            You're Sitting on a <span className="neon-text-pink">Goldmine</span> — But Have 
+            <span className="bg-neon-gradient bg-clip-text text-transparent ml-2 animate-neon-pulse"> Nothing to Sell</span>
           </h1>
           
           {/* Subtitle */}
@@ -76,21 +50,11 @@ const Hero = () => {
             "transform opacity-0 transition-all duration-700 delay-300",
             isLoaded && "opacity-100"
           )}>
-            Stop relying on underpaid brand deals. We create, market, and sell digital products 
-            using your existing content—<span className="text-white font-medium">you just keep being creative.</span>
-          </p>
-
-          {/* Second subtitle with creator pain points */}
-          <p className={cn(
-            "text-lg text-muted-foreground/80 max-w-xl mb-10",
-            "transform opacity-0 transition-all duration-700 delay-350",
-            isLoaded && "opacity-100"
-          )}>
-            No time to build products? No marketing expertise? No problem.
-            Our team handles <span className="text-mogency-neon-green">everything</span> while you focus on what you do best.
+            You've got content. An audience. Authority.
+            <br />But no product. No offers. No income beyond brand deals or AdSense.
           </p>
           
-          {/* CTA buttons */}
+          {/* CTA button */}
           <div className={cn(
             "flex flex-col sm:flex-row gap-4 mb-16",
             "transform opacity-0 transition-all duration-700 delay-400",
@@ -99,19 +63,11 @@ const Hero = () => {
             <Button 
               size="lg"
               className="bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon rounded-full px-8"
-              onClick={scrollToCalendar}
+              onClick={scrollToBookCall}
             >
               <Zap className="mr-2" size={18} />
-              <span>Book Your Strategy Call</span>
+              <span>Let's Fix That – Book a Free Call</span>
               <ArrowRight className="ml-2" size={16} />
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="rounded-full border-mogency-neon-blue/40 text-white hover:bg-mogency-neon-blue/10 px-8"
-              onClick={scrollToFeatures}
-            >
-              See How It Works
             </Button>
           </div>
           
@@ -124,22 +80,6 @@ const Hero = () => {
             <p className="text-sm text-mogency-neon-pink font-medium">
               ⚠️ Limited spots available this month — we only work with a few creators at a time
             </p>
-          </div>
-          
-          {/* Scroll indicator */}
-          <div className={cn(
-            "animate-subtle-bounce cursor-pointer",
-            "transform opacity-0 transition-all duration-700 delay-700",
-            isLoaded && "opacity-100"
-          )}>
-            <button 
-              onClick={scrollToFeatures}
-              aria-label="Scroll to features"
-              className="flex flex-col items-center text-muted-foreground hover:text-mogency-neon-pink transition-colors"
-            >
-              <span className="text-sm mb-2">Discover More</span>
-              <ArrowDown size={20} className="animate-neon-pulse text-mogency-neon-pink" />
-            </button>
           </div>
         </div>
       </div>
