@@ -148,7 +148,7 @@ const Examples = () => {
           
           <CreatorExample 
             name="Lori Harder"
-            image="/lovable-uploads/2435256a-79ee-4733-943f-78d62181bf25.jpg"
+            image="/lovable-uploads/f8dd25ea-5ed3-491a-acd3-43e7b15238e2.png"
             achievements={[
               "Built a multi-7-figure wellness brand through digital courses",
               "Grew audience to over 1 million across social platforms",
