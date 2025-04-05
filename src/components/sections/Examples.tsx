@@ -111,7 +111,7 @@ const Examples = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
           <CreatorExample 
             name="Matthew Hussey"
-            image="/lovable-uploads/48c4203b-a70f-46eb-8974-dbb32448228d.png"
+            image="/lovable-uploads/ab11a5df-9751-40e1-9a77-5dcfe7a1a563.png"
             achievements={[
               "Built a $5M+ coaching business from dating advice content",
               "Grew email list to over 500,000 subscribers",
