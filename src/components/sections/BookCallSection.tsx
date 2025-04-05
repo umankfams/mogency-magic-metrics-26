@@ -7,10 +7,18 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 import { toast } from "@/hooks/use-toast";
 
+// Declare Calendly as a global type
+declare global {
+  interface Window {
+    Calendly?: any;
+  }
+}
+
 const BookCallSection = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const [calendlyLoaded, setCalendlyLoaded] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,29 +34,37 @@ const BookCallSection = () => {
       observer.observe(sectionRef.current);
     }
 
+    // Load Calendly script
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    script.onload = () => setCalendlyLoaded(true);
+    document.body.appendChild(script);
+
+    // Load Calendly styles
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://assets.calendly.com/assets/external/widget.css';
+    document.head.appendChild(link);
+
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
+      // Clean up script and link if component unmounts
+      document.body.removeChild(script);
+      document.head.removeChild(link);
     };
   }, []);
 
   const openCalendly = () => {
-    // We're using the Calendly widget now, so we'll just show a toast
-    // The actual scheduling will be handled by the Calendly badge widget
-    toast({
-      title: "Book Your Call",
-      description: "Use the blue button in the corner to schedule your free strategy call.",
-    });
-    
-    // This will make the Calendly badge pulse to draw attention
     if (window.Calendly) {
-      const badge = document.querySelector('.calendly-badge-widget');
-      if (badge) {
-        badge.classList.add('pulse');
-        // Remove the pulse class after the animation
-        setTimeout(() => badge.classList.remove('pulse'), 2000);
-      }
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/mogency-mo/strategy-call'
+      });
+    } else {
+      // Fallback if Calendly isn't loaded
+      window.open('https://calendly.com/mogency-mo/strategy-call', '_blank');
     }
   };
 
@@ -156,25 +172,6 @@ const BookCallSection = () => {
           </div>
         </div>
       </div>
-      
-      {/* Add a style for the pulse animation */}
-      <style jsx>{`
-        @keyframes pulse {
-          0% {
-            box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7);
-          }
-          70% {
-            box-shadow: 0 0 0 15px rgba(14, 165, 233, 0);
-          }
-          100% {
-            box-shadow: 0 0 0 0 rgba(14, 165, 233, 0);
-          }
-        }
-        
-        :global(.calendly-badge-widget.pulse) {
-          animation: pulse 1.5s;
-        }
-      `}</style>
     </section>
   );
 };
