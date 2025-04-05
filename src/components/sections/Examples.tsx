@@ -1,8 +1,8 @@
+
 import { useState, useEffect, useRef } from 'react';
 import { CheckCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
@@ -41,6 +41,7 @@ const CreatorExample = ({
                 src={image} 
                 alt={name} 
                 className="object-cover h-full w-full"
+                style={{ objectPosition: "center top" }} // Prioritize showing faces at the top of the image
               />
             </AspectRatio>
           </div>
