@@ -40,6 +40,7 @@ const Hero = () => {
             "transform opacity-0 transition-all duration-700 delay-200",
             isLoaded && "opacity-100"
           )}>
+            Attention Creators: <br />
             You're Sitting on a <span className="neon-text-pink">Goldmine</span> — But Have 
             <span className="bg-neon-gradient bg-clip-text text-transparent ml-2 animate-neon-pulse"> Nothing to Sell</span>
           </h1>

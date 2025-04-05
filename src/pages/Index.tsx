@@ -7,6 +7,7 @@ import Solution from '@/components/sections/Solution';
 import Examples from '@/components/sections/Examples';
 import Products from '@/components/sections/Products';
 import WhyMogency from '@/components/sections/WhyMogency';
+import FAQ from '@/components/sections/FAQ';
 import BookCallSection from '@/components/sections/BookCallSection';
 import Footer from '@/components/sections/Footer';
 
@@ -41,6 +42,8 @@ const Index = () => {
         <Products />
         <div className="mt-16 md:mt-24"></div>
         <WhyMogency />
+        <div className="mt-16 md:mt-24"></div>
+        <FAQ />
         <div className="mt-16 md:mt-24"></div>
         <BookCallSection />
         <div className="mt-16 md:mt-24"></div>
