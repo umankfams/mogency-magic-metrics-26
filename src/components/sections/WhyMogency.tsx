@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { DollarSign, Clock, Briefcase, Target, Award, Tag } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -35,7 +35,7 @@ const ReasonItem = ({
 
 const WhyMogency = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const sectionRef = React.useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

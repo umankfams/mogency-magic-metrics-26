@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FileText, Video, Mail, Users, Monitor, Star, CreditCard } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -35,7 +35,7 @@ const ProductCard = ({
 
 const Products = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const sectionRef = React.useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

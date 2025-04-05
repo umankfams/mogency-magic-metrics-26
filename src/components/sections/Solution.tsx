@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Video, FileText, Rocket } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -45,7 +45,7 @@ const StepCard = ({
 
 const Solution = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const sectionRef = React.useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
