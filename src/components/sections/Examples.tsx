@@ -6,17 +6,19 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
+interface CreatorExampleProps {
+  name: string;
+  image: string;
+  achievements: string[];
+  delay?: number;
+}
+
 const CreatorExample = ({ 
   name, 
   image,
   achievements, 
   delay = 0
-}: { 
-  name: string, 
-  image: string,
-  achievements: string[], 
-  delay?: number
-}) => {
+}: CreatorExampleProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const isMobile = useIsMobile();
   
@@ -39,19 +41,20 @@ const CreatorExample = ({
             <AspectRatio ratio={1} className="h-full w-full">
               <img 
                 src={image} 
-                alt={name} 
+                alt={`${name} profile`}
                 className="object-cover h-full w-full"
                 style={{ objectPosition: "center top" }} // Prioritize showing faces at the top of the image
+                loading="lazy" // Add lazy loading for better performance
               />
             </AspectRatio>
           </div>
           <h3 className="text-lg sm:text-xl font-bold">{name}</h3>
         </div>
         
-        <ul className="space-y-2.5 sm:space-y-3.5">
+        <ul className="space-y-2.5 sm:space-y-3.5" aria-label={`${name}'s achievements`}>
           {achievements.map((achievement, index) => (
             <li key={index} className="flex gap-2.5 items-start group">
-              <CheckCircle className="shrink-0 w-4 h-4 sm:w-5 sm:h-5 text-mogency-neon-green mt-0.5 
+              <CheckCircle aria-hidden="true" className="shrink-0 w-4 h-4 sm:w-5 sm:h-5 text-mogency-neon-green mt-0.5 
                 group-hover:text-mogency-neon-green/90 transition-colors duration-300" />
               <span className="text-sm sm:text-base text-muted-foreground group-hover:text-white/90 transition-colors duration-300">
                 {achievement}
