@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
+import { toast } from "@/hooks/use-toast";
 
 const BookCallSection = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -33,7 +34,14 @@ const BookCallSection = () => {
   }, []);
 
   const openCalendly = () => {
-    window.open("https://calendly.com/your-calendly-link", "_blank");
+    // Updated to a more realistic Calendly link format
+    window.open("https://calendly.com/mogency/strategy-call", "_blank");
+    
+    // Show a toast notification when the user clicks the button
+    toast({
+      title: "Opening Calendly",
+      description: "You're being redirected to our booking page.",
+    });
   };
 
   return (
