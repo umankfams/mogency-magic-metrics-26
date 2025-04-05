@@ -38,24 +38,22 @@ const BookCallSection = () => {
   };
 
   return (
-    <section id="book-call" className="py-12 md:py-16" ref={sectionRef}>
+    <section id="book-call" className="py-16" ref={sectionRef}>
       <div className="section-container">
-        <div className="card-glass p-4 md:p-12 max-w-3xl mx-auto border border-mogency-neon-blue/30 shadow-[0_0_30px_rgba(14,165,233,0.2)]">
+        <div className="card-glass p-6 md:p-12 max-w-3xl mx-auto border border-mogency-neon-blue/30 shadow-[0_0_30px_rgba(14,165,233,0.2)]">
           <div className="text-center">
             <h2 className={cn(
-              "font-bold mb-3 md:mb-4 transition-all duration-500",
+              "text-2xl md:text-3xl lg:text-4xl font-bold mb-4 transition-all duration-500",
               "opacity-0 translate-y-4",
-              isIntersecting && "opacity-100 translate-y-0",
-              isMobile ? "text-xl" : "text-2xl md:text-3xl lg:text-4xl"
+              isIntersecting && "opacity-100 translate-y-0"
             )}>
               Book Your <span className="text-mogency-neon-blue">Free Strategy Call</span>
             </h2>
             
             <p className={cn(
-              "text-muted-foreground mb-6 md:mb-8 transition-all duration-500 delay-100",
+              "text-base md:text-lg text-muted-foreground mb-8 transition-all duration-500 delay-100",
               "opacity-0 translate-y-4",
-              isIntersecting && "opacity-100 translate-y-0",
-              isMobile ? "text-xs" : "text-sm md:text-base"
+              isIntersecting && "opacity-100 translate-y-0"
             )}>
               We only take on a few creators at a time.
               <br />No pitch. No pressure. Just strategy.
@@ -65,24 +63,22 @@ const BookCallSection = () => {
               size={isMobile ? "default" : "lg"}
               className={cn(
                 "bg-neon-gradient hover:opacity-90 transition-opacity shadow-neon rounded-full",
-                isMobile ? "px-3 py-2 text-xs w-full" : "px-8 py-6 text-lg",
+                isMobile ? "px-6 py-5 text-base w-full" : "px-8 py-6 text-lg",
                 "transition-all duration-500 delay-200",
                 "opacity-0 scale-95",
                 isIntersecting && "opacity-100 scale-100"
               )}
               onClick={openCalendly}
             >
-              <CalendarDays className="mr-2" size={isMobile ? 14 : 20} />
+              <CalendarDays className="mr-2" size={isMobile ? 18 : 20} />
               <span>Book Now — Let's Build Your Product</span>
-              <ArrowRight className="ml-2" size={isMobile ? 12 : 18} />
+              <ArrowRight className="ml-2" size={isMobile ? 16 : 18} />
             </Button>
             
             <p className={cn(
-              "mt-4 md:mt-6 transition-all duration-500 delay-300",
+              "text-sm text-muted-foreground mt-6 transition-all duration-500 delay-300",
               "opacity-0",
-              isIntersecting && "opacity-100",
-              isMobile ? "text-[10px]" : "text-xs md:text-sm",
-              "text-muted-foreground"
+              isIntersecting && "opacity-100"
             )}>
               It's free. If you don't love the plan, no hard feelings.
             </p>
