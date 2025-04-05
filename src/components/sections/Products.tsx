@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { FileText, Video, Mail, Users, Monitor, Star, CreditCard } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const ProductCard = ({ 
   icon, 
@@ -13,6 +14,7 @@ const ProductCard = ({
   delay?: number
 }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), delay);
@@ -21,14 +23,14 @@ const ProductCard = ({
   
   return (
     <div className={cn(
-      "card-glass p-4 flex flex-col items-center justify-center text-center transition-all duration-500",
+      "card-glass p-3 md:p-4 flex flex-col items-center justify-center text-center transition-all duration-500",
       "transform opacity-0 scale-95",
       isVisible && "opacity-100 scale-100 hover:border-mogency-neon-blue/50"
     )}>
-      <div className="bg-black/50 p-3 rounded-full mb-3">
+      <div className="bg-black/50 p-2 md:p-3 rounded-full mb-2 md:mb-3">
         {icon}
       </div>
-      <h3 className="text-lg font-medium">{title}</h3>
+      <h3 className="text-sm md:text-lg font-medium">{title}</h3>
     </div>
   );
 };
@@ -36,6 +38,7 @@ const ProductCard = ({
 const Products = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,68 +62,68 @@ const Products = () => {
   }, []);
 
   return (
-    <section id="products" className="py-16 relative" ref={sectionRef}>
+    <section id="products" className="py-12 md:py-16 relative" ref={sectionRef}>
       <div className="section-container">
         <h2 className={cn(
-          "section-title text-center mb-10 transition-all duration-500",
+          "section-title text-center mb-6 md:mb-10 transition-all duration-500",
           "opacity-0 translate-y-4",
           isIntersecting && "opacity-100 translate-y-0"
         )}>
           What We Can Help You <span className="text-mogency-neon-pink">Create</span>
         </h2>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3 md:gap-6">
           <ProductCard 
-            icon={<FileText className="w-6 h-6 text-mogency-neon-blue" />}
+            icon={<FileText className="w-4 h-4 md:w-6 md:h-6 text-mogency-neon-blue" />}
             title="Notion templates"
             delay={100}
           />
           
           <ProductCard 
-            icon={<FileText className="w-6 h-6 text-mogency-neon-pink" />}
+            icon={<FileText className="w-4 h-4 md:w-6 md:h-6 text-mogency-neon-pink" />}
             title="Digital guides & PDFs"
             delay={200}
           />
           
           <ProductCard 
-            icon={<Mail className="w-6 h-6 text-mogency-neon-purple" />}
+            icon={<Mail className="w-4 h-4 md:w-6 md:h-6 text-mogency-neon-purple" />}
             title="Email courses"
             delay={300}
           />
           
           <ProductCard 
-            icon={<Monitor className="w-6 h-6 text-mogency-neon-green" />}
+            icon={<Monitor className="w-4 h-4 md:w-6 md:h-6 text-mogency-neon-green" />}
             title="Live & pre-recorded workshops"
             delay={400}
           />
           
           <ProductCard 
-            icon={<Star className="w-6 h-6 text-mogency-neon-blue" />}
+            icon={<Star className="w-4 h-4 md:w-6 md:h-6 text-mogency-neon-blue" />}
             title="1:1 coaching programs"
             delay={500}
           />
           
           <ProductCard 
-            icon={<Users className="w-6 h-6 text-mogency-neon-pink" />}
+            icon={<Users className="w-4 h-4 md:w-6 md:h-6 text-mogency-neon-pink" />}
             title="High-ticket group offers"
             delay={600}
           />
           
           <ProductCard 
-            icon={<Users className="w-6 h-6 text-mogency-neon-purple" />}
+            icon={<Users className="w-4 h-4 md:w-6 md:h-6 text-mogency-neon-purple" />}
             title="Paid community"
             delay={700}
           />
           
           <ProductCard 
-            icon={<CreditCard className="w-6 h-6 text-mogency-neon-green" />}
+            icon={<CreditCard className="w-4 h-4 md:w-6 md:h-6 text-mogency-neon-green" />}
             title="Subscriptions"
             delay={800}
           />
         </div>
         
         <p className={cn(
-          "text-center mt-10 text-lg text-muted-foreground max-w-2xl mx-auto transition-all duration-500 delay-900",
+          "text-center mt-6 md:mt-10 text-sm md:text-lg text-muted-foreground max-w-2xl mx-auto transition-all duration-500 delay-900",
           "opacity-0",
           isIntersecting && "opacity-100"
         )}>
