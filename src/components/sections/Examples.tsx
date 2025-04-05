@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { CheckCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -148,7 +147,7 @@ const Examples = () => {
           
           <CreatorExample 
             name="Lori Harder"
-            image="/lovable-uploads/f8dd25ea-5ed3-491a-acd3-43e7b15238e2.png"
+            image="/lovable-uploads/ea3c1cb4-3011-4523-ae95-4e0b95c1e9f4.png"
             achievements={[
               "Built a multi-7-figure wellness brand through digital courses",
               "Grew audience to over 1 million across social platforms",
