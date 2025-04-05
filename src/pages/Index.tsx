@@ -33,23 +33,23 @@ const Index = () => {
       <Navbar />
       <main className="pt-20 md:pt-24 lg:pt-32"> {/* Adjusted padding top for mobile */}
         <Hero />
-        <div className="mt-12 md:mt-16 lg:mt-24"></div>
+        <div className="mt-10 md:mt-14 lg:mt-20"></div>
         <Problem />
-        <div className="mt-12 md:mt-16 lg:mt-24"></div>
+        <div className="mt-10 md:mt-14 lg:mt-20"></div>
         <Solution id="solution" />
-        <div className="mt-12 md:mt-16 lg:mt-24"></div>
+        <div className="mt-10 md:mt-14 lg:mt-20"></div>
         <Examples />
-        <div className="mt-12 md:mt-16 lg:mt-24"></div>
+        <div className="mt-10 md:mt-14 lg:mt-20"></div>
         <Products />
-        <div className="mt-12 md:mt-16 lg:mt-24"></div>
+        <div className="mt-10 md:mt-14 lg:mt-20"></div>
         <Process />
-        <div className="mt-12 md:mt-16 lg:mt-24"></div>
+        <div className="mt-10 md:mt-14 lg:mt-20"></div>
         <WhyMogency />
-        <div className="mt-12 md:mt-16 lg:mt-24"></div>
+        <div className="mt-10 md:mt-14 lg:mt-20"></div>
         <FAQ />
-        <div className="mt-12 md:mt-16 lg:mt-24"></div>
+        <div className="mt-10 md:mt-14 lg:mt-20"></div>
         <BookCallSection />
-        <div className="mt-12 md:mt-16 lg:mt-24"></div>
+        <div className="mt-10 md:mt-14 lg:mt-20"></div>
       </main>
       
       <Footer />
