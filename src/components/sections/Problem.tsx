@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Ban, Clock, Palette, DollarSign } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -27,7 +27,7 @@ const ProblemItem = ({ icon, text, delay }: { icon: React.ReactNode, text: strin
 
 const Problem = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const sectionRef = React.useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
