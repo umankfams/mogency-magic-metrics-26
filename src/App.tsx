@@ -14,7 +14,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <Toaster />
     <Sonner />
-    <SplashCursor color="#0EA5E9" size={15} duration={600} />
+    <SplashCursor />
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Index />} />
