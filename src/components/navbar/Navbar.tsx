@@ -50,10 +50,10 @@ const Navbar = () => {
   const openCalendly = () => {
     if (window.Calendly) {
       window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/mogency-mo/strategy-call'
+        url: 'https://calendly.com/vapetory/consultation'
       });
     } else {
-      window.open('https://calendly.com/mogency-mo/strategy-call', '_blank');
+      window.open('https://calendly.com/vapetory/consultation', '_blank');
     }
   };
 
@@ -77,7 +77,7 @@ const Navbar = () => {
             <a 
               href="#" 
               className="font-display font-bold tracking-tight flex items-center" 
-              aria-label="Mogency Home"
+              aria-label="Vapetory Home"
               onClick={(e) => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -91,10 +91,10 @@ const Navbar = () => {
             <Button 
               onClick={openCalendly}
               className="bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full"
-              aria-label="Schedule a free strategy call"
+              aria-label="Schedule a free consultation"
             >
               <CalendarDays className="mr-2 h-4 w-4" />
-              <span className="text-mogency-neon-blue animate-neon-pulse">Schedule Your Free Strategy Call</span>
+              <span className="text-mogency-neon-blue animate-neon-pulse">Schedule Your Free Consultation</span>
             </Button>
           </div>
           
@@ -102,7 +102,7 @@ const Navbar = () => {
             <Button 
               onClick={openCalendly}
               className="bg-black hover:bg-black/80 border border-mogency-neon-blue shadow-[0_0_15px_rgba(14,165,233,0.5)] hover:shadow-[0_0_20px_rgba(14,165,233,0.7)] transition-all duration-300 rounded-full"
-              aria-label="Schedule a free strategy call on mobile"
+              aria-label="Schedule a free consultation on mobile"
               size="sm"
             >
               <CalendarDays className="h-4 w-4 mr-1" />

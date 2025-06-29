@@ -15,7 +15,7 @@ import Footer from '@/components/sections/Footer';
 const Index = () => {
   useEffect(() => {
     // Set document title
-    document.title = 'Mogency | Turn Your Audience Into Revenue - For Content Creators';
+    document.title = 'Vapetory | Premium Vaping Experience - Expert Guidance & Quality Products';
   }, []);
   
   return (

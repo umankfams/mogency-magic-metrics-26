@@ -33,18 +33,18 @@ const Hero = () => {
     <section className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center pt-4 pb-8 md:pb-12">
       <div className="section-container relative z-10 px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
-          {/* Platform badges */}
+          {/* Product badges */}
           <div className={cn(
             "flex flex-wrap justify-center gap-2 md:gap-3 items-center mb-4 md:mb-8",
             "transform opacity-0 transition-all duration-700",
             isLoaded && "opacity-100"
           )}>
-            <span className="platform-youtube px-2 md:px-3 py-1 text-xs md:text-sm font-medium rounded-full border border-white/10 bg-black/50 backdrop-blur-sm">YouTube</span>
-            <span className="platform-instagram px-2 md:px-3 py-1 text-xs md:text-sm font-medium rounded-full border border-white/10 bg-black/50 backdrop-blur-sm">Instagram</span>
-            <span className="platform-tiktok px-2 md:px-3 py-1 text-xs md:text-sm font-medium rounded-full border border-white/10 bg-black/50 backdrop-blur-sm">TikTok</span>
+            <span className="platform-youtube px-2 md:px-3 py-1 text-xs md:text-sm font-medium rounded-full border border-white/10 bg-black/50 backdrop-blur-sm">Premium Vapes</span>
+            <span className="platform-instagram px-2 md:px-3 py-1 text-xs md:text-sm font-medium rounded-full border border-white/10 bg-black/50 backdrop-blur-sm">E-Liquids</span>
+            <span className="platform-tiktok px-2 md:px-3 py-1 text-xs md:text-sm font-medium rounded-full border border-white/10 bg-black/50 backdrop-blur-sm">Accessories</span>
           </div>
           
-          {/* Main headline - Updated with attention-grabbing design and improved mobile sizing */}
+          {/* Main headline - Updated for vape store */}
           <div className={cn(
             "mb-3 md:mb-6 transform opacity-0 transition-all duration-700 delay-200",
             isLoaded && "opacity-100 animate-subtle-bounce"
@@ -55,7 +55,7 @@ const Hero = () => {
             )}>
               <span className="inline-block">🚨</span> 
               <span className="bg-gradient-to-r from-red-500 via-red-400 to-orange-500 bg-clip-text text-transparent px-1 md:px-2">
-                ATTENTION CREATORS!
+                ATTENTION VAPERS!
               </span> 
               <span className="inline-block">🚨</span>
             </h1>
@@ -68,8 +68,8 @@ const Hero = () => {
             "transform opacity-0 transition-all duration-700 delay-300",
             isLoaded && "opacity-100"
           )}>
-            You're Sitting on a <span className="neon-text-pink">Goldmine</span> — But Have 
-            <span className="bg-neon-gradient bg-clip-text text-transparent ml-1 md:ml-2 animate-neon-pulse"> Nothing to Sell</span>
+            Experience the <span className="neon-text-pink">Ultimate</span> — Premium Vaping 
+            <span className="bg-neon-gradient bg-clip-text text-transparent ml-1 md:ml-2 animate-neon-pulse"> Just Got Better</span>
           </h2>
           
           {/* Subtitle with improved mobile spacing */}
@@ -78,9 +78,9 @@ const Hero = () => {
             "transform opacity-0 transition-all duration-700 delay-400",
             isLoaded && "opacity-100"
           )}>
-            You've got content. An audience. Authority.
+            Premium devices. Exceptional flavors. Expert guidance.
             <br className="hidden sm:block" />
-            But no product. No offers. No income beyond brand deals or AdSense.
+            Discover why thousands trust Vapetory for their vaping needs.
           </p>
           
           {/* CTA button with improved mobile styling */}
@@ -99,19 +99,19 @@ const Hero = () => {
               onClick={scrollToBookCall}
             >
               <Zap className="mr-2" size={isMobile ? 16 : 18} />
-              <span>Let's Fix That – Book a Free Call</span>
+              <span>Get Your Perfect Setup – Free Consultation</span>
               <ArrowRight className="ml-1 md:ml-2" size={isMobile ? 14 : 16} />
             </Button>
           </div>
           
-          {/* Limited spots notice with improved mobile styling */}
+          {/* Limited offer notice with improved mobile styling */}
           <div className={cn(
             "px-3 md:px-4 py-2 rounded-lg bg-black/50 border border-mogency-neon-pink/30 mb-5 md:mb-8",
             "transform opacity-0 transition-all duration-700 delay-600 max-w-[90%] sm:max-w-md md:max-w-lg",
             isLoaded && "opacity-100"
           )}>
             <p className="text-xs md:text-sm text-mogency-neon-pink font-medium">
-              ⚠️ Limited spots available this month — we only work with a few creators at a time
+              ⚠️ Limited time offer — Free device setup with premium starter kits
             </p>
           </div>
           

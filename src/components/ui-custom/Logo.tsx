@@ -7,9 +7,9 @@ interface LogoProps {
 }
 
 /**
- * Logo component for Mogency
+ * Logo component for Vapetory
  * 
- * This component displays the Mogency logo as an image
+ * This component displays the Vapetory logo as an image
  * with responsive sizing based on the size prop
  */
 const Logo = ({ size = 'md', className }: LogoProps) => {
@@ -25,8 +25,8 @@ const Logo = ({ size = 'md', className }: LogoProps) => {
   return (
     <div className={cn("flex items-center", className)}>
       <img 
-        src="/lovable-uploads/ea76e865-89ad-4b19-babf-67cd246abffe.png" 
-        alt="Mogency - Digital Agency for Content Creators" 
+        src="/lovable-uploads/b3c1612c-c8c7-4148-939d-95deb6d4212b.png" 
+        alt="Vapetory - Premium Vape Store" 
         className={cn(sizeClasses[size], "object-contain")}
       />
     </div>
