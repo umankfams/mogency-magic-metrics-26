@@ -2,7 +2,7 @@
 import { cn } from '@/lib/utils';
 
 interface LogoProps {
-  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
   className?: string;
 }
 
@@ -14,6 +14,7 @@ interface LogoProps {
  */
 const Logo = ({ size = 'md', className }: LogoProps) => {
   const sizeClasses = {
+    xs: 'h-10'
     sm: 'h-20',
     md: 'h-28',
     lg: 'h-36',
@@ -23,7 +24,7 @@ const Logo = ({ size = 'md', className }: LogoProps) => {
   };
 
   return (
-    <div className={cn("flex items-center", className)}>
+    <div className={cn("flex items-center rounded-full", className)}>
       <img 
         src="/lovable-uploads/b3c1612c-c8c7-4148-939d-95deb6d4212b.png" 
         alt="Vapetory - Premium Vape Store" 

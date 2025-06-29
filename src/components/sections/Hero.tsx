@@ -111,7 +111,7 @@ const Hero = () => {
             isLoaded && "opacity-100"
           )}>
             <p className="text-xs md:text-sm text-mogency-neon-pink font-medium">
-              ⚠️ Limited time offer — Free device setup with premium starter kits
+              ⚠️ Limited time offer — Special Discount for member
             </p>
           </div>
           
