@@ -26,10 +26,10 @@ const Footer = () => {
         
         <div className="mt-8 pt-8 border-t border-white/10">
           <p className="text-sm text-center text-muted-foreground">
-            &copy; {new Date().getFullYear()} Mogency. All rights reserved.
+            &copy; {new Date().getFullYear()} Vapetory. All rights reserved.
           </p>
           <p className="text-xs text-center text-muted-foreground/70 mt-2">
-            True partnership model. We grow revenues together.
+            Vape Safer and Healther.
           </p>
         </div>
       </div>

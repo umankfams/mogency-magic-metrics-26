@@ -83,7 +83,7 @@ const Navbar = () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
-              <Logo size={isMobile ? "md" : "lg"} />
+              <Logo size={isMobile ? "sm" : "md"} />
             </a>
           </div>
           
