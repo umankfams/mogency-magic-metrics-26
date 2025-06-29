@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
-import { FileText, Video, Mail, Users, Monitor, Star, CreditCard } from 'lucide-react';
+import { Zap, Droplets, Wrench, Battery, Cpu, Flame, Shield, Package } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const ProductCard = ({ 
@@ -66,55 +66,55 @@ const Products = () => {
           "opacity-0 translate-y-4",
           isIntersecting && "opacity-100 translate-y-0"
         )}>
-          What We Can Help You <span className="text-mogency-neon-pink">Create</span>
+          Premium Products We <span className="text-mogency-neon-pink">Offer</span>
         </h2>
         
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
           <ProductCard 
-            icon={<FileText className="w-6 h-6 text-mogency-neon-blue" />}
-            title="Notion templates"
+            icon={<Zap className="w-6 h-6 text-mogency-neon-blue" />}
+            title="Pod Systems"
             delay={100}
           />
           
           <ProductCard 
-            icon={<FileText className="w-6 h-6 text-mogency-neon-pink" />}
-            title="Digital guides & PDFs"
+            icon={<Battery className="w-6 h-6 text-mogency-neon-pink" />}
+            title="Box Mods"
             delay={200}
           />
           
           <ProductCard 
-            icon={<Mail className="w-6 h-6 text-mogency-neon-purple" />}
-            title="Email courses"
+            icon={<Droplets className="w-6 h-6 text-mogency-neon-purple" />}
+            title="Premium E-Liquids"
             delay={300}
           />
           
           <ProductCard 
-            icon={<Monitor className="w-6 h-6 text-mogency-neon-green" />}
-            title="Live & pre-recorded workshops"
+            icon={<Flame className="w-6 h-6 text-mogency-neon-green" />}
+            title="Coils & Atomizers"
             delay={400}
           />
           
           <ProductCard 
-            icon={<Star className="w-6 h-6 text-mogency-neon-blue" />}
-            title="1:1 coaching programs"
+            icon={<Cpu className="w-6 h-6 text-mogency-neon-blue" />}
+            title="Advanced Mods"
             delay={500}
           />
           
           <ProductCard 
-            icon={<Users className="w-6 h-6 text-mogency-neon-pink" />}
-            title="High-ticket group offers"
+            icon={<Shield className="w-6 h-6 text-mogency-neon-pink" />}
+            title="Safety Accessories"
             delay={600}
           />
           
           <ProductCard 
-            icon={<Users className="w-6 h-6 text-mogency-neon-purple" />}
-            title="Paid community"
+            icon={<Wrench className="w-6 h-6 text-mogency-neon-purple" />}
+            title="DIY Kits"
             delay={700}
           />
           
           <ProductCard 
-            icon={<CreditCard className="w-6 h-6 text-mogency-neon-green" />}
-            title="Subscriptions"
+            icon={<Package className="w-6 h-6 text-mogency-neon-green" />}
+            title="Starter Bundles"
             delay={800}
           />
         </div>
@@ -124,7 +124,7 @@ const Products = () => {
           "opacity-0",
           isIntersecting && "opacity-100"
         )}>
-          We design your offer around your niche, audience, and energy level.
+          From beginner-friendly setups to advanced modifications, we have everything you need for the perfect vaping experience.
         </p>
       </div>
     </section>

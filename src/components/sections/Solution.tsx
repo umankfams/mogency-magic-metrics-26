@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Card } from '@/components/ui/card';
-import { ArrowRight, Lightbulb, Zap, LineChart } from 'lucide-react';
+import { ArrowRight, UserCheck, Zap, HeartHandshake } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -117,16 +117,16 @@ const Solution = ({ id = 'solution' }) => {
             "opacity-0 translate-y-4 transition-all duration-500 delay-100",
             isIntersecting && "opacity-100 translate-y-0"
           )}>
-            Turn your audience into revenue with our proven framework for content creators
+            Experience premium vaping with personalized guidance and expert recommendations
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {/* Solution Card 1 */}
           <SolutionCard 
-            icon={<Lightbulb />}
-            title="Strategic Product Design"
-            description="We identify your audience's pain points and create digital products they'll actually pay for"
+            icon={<UserCheck />}
+            title="Personalized Consultation"
+            description="Get tailored device and e-liquid recommendations based on your preferences and experience level"
             delay={200}
             color="mogency-neon-blue"
           />
@@ -134,8 +134,8 @@ const Solution = ({ id = 'solution' }) => {
           {/* Solution Card 2 */}
           <SolutionCard 
             icon={<Zap />}
-            title="High-Converting Funnel"
-            description="Custom-built sales pages and email sequences that turn viewers into paying customers"
+            title="Premium Products"
+            description="Access to high-quality devices, premium e-liquids, and authentic accessories from trusted brands"
             delay={300}
             color="mogency-neon-pink"
           />
@@ -149,12 +149,12 @@ const Solution = ({ id = 'solution' }) => {
           )}>
             <div className="flex justify-center mb-4">
               <div className="p-3 rounded-full bg-mogency-neon-purple/10 border border-mogency-neon-purple/20 flex items-center justify-center">
-                <LineChart className="w-5 h-5 md:w-6 md:h-6 text-mogency-neon-purple" />
+                <HeartHandshake className="w-5 h-5 md:w-6 md:h-6 text-mogency-neon-purple" />
               </div>
             </div>
-            <h3 className="text-lg md:text-xl font-bold text-center mb-2 md:mb-3">Revenue Amplification</h3>
+            <h3 className="text-lg md:text-xl font-bold text-center mb-2 md:mb-3">Ongoing Support</h3>
             <p className="text-sm md:text-base text-muted-foreground text-center">
-              Ongoing optimization to increase conversions and maximize your passive revenue stream
+              Lifetime guidance on maintenance, troubleshooting, and upgrades to keep your vaping experience perfect
             </p>
           </Card>
         </div>

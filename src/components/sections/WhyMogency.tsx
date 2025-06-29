@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
-import { DollarSign, Clock, Briefcase, Target, Award, Tag } from 'lucide-react';
+import { Shield, Clock, Award, Target, Users, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Card } from '@/components/ui/card';
@@ -68,33 +68,33 @@ const WhyMogency = () => {
   // Define the reasons with consistent color scheme
   const reasons = [
     {
-      icon: <DollarSign className="w-6 h-6 text-mogency-neon-blue" />,
-      title: "No upfront cost (rev share only)",
-      color: "from-mogency-neon-blue to-mogency-neon-blue/70"
-    },
-    {
-      icon: <Briefcase className="w-6 h-6 text-mogency-neon-blue" />,
-      title: "We do everything (strategy, product, tech, launch)",
-      color: "from-mogency-neon-blue to-mogency-neon-blue/70"
-    },
-    {
-      icon: <Target className="w-6 h-6 text-mogency-neon-blue" />,
-      title: "Built for creators with small or large audiences",
-      color: "from-mogency-neon-blue to-mogency-neon-blue/70"
-    },
-    {
       icon: <Award className="w-6 h-6 text-mogency-neon-blue" />,
-      title: "Based on proven monetization playbooks",
+      title: "Premium quality products from trusted brands only",
       color: "from-mogency-neon-blue to-mogency-neon-blue/70"
     },
     {
-      icon: <Tag className="w-6 h-6 text-mogency-neon-blue" />,
-      title: "Fully white-labeled — your brand, not ours",
+      icon: <Users className="w-6 h-6 text-mogency-neon-blue" />,
+      title: "Expert consultation tailored to your experience level",
+      color: "from-mogency-neon-blue to-mogency-neon-blue/70"
+    },
+    {
+      icon: <Shield className="w-6 h-6 text-mogency-neon-blue" />,
+      title: "Authentic products with full manufacturer warranties",
       color: "from-mogency-neon-blue to-mogency-neon-blue/70"
     },
     {
       icon: <Clock className="w-6 h-6 text-mogency-neon-blue" />,
-      title: "Quick setup, faster revenue (weeks, not months)",
+      title: "Fast shipping with same-day processing available",
+      color: "from-mogency-neon-blue to-mogency-neon-blue/70"
+    },
+    {
+      icon: <Target className="w-6 h-6 text-mogency-neon-blue" />,
+      title: "Personalized recommendations based on your preferences",
+      color: "from-mogency-neon-blue to-mogency-neon-blue/70"
+    },
+    {
+      icon: <Sparkles className="w-6 h-6 text-mogency-neon-blue" />,
+      title: "Lifetime support and maintenance guidance included",
       color: "from-mogency-neon-blue to-mogency-neon-blue/70"
     }
   ];
@@ -117,7 +117,7 @@ const WhyMogency = () => {
           "opacity-0 translate-y-4",
           isIntersecting && "opacity-100 translate-y-0"
         )}>
-          Why Creators Choose <span className="text-mogency-neon-blue">Mogency</span>
+          Why Vapers Choose <span className="text-mogency-neon-blue">Vapetory</span>
         </h2>
         
         <p className={cn(
@@ -125,7 +125,7 @@ const WhyMogency = () => {
           "opacity-0 translate-y-4",
           isIntersecting && "opacity-100 translate-y-0"
         )}>
-          We're not just another agency. We're a true partner fully aligned with your success, bringing expertise and experience that drives real results.
+          We're not just another vape shop. We're your trusted partner in creating the perfect vaping experience, bringing expertise and premium products that deliver real satisfaction.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 max-w-4xl mx-auto">

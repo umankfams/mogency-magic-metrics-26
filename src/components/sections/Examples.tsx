@@ -6,19 +6,19 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
-interface CreatorExampleProps {
+interface CustomerExampleProps {
   name: string;
   image: string;
   achievements: string[];
   delay?: number;
 }
 
-const CreatorExample = ({ 
+const CustomerExample = ({ 
   name, 
   image,
   achievements, 
   delay = 0
-}: CreatorExampleProps) => {
+}: CustomerExampleProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const isMobile = useIsMobile();
   
@@ -43,15 +43,15 @@ const CreatorExample = ({
                 src={image} 
                 alt={`${name} profile`}
                 className="object-cover h-full w-full"
-                style={{ objectPosition: "center top" }} // Prioritize showing faces at the top of the image
-                loading="lazy" // Add lazy loading for better performance
+                style={{ objectPosition: "center top" }}
+                loading="lazy"
               />
             </AspectRatio>
           </div>
           <h3 className="text-lg sm:text-xl font-bold">{name}</h3>
         </div>
         
-        <ul className="space-y-2.5 sm:space-y-3.5" aria-label={`${name}'s achievements`}>
+        <ul className="space-y-2.5 sm:space-y-3.5" aria-label={`${name}'s experience`}>
           {achievements.map((achievement, index) => (
             <li key={index} className="flex gap-2.5 items-start group">
               <CheckCircle aria-hidden="true" className="shrink-0 w-4 h-4 sm:w-5 sm:h-5 text-mogency-neon-green mt-0.5 
@@ -103,7 +103,7 @@ const Examples = () => {
             "opacity-0 translate-y-4",
             isIntersecting && "opacity-100 translate-y-0"
           )}>
-            Real Creators. Real Results. <span className="text-mogency-neon-blue">Same Strategy.</span>
+            Real Customers. Amazing Results. <span className="text-mogency-neon-blue">Premium Experience.</span>
           </h2>
           
           <p className={cn(
@@ -111,51 +111,51 @@ const Examples = () => {
             "opacity-0 translate-y-4 transition-all duration-500 delay-100",
             isIntersecting && "opacity-100 translate-y-0"
           )}>
-            Creators who transformed their audiences into sustainable revenue streams
+            Vapers who found their perfect setup with Vapetory's expert guidance
           </p>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
-          <CreatorExample 
-            name="Matthew Hussey"
+          <CustomerExample 
+            name="Sarah M."
             image="/lovable-uploads/ab11a5df-9751-40e1-9a77-5dcfe7a1a563.png"
             achievements={[
-              "Built a $5M+ coaching business from dating advice content",
-              "Grew email list to over 500,000 subscribers",
-              "Launched a $2,000+ coaching program that generates 6-figure months"
+              "Upgraded from basic pen to premium pod system",
+              "Found perfect nicotine strength and flavor profile",
+              "Reduced vaping costs by 40% with right setup"
             ]}
             delay={150}
           />
           
-          <CreatorExample 
-            name="Mel Robbins"
+          <CustomerExample 
+            name="Mike R."
             image="/lovable-uploads/a4df2000-6f3e-4df0-8f25-aac2aea81ce5.png"
             achievements={[
-              "From a 10-minute TED Talk to creating an 8-figure digital product empire",
-              "Sold over 1 million copies of her books",
-              "Created a $5K online course and monthly paid membership"
+              "Transitioned from smoking to vaping successfully",
+              "Custom coil build consultation improved satisfaction",
+              "Now enjoys cloud chasing with advanced mods"
             ]}
             delay={250}
           />
           
-          <CreatorExample 
-            name="Jay Shetty"
+          <CustomerExample 
+            name="Jessica L."
             image="/lovable-uploads/072e9d74-94dd-4e1e-9387-81f390316f71.png"
             achievements={[
-              "Turned viral videos into a $10M+ media business",
-              "Launched a $1,500+ online course",
-              "Runs a successful certification program for coaches"
+              "Discovered premium dessert flavors that match taste",
+              "Learned proper device maintenance and care",
+              "Built collection of 5 different devices for occasions"
             ]}
             delay={350}
           />
           
-          <CreatorExample 
-            name="Lori Harder"
+          <CustomerExample 
+            name="David K."
             image="/lovable-uploads/ea3c1cb4-3011-4523-ae95-4e0b95c1e9f4.png"
             achievements={[
-              "Built a multi-7-figure wellness brand through digital courses",
-              "Grew audience to over 1 million across social platforms",
-              "Launched $500 group coaching programs and $3K+ mentorship offers"
+              "Found discreet setup perfect for work environment",
+              "Monthly subscription keeps favorite flavors stocked",
+              "Recommended friends who became loyal customers too"
             ]}
             delay={450}
           />
@@ -166,7 +166,7 @@ const Examples = () => {
           "opacity-0",
           isIntersecting && "opacity-100"
         )}>
-          They used content to build cashflow — <span className="text-mogency-neon-green">and you can too.</span>
+          They found their perfect vaping experience — <span className="text-mogency-neon-green">and you can too.</span>
         </p>
       </div>
     </section>

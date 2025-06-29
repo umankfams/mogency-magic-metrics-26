@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { LightbulbIcon, Package, ShoppingBag, PiggyBank } from 'lucide-react';
+import { MessageSquare, ShoppingCart, Truck, Heart } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import ProcessStep from '../ui-custom/ProcessStep';
 
@@ -27,30 +27,30 @@ const Process = () => {
   const steps = [
     {
       number: 1,
-      title: "1. Ideation",
-      description: "We analyze your content, audience, and niche to identify the perfect digital product that your followers will eagerly purchase. No guesswork, just data-driven decisions.",
-      icon: <LightbulbIcon size={20} />,
+      title: "1. Free Consultation",
+      description: "Schedule a personalized consultation with our vaping experts. We'll discuss your preferences, experience level, and goals to understand exactly what you're looking for.",
+      icon: <MessageSquare size={20} />,
       color: "from-mogency-neon-blue to-mogency-neon-purple"
     },
     {
       number: 2,
-      title: "2. Offer Creation",
-      description: "Our team builds your complete digital product package—from content and design to checkout and delivery systems. You review, we handle all the technical details.",
-      icon: <Package size={20} />,
+      title: "2. Custom Recommendations",
+      description: "Based on your consultation, we'll curate a selection of devices, e-liquids, and accessories that perfectly match your needs and budget. No guesswork involved.",
+      icon: <ShoppingCart size={20} />,
       color: "from-mogency-neon-pink to-mogency-neon-purple"
     },
     {
       number: 3,
-      title: "3. Marketing & Sales",
-      description: "We implement proven sales funnels and marketing campaigns designed specifically for creator audiences. Your offer gets positioned perfectly to maximize conversions.",
-      icon: <ShoppingBag size={20} />,
+      title: "3. Fast Delivery",
+      description: "Get your premium vaping products delivered quickly and securely. We package everything carefully and provide tracking so you know exactly when to expect your order.",
+      icon: <Truck size={20} />,
       color: "from-mogency-neon-purple to-mogency-neon-blue"
     },
     {
       number: 4,
-      title: "4. Money in Your Pocket",
-      description: "Watch sales roll in while we manage customer support, payments, and delivery. You focus on creating content while we handle the backend. We grow revenues together!",
-      icon: <PiggyBank size={20} />,
+      title: "4. Ongoing Support",
+      description: "Enjoy lifetime support with maintenance tips, troubleshooting help, and upgrade recommendations. We're here to ensure your vaping experience stays perfect.",
+      icon: <Heart size={20} />,
       color: "from-mogency-neon-green to-mogency-neon-blue"
     }
   ];
@@ -68,8 +68,8 @@ const Process = () => {
             How <span className="text-gradient">It Works</span>
           </h2>
           <p className={cn("section-subtitle", "transform transition-all duration-700 delay-100", isVisible ? "opacity-100" : "opacity-0")}>
-            From idea to income in four simple steps. You keep creating amazing content while we 
-            build and manage the entire revenue machine behind the scenes.
+            From consultation to delivery, we make finding your perfect vaping setup simple and stress-free. 
+            Let our experts guide you every step of the way.
           </p>
         </div>
         
