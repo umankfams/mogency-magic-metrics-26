@@ -34,21 +34,22 @@ const Hero = () => {
       <div className="section-container relative z-10 px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
           {/* Product badges */}
-          <div className={cn(
-            "flex flex-wrap justify-center gap-2 md:gap-3 items-center mb-4 md:mb-8",
-            "transform opacity-0 transition-all duration-700",
-            isLoaded && "opacity-100"
-          )}>
+          <div 
+            className="flex flex-wrap justify-center gap-2 md:gap-3 items-center mb-4 md:mb-8"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <span className="platform-youtube px-2 md:px-3 py-1 text-xs md:text-sm font-medium rounded-full border border-white/10 bg-black/50 backdrop-blur-sm">Premium Vapes</span>
             <span className="platform-instagram px-2 md:px-3 py-1 text-xs md:text-sm font-medium rounded-full border border-white/10 bg-black/50 backdrop-blur-sm">E-Liquids</span>
             <span className="platform-tiktok px-2 md:px-3 py-1 text-xs md:text-sm font-medium rounded-full border border-white/10 bg-black/50 backdrop-blur-sm">Accessories</span>
           </div>
           
           {/* Main headline - Updated for vape store */}
-          <div className={cn(
-            "mb-3 md:mb-6 transform opacity-0 transition-all duration-700 delay-200",
-            isLoaded && "opacity-100 animate-subtle-bounce"
-          )}>
+          <div 
+            className="mb-3 md:mb-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <h1 className={cn(
               "font-bold text-red-500",
               "text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
@@ -62,33 +63,39 @@ const Hero = () => {
           </div>
           
           {/* Subheadline with improved mobile sizing */}
-          <h2 className={cn(
-            "mb-3 md:mb-6 font-display font-bold px-1",
-            "text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl",
-            "transform opacity-0 transition-all duration-700 delay-300",
-            isLoaded && "opacity-100"
-          )}>
+          <h2 
+            className={cn(
+              "mb-3 md:mb-6 font-display font-bold px-1",
+              "text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
+            )}
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             Experience the <span className="neon-text-pink">Ultimate</span> — Premium Vaping 
             <span className="bg-neon-gradient bg-clip-text text-transparent ml-1 md:ml-2 animate-neon-pulse"> Just Got Better</span>
           </h2>
           
           {/* Subtitle with improved mobile spacing */}
-          <p className={cn(
-            "text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mb-5 md:mb-6 px-2",
-            "transform opacity-0 transition-all duration-700 delay-400",
-            isLoaded && "opacity-100"
-          )}>
+          <p 
+            className={cn(
+              "text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mb-5 md:mb-6 px-2"
+            )}
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             Premium devices. Exceptional flavors. Expert guidance.
             <br className="hidden sm:block" />
             Discover why thousands trust Vapetory for their vaping needs.
           </p>
           
           {/* CTA button with improved mobile styling */}
-          <div className={cn(
-            "flex flex-col gap-4 mb-8 md:mb-12 lg:mb-16 w-full px-4 sm:px-0 sm:w-auto",
-            "transform opacity-0 transition-all duration-700 delay-500",
-            isLoaded && "opacity-100"
-          )}>
+          <div 
+            className={cn(
+              "flex flex-col gap-4 mb-8 md:mb-12 lg:mb-16 w-full px-4 sm:px-0 sm:w-auto"
+            )}
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
             <Button 
               size="default"
               className={cn(
@@ -105,11 +112,14 @@ const Hero = () => {
           </div>
           
           {/* Limited offer notice with improved mobile styling */}
-          <div className={cn(
-            "px-3 md:px-4 py-2 rounded-lg bg-black/50 border border-mogency-neon-pink/30 mb-5 md:mb-8",
-            "transform opacity-0 transition-all duration-700 delay-600 max-w-[90%] sm:max-w-md md:max-w-lg",
-            isLoaded && "opacity-100"
-          )}>
+          <div 
+            className={cn(
+              "px-3 md:px-4 py-2 rounded-lg bg-black/50 border border-mogency-neon-pink/30 mb-5 md:mb-8",
+              "max-w-[90%] sm:max-w-md md:max-w-lg"
+            )}
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
             <p className="text-xs md:text-sm text-mogency-neon-pink font-medium">
               ⚠️ Limited time offer — Special Discount for member
             </p>
@@ -117,10 +127,11 @@ const Hero = () => {
           
           {/* Mobile scroll indicator */}
           {isMobile && (
-            <div className={cn(
-              "absolute bottom-4 left-0 right-0 mx-auto text-center animate-bounce opacity-0 transition-opacity duration-1000 delay-1000",
-              isLoaded && "opacity-70"
-            )}>
+            <div 
+              className="absolute bottom-4 left-0 right-0 mx-auto text-center animate-bounce opacity-70"
+              data-aos="fade-in"
+              data-aos-delay="1000"
+            >
               <Button 
                 variant="ghost" 
                 size="icon" 

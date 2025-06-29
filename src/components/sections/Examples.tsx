@@ -19,22 +19,12 @@ const CustomerExample = ({
   achievements, 
   delay = 0
 }: CustomerExampleProps) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const isMobile = useIsMobile();
-  
-  useEffect(() => {
-    // Reduce animation delays on mobile for better UX
-    const adjustedDelay = isMobile ? delay * 0.5 : delay;
-    const timer = setTimeout(() => setIsVisible(true), adjustedDelay);
-    return () => clearTimeout(timer);
-  }, [delay, isMobile]);
-  
   return (
-    <Card className={cn(
-      "overflow-hidden border border-white/10 bg-black/80 backdrop-blur-md transition-all duration-500",
-      "transform opacity-0 translate-y-8",
-      isVisible && "opacity-100 translate-y-0 hover:translate-y-[-5px] hover:shadow-[0_8px_30px_rgba(14,165,233,0.15)]"
-    )}>
+    <Card 
+      className="overflow-hidden border border-white/10 bg-black/80 backdrop-blur-md transition-all duration-500 hover:translate-y-[-5px] hover:shadow-[0_8px_30px_rgba(14,165,233,0.15)]"
+      data-aos="fade-up"
+      data-aos-delay={delay}
+    >
       <CardContent className="p-4 sm:p-5 md:p-6">
         <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5">
           <div className="w-12 h-12 sm:w-16 sm:h-16 relative rounded-full border-2 border-white/10 ring-2 ring-mogency-neon-blue/20 overflow-hidden">
@@ -68,49 +58,22 @@ const CustomerExample = ({
 };
 
 const Examples = () => {
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const isMobile = useIsMobile();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsIntersecting(true);
-        }
-      },
-      // Lower threshold for mobile to trigger animations earlier
-      { threshold: isMobile ? 0.05 : 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, [isMobile]);
-
   return (
-    <section id="examples" className="py-12 md:py-16 lg:py-20 relative" ref={sectionRef}>
+    <section id="examples" className="py-12 md:py-16 lg:py-20 relative">
       <div className="section-container">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className={cn(
-            "section-title mb-3 md:mb-4 transition-all duration-500",
-            "opacity-0 translate-y-4",
-            isIntersecting && "opacity-100 translate-y-0"
-          )}>
+          <h2 
+            className="section-title mb-3 md:mb-4"
+            data-aos="fade-up"
+          >
             Real Customers. Amazing Results. <span className="text-mogency-neon-blue">Premium Experience.</span>
           </h2>
           
-          <p className={cn(
-            "section-subtitle max-w-2xl mx-auto",
-            "opacity-0 translate-y-4 transition-all duration-500 delay-100",
-            isIntersecting && "opacity-100 translate-y-0"
-          )}>
+          <p 
+            className="section-subtitle max-w-2xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             Vapers who found their perfect setup with Vapetory's expert guidance
           </p>
         </div>
@@ -161,11 +124,11 @@ const Examples = () => {
           />
         </div>
         
-        <p className={cn(
-          "text-center mt-8 sm:mt-10 md:mt-12 text-lg sm:text-xl font-medium transition-all duration-500 delay-500",
-          "opacity-0",
-          isIntersecting && "opacity-100"
-        )}>
+        <p 
+          className="text-center mt-8 sm:mt-10 md:mt-12 text-lg sm:text-xl font-medium"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
           They found their perfect vaping experience — <span className="text-mogency-neon-green">and you can too.</span>
         </p>
       </div>

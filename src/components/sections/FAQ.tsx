@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Plus, Minus } from 'lucide-react';
@@ -68,11 +67,9 @@ const faqItems: FAQItem[] = [
 ];
 
 const FAQ = () => {
-  const [isIntersecting, setIsIntersecting] = useState(false);
   const [openItems, setOpenItems] = useState<string[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Extract unique categories
@@ -83,27 +80,6 @@ const FAQ = () => {
     if (uniqueCategories.length > 0) {
       setActiveCategory(uniqueCategories[0]);
     }
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsIntersecting(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
   }, []);
 
   const toggleItem = (itemId: string) => {
@@ -119,7 +95,7 @@ const FAQ = () => {
     : faqItems;
 
   return (
-    <section id="faq" className="py-16 relative" ref={sectionRef}>
+    <section id="faq" className="py-16 relative">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-[20%] left-[30%] w-[40%] h-[40%] rounded-full bg-mogency-neon-blue/10 filter blur-3xl" />
@@ -127,20 +103,19 @@ const FAQ = () => {
       </div>
       
       <div className="section-container">
-        <h2 className={cn(
-          "section-title text-center mb-10 transition-all duration-500",
-          "opacity-0 translate-y-4",
-          isIntersecting && "opacity-100 translate-y-0"
-        )}>
+        <h2 
+          className="section-title text-center mb-10"
+          data-aos="fade-up"
+        >
           Frequently Asked <span className="text-gradient bg-blue-gradient">Questions</span>
         </h2>
         
         {/* Category tabs */}
-        <div className={cn(
-          "flex flex-wrap justify-center gap-2 mb-12",
-          "opacity-0 translate-y-4 transition-all duration-500 delay-100",
-          isIntersecting && "opacity-100 translate-y-0"
-        )}>
+        <div 
+          className="flex flex-wrap justify-center gap-2 mb-12"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           {categories.map((category, index) => (
             <button
               key={category}
@@ -149,13 +124,10 @@ const FAQ = () => {
                 "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
                 activeCategory === category 
                   ? "bg-mogency-neon-blue text-white shadow-[0_0_10px_rgba(14,165,233,0.5)] scale-105" 
-                  : "bg-black/40 border border-white/10 hover:border-white/20 text-white/70 hover:text-white",
-                "opacity-0 translate-y-4 transition-all duration-300",
-                isIntersecting && "opacity-100 translate-y-0"
+                  : "bg-black/40 border border-white/10 hover:border-white/20 text-white/70 hover:text-white"
               )}
-              style={{ 
-                transitionDelay: isIntersecting ? `${150 + index * 50}ms` : '0ms',
-              }}
+              data-aos="zoom-in"
+              data-aos-delay={150 + index * 50}
             >
               {category}
             </button>
@@ -168,13 +140,10 @@ const FAQ = () => {
               key={index}
               className={cn(
                 "mb-4 bg-black/40 backdrop-blur-sm border border-white/5 rounded-xl overflow-hidden transition-all duration-500",
-                "opacity-0 translate-y-4",
-                isIntersecting && "opacity-100 translate-y-0",
                 openItems.includes(`item-${index}`) && "shadow-[0_0_15px_rgba(14,165,233,0.2)] border-white/10"
               )}
-              style={{ 
-                transitionDelay: isIntersecting ? `${200 + index * 75}ms` : '0ms'
-              }}
+              data-aos="fade-up"
+              data-aos-delay={200 + index * 75}
             >
               <Collapsible
                 open={openItems.includes(`item-${index}`)}
@@ -207,11 +176,11 @@ const FAQ = () => {
         </div>
         
         {/* Extra help section */}
-        <div className={cn(
-          "mt-12 p-6 max-w-3xl mx-auto bg-mogency-neon-blue/10 border border-mogency-neon-blue/20 rounded-xl text-center transition-all duration-500",
-          "opacity-0 translate-y-4",
-          isIntersecting && "opacity-100 translate-y-0 delay-500"
-        )}>
+        <div 
+          className="mt-12 p-6 max-w-3xl mx-auto bg-mogency-neon-blue/10 border border-mogency-neon-blue/20 rounded-xl text-center"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
           <h3 className="text-xl font-medium mb-2">Still have questions?</h3>
           <p className="text-muted-foreground mb-4">We're here to help you at every step of the way.</p>
           <a 
@@ -227,4 +196,3 @@ const FAQ = () => {
 };
 
 export default FAQ;
-

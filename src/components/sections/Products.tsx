@@ -12,19 +12,12 @@ const ProductCard = ({
   title: string, 
   delay?: number
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), delay);
-    return () => clearTimeout(timer);
-  }, [delay]);
-  
   return (
-    <div className={cn(
-      "card-glass p-4 flex flex-col items-center justify-center text-center transition-all duration-500",
-      "transform opacity-0 scale-95",
-      isVisible && "opacity-100 scale-100 hover:border-mogency-neon-blue/50"
-    )}>
+    <div 
+      className="card-glass p-4 flex flex-col items-center justify-center text-center transition-all duration-500 hover:border-mogency-neon-blue/50"
+      data-aos="zoom-in"
+      data-aos-delay={delay}
+    >
       <div className="bg-black/50 p-3 rounded-full mb-3">
         {icon}
       </div>
@@ -34,38 +27,13 @@ const ProductCard = ({
 };
 
 const Products = () => {
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsIntersecting(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
   return (
-    <section id="products" className="py-16 relative" ref={sectionRef}>
+    <section id="products" className="py-16 relative">
       <div className="section-container">
-        <h2 className={cn(
-          "section-title text-center mb-10 transition-all duration-500",
-          "opacity-0 translate-y-4",
-          isIntersecting && "opacity-100 translate-y-0"
-        )}>
+        <h2 
+          className="section-title text-center mb-10"
+          data-aos="fade-up"
+        >
           Premium Products We <span className="text-mogency-neon-pink">Offer</span>
         </h2>
         
@@ -119,11 +87,11 @@ const Products = () => {
           />
         </div>
         
-        <p className={cn(
-          "text-center mt-10 text-lg text-muted-foreground max-w-2xl mx-auto transition-all duration-500 delay-900",
-          "opacity-0",
-          isIntersecting && "opacity-100"
-        )}>
+        <p 
+          className="text-center mt-10 text-lg text-muted-foreground max-w-2xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="900"
+        >
           From beginner-friendly setups to advanced modifications, we have everything you need for the perfect vaping experience.
         </p>
       </div>

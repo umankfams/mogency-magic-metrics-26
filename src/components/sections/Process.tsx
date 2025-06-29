@@ -5,25 +5,6 @@ import { cn } from '@/lib/utils';
 import ProcessStep from '../ui-custom/ProcessStep';
 
 const Process = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-      }
-    }, {
-      threshold: 0.1
-    });
-    
-    const element = document.getElementById('process-section');
-    if (element) observer.observe(element);
-    
-    return () => {
-      if (element) observer.unobserve(element);
-    };
-  }, []);
-
   const steps = [
     {
       number: 1,
@@ -62,12 +43,19 @@ const Process = () => {
         <div className="absolute top-[20%] left-[30%] w-[40%] h-[40%] rounded-full bg-mogency-neon-blue/10 filter blur-3xl" />
       </div>
       
-      <div id="process-section" className="section-container relative z-10">
+      <div className="section-container relative z-10">
         <div className="text-center mb-20">
-          <h2 className={cn("section-title", "transform transition-all duration-700", isVisible ? "opacity-100" : "opacity-0")}>
+          <h2 
+            className="section-title"
+            data-aos="fade-up"
+          >
             How <span className="text-gradient">It Works</span>
           </h2>
-          <p className={cn("section-subtitle", "transform transition-all duration-700 delay-100", isVisible ? "opacity-100" : "opacity-0")}>
+          <p 
+            className="section-subtitle"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             From consultation to delivery, we make finding your perfect vaping setup simple and stress-free. 
             Let our experts guide you every step of the way.
           </p>
@@ -75,16 +63,21 @@ const Process = () => {
         
         <div className="max-w-3xl mx-auto">
           {steps.map((step, index) => (
-            <ProcessStep 
-              key={index} 
-              number={step.number} 
-              title={step.title} 
-              description={step.description} 
-              icon={step.icon} 
-              delay={150 * index} 
-              isLast={index === steps.length - 1} 
-              color={step.color} 
-            />
+            <div
+              key={index}
+              data-aos="fade-right"
+              data-aos-delay={150 * index}
+            >
+              <ProcessStep 
+                number={step.number} 
+                title={step.title} 
+                description={step.description} 
+                icon={step.icon} 
+                delay={0} 
+                isLast={index === steps.length - 1} 
+                color={step.color} 
+              />
+            </div>
           ))}
         </div>
       </div>

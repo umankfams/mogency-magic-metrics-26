@@ -15,24 +15,10 @@ declare global {
 }
 
 const BookCallSection = () => {
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
   const [calendlyLoaded, setCalendlyLoaded] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsIntersecting(true);
-      }
-    }, {
-      threshold: 0.1
-    });
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
     // Load Calendly script
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
@@ -47,9 +33,6 @@ const BookCallSection = () => {
     document.head.appendChild(link);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
       // Clean up script and link if component unmounts
       document.body.removeChild(script);
       document.head.removeChild(link);
@@ -68,12 +51,12 @@ const BookCallSection = () => {
   };
 
   return (
-    <section id="book-call" className="py-12 md:py-24" ref={sectionRef}>
+    <section id="book-call" className="py-12 md:py-24">
       <div className="section-container">
         <div className="card-glass p-6 md:p-12 max-w-4xl mx-auto border border-mogency-neon-blue/30 shadow-[0_0_30px_rgba(14,165,233,0.2)]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left column - Info */}
-            <div className={cn("transition-all duration-500 delay-100", "opacity-0 translate-y-4", isIntersecting && "opacity-100 translate-y-0")}>
+            <div data-aos="fade-right">
               <h2 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
                 Book Your <span className="text-mogency-neon-blue">Free Consultation</span>
               </h2>
@@ -129,7 +112,11 @@ const BookCallSection = () => {
             </div>
             
             {/* Right column - Calendly Button */}
-            <div className={cn("transition-all duration-500 delay-200", "opacity-0 translate-y-4", isIntersecting && "opacity-100 translate-y-0", "flex flex-col items-center justify-center")}>
+            <div 
+              className="flex flex-col items-center justify-center"
+              data-aos="fade-left"
+              data-aos-delay="200"
+            >
               <div className="text-center space-y-5 w-full max-w-xs">
                 <div className="w-16 h-16 rounded-full bg-mogency-neon-blue/20 flex items-center justify-center mx-auto">
                   <CalendarDays className="h-8 w-8 text-mogency-neon-blue" />

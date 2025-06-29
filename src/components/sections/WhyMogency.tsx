@@ -16,21 +16,16 @@ const ReasonItem = ({
   delay?: number,
   className?: string
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), delay);
-    return () => clearTimeout(timer);
-  }, [delay]);
-  
   return (
-    <Card className={cn(
-      "flex items-center gap-4 transition-all duration-500 p-4 bg-black/70 border-white/5 hover:border-white/10",
-      "transform opacity-0 translate-y-4",
-      isVisible && "opacity-100 translate-y-0",
-      "hover:shadow-[0_0_15px_rgba(14,165,233,0.15)] hover:bg-black/80 transition-all duration-300",
-      className
-    )}>
+    <Card 
+      className={cn(
+        "flex items-center gap-4 transition-all duration-500 p-4 bg-black/70 border-white/5 hover:border-white/10",
+        "hover:shadow-[0_0_15px_rgba(14,165,233,0.15)] hover:bg-black/80 transition-all duration-300",
+        className
+      )}
+      data-aos="fade-left"
+      data-aos-delay={delay}
+    >
       <div className="bg-black/70 p-2.5 rounded-lg border border-white/10 transition-all duration-300">
         {icon}
       </div>
@@ -40,30 +35,7 @@ const ReasonItem = ({
 };
 
 const WhyMogency = () => {
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsIntersecting(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
 
   // Define the reasons with consistent color scheme
   const reasons = [
@@ -104,7 +76,7 @@ const WhyMogency = () => {
   const delayIncrement = 100;
 
   return (
-    <section id="why-mogency" className="py-16 relative bg-black/40 backdrop-blur-sm" ref={sectionRef}>
+    <section id="why-mogency" className="py-16 relative bg-black/40 backdrop-blur-sm">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-[20%] left-[30%] w-[40%] h-[40%] rounded-full bg-mogency-neon-blue/10 filter blur-3xl" />
@@ -112,19 +84,18 @@ const WhyMogency = () => {
       </div>
       
       <div className="section-container relative z-10">
-        <h2 className={cn(
-          "section-title text-center mb-8 transition-all duration-700",
-          "opacity-0 translate-y-4",
-          isIntersecting && "opacity-100 translate-y-0"
-        )}>
+        <h2 
+          className="section-title text-center mb-8"
+          data-aos="fade-up"
+        >
           Why Vapers Choose <span className="text-mogency-neon-blue">Vapetory</span>
         </h2>
         
-        <p className={cn(
-          "text-center max-w-2xl mx-auto text-muted-foreground mb-16 transition-all duration-700 delay-100",
-          "opacity-0 translate-y-4",
-          isIntersecting && "opacity-100 translate-y-0"
-        )}>
+        <p 
+          className="text-center max-w-2xl mx-auto text-muted-foreground mb-16"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           We're not just another vape shop. We're your trusted partner in creating the perfect vaping experience, bringing expertise and premium products that deliver real satisfaction.
         </p>
         
