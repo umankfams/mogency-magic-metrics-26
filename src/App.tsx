@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import SplashCursor from "./components/ui-custom/SplashCursor";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -13,6 +14,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <Toaster />
     <Sonner />
+    <SplashCursor color="#0EA5E9" size={15} duration={600} />
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Index />} />
