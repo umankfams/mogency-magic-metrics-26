@@ -9,6 +9,7 @@ import Products from '@/components/sections/Products';
 import Process from '@/components/sections/Process';
 import WhyMogency from '@/components/sections/WhyMogency';
 import FAQ from '@/components/sections/FAQ';
+import Map from '@/components/sections/Map';
 import BookCallSection from '@/components/sections/BookCallSection';
 import Footer from '@/components/sections/Footer';
 
@@ -45,6 +46,8 @@ const Index = () => {
         <Process />
         <div className="mt-10 md:mt-14 lg:mt-20"></div>
         <WhyMogency />
+        <div className="mt-10 md:mt-14 lg:mt-20"></div>
+        <Map />
         <div className="mt-10 md:mt-14 lg:mt-20"></div>
         <FAQ />
         <div className="mt-10 md:mt-14 lg:mt-20"></div>
