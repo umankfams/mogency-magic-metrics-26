@@ -20,7 +20,7 @@ const Logo = ({ size = 'md', className }: LogoProps) => {
     lg: 'h-36',
     xl: 'h-44',
     '2xl': 'h-52',
-    '3xl': 'h-64',
+    '3xl': 'h-64'
   };
 
   return (
